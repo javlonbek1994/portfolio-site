@@ -143,3 +143,58 @@ body{
     padding:40px;
     color:#cbd5e1;
 }
+/* GLASS EFFECT */
+
+.portfolio-card{
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#38bdf8;
+    border-radius:20px;
+}
+
+/* MENU HOVER */
+
+.menu a{
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#38bdf8;
+    transition:0.4s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* HERO TEXT */
+
+.hero p{
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+.footer{
+    border-top:1px solid rgba(255,255,255,0.1);
+}
