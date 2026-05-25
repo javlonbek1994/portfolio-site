@@ -1,11 +1,58 @@
-body{
-    background:#0f172a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
-    font-family:Arial;
+<body>
+
+  <nav class="navbar">
+    <h2 class="logo">Muzey Lab</h2>
+
+    <div class="menu">
+      <a href="#">Bosh sahifa</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Talabalar</a>
+      <a href="#">Bog‘lanish</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <h1>Muzey Lab</h1>
+
+    <p>
+      Zamonaviy raqamli portfolio platformasi.
+      O‘quvchilar, talabalar va ijodkorlar uchun professional portfolio tizimi.
+    </p>
+
+    <a href="#" class="btn">Portfolio ko‘rish</a>
+
+  </section>
+
+  <section class="portfolio-section">
+
+    <h2 class="section-title">Top Portfolio</h2>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <h3>Frontend Project</h3>
+        <p>React va modern UI asosida yaratilgan loyiha.</p>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+        <h3>AI Portfolio</h3>
+        <p>Sun’iy intellekt bilan ishlovchi portfolio tizimi.</p>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+        <h3>Student Dashboard</h3>
+        <p>Talabalar boshqaruvi uchun admin panel.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
 }
 font-family:Arial;
 padding-top:80px;
@@ -96,4 +143,80 @@ input{
 
 .menu a:hover{
     color:#3b82f6;
+}
+.navbar{
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  background:rgba(15,23,42,0.7);
+  backdrop-filter:blur(10px);
+}
+
+.logo{
+  font-size:30px;
+  color:#38bdf8;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.menu a:hover{
+  color:#38bdf8;
+}
+
+.portfolio-section{
+  padding:100px 10%;
+  background:#020617;
+}
+
+.section-title{
+  text-align:center;
+  font-size:45px;
+  margin-bottom:50px;
+}
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.portfolio-card{
+  background:#1e293b;
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.portfolio-card:hover{
+  transform:translateY(-10px);
+}
+
+.portfolio-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.portfolio-card h3{
+  padding:20px 20px 10px;
+}
+
+.portfolio-card p{
+  padding:0 20px 20px;
+  color:#cbd5e1;
 }
