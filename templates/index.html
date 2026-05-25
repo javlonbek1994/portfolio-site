@@ -1,205 +1,74 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muzey Lab Portfolio</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
- <body>
-<div class="bg-animation"></div>
-  <nav class="navbar">
-    <h2 class="logo">Muzey Lab</h2>
-
-    <div class="menu">
-      <a href="#">Bosh sahifa</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Talabalar</a>
-    <a href="#">Bog‘lanish</a>
-    </div>
-  </nav>
-
-  <section class="hero">
-
-    <h1>Muzey Lab</h1>
-
-    <p>
-      Zamonaviy raqamli portfolio platformasi.
-      O‘quvchilar, talabalar va ijodkorlar uchun professional portfolio tizimi.
-    </p>
-
-    <a href="#" class="btn">Portfolio ko‘rish</a>
-
-  </section>
-
-  <section class="portfolio-section">
-
-    <h2 class="section-title">Top Portfolio</h2>
-
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-        <h3>Frontend Project</h3>
-        <p>React va modern UI asosida yaratilgan loyiha.</p>
-      </div>
-
-      <div class="portfolio-card">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-        <h3>AI Portfolio</h3>
-        <p>Sun’iy intellekt bilan ishlovchi portfolio tizimi.</p>
-      </div>
-
-      <div class="portfolio-card">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
-        <h3>Student Dashboard</h3>
-        <p>Talabalar boshqaruvi uchun admin panel.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-</body>
-    }
-
-    .hero{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      flex-direction:column;
-      background:linear-gradient(135deg,#0f172a,#1e293b,#3b82f6);
-      animation:bgMove 10s infinite alternate;
-      padding:20px;
-    }
-
-    @keyframes bgMove{
-      0%{
-        background-position:left;
-      }
-      100%{
-        background-position:right;
-      }
-    }
-
-    .hero h1{
-      font-size:70px;
-      margin-bottom:20px;
-      background:linear-gradient(to right,#38bdf8,#818cf8,#c084fc);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero p{
-      font-size:22px;
-      max-width:700px;
-      line-height:1.7;
-      color:#dbeafe;
-      margin-bottom:30px;
-    }
-
-    .btn{
-      padding:15px 35px;
-      border:none;
-      border-radius:50px;
-      background:#38bdf8;
-      color:white;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-      text-decoration:none;
-    }
-
-    .btn:hover{
-      background:#2563eb;
-      transform:scale(1.05);
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      padding:80px 10%;
-      background:#111827;
-    }
-
-    .card{
-      background:#1e293b;
-      padding:30px;
-      border-radius:20px;
-      transition:0.3s;
-      box-shadow:0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-      background:#334155;
-    }
-
-    .card h2{
-      margin-bottom:15px;
-      color:#38bdf8;
-    }
-
-    .footer{
-      padding:30px;
-      text-align:center;
-      background:#020617;
-      color:#94a3b8;
-    }
-  </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <h1>Muzey Lab</h1>
+<div class="bg-animation"></div>
 
-    <p>
-      Zamonaviy raqamli portfolio platformasi.
-      O‘quvchilar, talabalar va ijodkorlar uchun professional portfolio tizimi.
-    </p>
+<nav class="navbar">
 
-    <a href="#" class="btn">Portfolio ko‘rish</a>
-  </section>
+  <h2 class="logo">Muzey Lab</h2>
 
-  <section class="cards">
-
-    <div class="card">
-      <h2>Portfolio</h2>
-      <p>
-        O‘quvchilar ishlarini professional tarzda joylashtirish tizimi.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Talabalar</h2>
-      <p>
-        Talabalar yutuqlari va loyihalarini jamlovchi platforma.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Innovatsiya</h2>
-      <p>
-        Zamonaviy dizayn va interaktiv texnologiyalar asosida yaratilgan.
-      </p>
-    </div>
-
-  </section>
-
-  <div class="footer">
-    © 2026 Muzey Lab — Barcha huquqlar himoyalangan
+  <div class="menu">
+    <a href="#">Bosh sahifa</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Talabalar</a>
+    <a href="/login">Login</a>
   </div>
+
+</nav>
+
+<section class="hero">
+
+  <h1>Muzey Lab</h1>
+
+  <p>
+    Zamonaviy raqamli portfolio platformasi.
+    O‘quvchilar, talabalar va ijodkorlar uchun professional portfolio tizimi.
+  </p>
+
+  <a href="#" class="btn">Portfolio ko‘rish</a>
+
+</section>
+
+<section class="portfolio-section">
+
+  <h2 class="section-title">Top Portfolio</h2>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+      <h3>Frontend Project</h3>
+      <p>React va modern UI asosida yaratilgan loyiha.</p>
+    </div>
+
+    <div class="portfolio-card">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+      <h3>AI Portfolio</h3>
+      <p>Sun’iy intellekt bilan ishlovchi portfolio tizimi.</p>
+    </div>
+
+    <div class="portfolio-card">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+      <h3>Student Dashboard</h3>
+      <p>Talabalar boshqaruvi uchun admin panel.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="footer">
+  © 2026 Muzey Lab — Barcha huquqlar himoyalangan
+</div>
 
 </body>
 </html>
