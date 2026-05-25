@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="uz">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Login - Muzey Lab</title>
+
 </head>
 
 <body>
 
-<div class="login-container">
+<div class="bg-animation"></div>
 
-<form class="login-box" action="/admin">
+<section class="hero">
 
-        <h1>Login</h1>
+<div class="portfolio-card" style="max-width:500px;width:100%;padding:40px;">
 
-        <input type="text" placeholder="Login">
+<h1 style="font-size:60px;margin-bottom:30px;text-align:center;">
+Login
+</h1>
 
-        <input type="password" placeholder="Parol">
+<form action="/admin" method="GET" class="student-form">
 
-        <button type="submit">Kirish</button>
+<input type="text" placeholder="Login">
 
-    </form>
+<input type="password" placeholder="Parol">
+
+<button type="submit">
+Kirish
+</button>
+
+</form>
 
 </div>
+
+</section>
 
 </body>
 </html>
