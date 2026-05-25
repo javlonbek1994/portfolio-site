@@ -1,103 +1,85 @@
 <!DOCTYPE html>
 <html lang="uz">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Admin Panel</title>
+
 </head>
 
 <body>
 
-<div class="admin-layout">
+<div class="bg-animation"></div>
 
-    <div class="sidebar">
+<nav class="navbar">
 
-        <h2>Muzey Lab</h2>
+<h2 class="logo">Muzey Lab</h2>
 
-        <a href="#">Dashboard</a>
-        <a href="#">Talabalar</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Statistika</a>
-        <a href="#">Sozlamalar</a>
+<div class="menu">
+<a href="/">Bosh sahifa</a>
+<a href="#">Portfolio</a>
+<a href="#">Talabalar</a>
+<a href="/login">Logout</a>
+</div>
 
-    </div>
+</nav>
 
-    <div class="main-content">
+<section class="hero">
 
-        <div class="topbar">
+<h1>Admin Panel</h1>
 
-            <input type="text" placeholder="Qidirish...">
+<p>
+Talabalar va portfolio tizimini boshqarish paneli.
+</p>
 
-            <div class="admin-profile">
-                Admin
-            </div>
+<form class="student-form">
 
-        </div>
+<input type="text" placeholder="Talaba ismi">
 
-        <h1>Admin Dashboard</h1>
+<input type="text" placeholder="Fakultet">
 
-        <div class="stats">
+<input type="text" placeholder="Kurs">
 
-            <div class="stat-card">
-                <h2>120</h2>
-                <p>Talabalar</p>
-            </div>
+<button type="submit">
+Talaba qo‘shish
+</button>
 
-            <div class="stat-card">
-                <h2>45</h2>
-                <p>Portfolio</p>
-            </div>
+</form>
 
-            <div class="stat-card">
-                <h2>12</h2>
-                <p>O‘qituvchilar</p>
-            </div>
+</section>
 
-        </div>
+<section class="portfolio-section">
 
-        <div class="students-table">
+<h2 class="section-title">Student Statistics</h2>
 
-            <h2>Talabalar ro‘yxati</h2>
+<div class="portfolio-grid">
 
-            <table>
+<div class="portfolio-card">
+<h3>120+</h3>
+<p>Ro‘yxatdan o‘tgan talabalar</p>
+</div>
 
-                <tr>
-                    <th>Ism</th>
-                    <th>Fakultet</th>
-                    <th>Kurs</th>
-                    <th>Status</th>
-                </tr>
+<div class="portfolio-card">
+<h3>45+</h3>
+<p>Portfolio loyihalar</p>
+</div>
 
-                <tr>
-                    <td>Ali Valiyev</td>
-                    <td>IT</td>
-                    <td>3-kurs</td>
-                    <td><span class="active">Aktiv</span></td>
-                </tr>
+<div class="portfolio-card">
+<h3>15+</h3>
+<p>Administratorlar</p>
+</div>
 
-                <tr>
-                    <td>Sardor Karimov</td>
-                    <td>Dizayn</td>
-                    <td>2-kurs</td>
-                    <td><span class="active">Aktiv</span></td>
-                </tr>
+</div>
 
-                <tr>
-                    <td>Madina Xasanova</td>
-                    <td>Frontend</td>
-                    <td>4-kurs</td>
-                    <td><span class="active">Aktiv</span></td>
-                </tr>
+</section>
 
-            </table>
-
-        </div>
-
-    </div>
-
+<div class="footer">
+© 2026 Muzey Lab Admin Panel
 </div>
 
 </body>
