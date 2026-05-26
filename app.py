@@ -9,86 +9,68 @@ students = [
         "id": 1,
         "name": "Aliyev Muhammad",
         "grade": "7-sinf",
-        "direction": "Tarix va muzeyshunoslik",
+        "direction": "Pedagogik portfel",
         "status": "Faol",
         "works": 12,
         "score": 94,
         "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80",
-        "description": "Tarixiy tafakkur, muzey eksponatlari va ijodiy loyiha ishlari bo‘yicha faol o‘quvchi.",
-        "projects": ["Muzey eksponatlari tahlili", "Mahalliy tarix loyihasi", "Tarixiy xarita bilan ishlash"]
+        "description": "O‘quv faoliyati, loyiha ishlari, refleksiya va akademik natijalari jamlangan elektron portfel.",
+        "projects": ["Dars ishlanmasi", "Ijodiy loyiha", "Refleksiya kundaligi"]
     },
     {
         "id": 2,
         "name": "Karimova Madina",
         "grade": "8-sinf",
-        "direction": "Madaniy meros",
+        "direction": "Akademik yutuqlar",
         "status": "Faol",
         "works": 9,
         "score": 88,
         "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80",
-        "description": "Madaniy meros, mahalliy tarix va muzey pedagogikasi yo‘nalishida portfolioga ega.",
-        "projects": ["Madaniy meros taqdimoti", "Oila tarixi loyihasi", "Muzeyga virtual sayohat"]
+        "description": "Akademik yutuqlar, sertifikatlar, ijodiy ishlar va raqamli artefaktlar portfeli.",
+        "projects": ["Sertifikatlar", "Tanlov natijalari", "Taqdimot ishlari"]
     },
     {
         "id": 3,
         "name": "Saidov Javohir",
         "grade": "9-sinf",
-        "direction": "Ilmiy loyiha",
+        "direction": "Refleksiya",
         "status": "Ko‘rib chiqilmoqda",
         "works": 7,
         "score": 81,
         "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&q=80",
-        "description": "Tarixiy manbalar bilan ishlash va mustaqil tadqiqot olib borish ko‘nikmalarini shakllantirmoqda.",
-        "projects": ["Tarixiy manba tahlili", "Mini tadqiqot ishi", "Ilmiy poster"]
+        "description": "O‘zini baholash, refleksiya, o‘quv natijalari va kompetensiyalar rivoji bo‘yicha portfel.",
+        "projects": ["O‘zini baholash", "Reflektiv esse", "Kompetensiya tahlili"]
     }
 ]
 
 
-BASE_CSS = """
+CSS = """
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100vh;
-    background: #07111f;
-    color: #e5e7eb;
-    overflow-x: hidden;
-}
-
-.bg {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background:
-        radial-gradient(circle at 15% 18%, rgba(14, 165, 233, .30), transparent 30%),
-        radial-gradient(circle at 85% 8%, rgba(168, 85, 247, .24), transparent 28%),
-        radial-gradient(circle at 50% 100%, rgba(34, 197, 94, .13), transparent 28%),
-        linear-gradient(135deg, #020617, #0f172a, #111827);
+    font-family: Arial, "Segoe UI", sans-serif;
+    background: #f1f4f7;
+    color: #111;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 .navbar {
-    height: 78px;
-    padding: 0 44px;
+    height: 118px;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(2, 6, 23, .76);
-    border-bottom: 1px solid rgba(148, 163, 184, .16);
-    backdrop-filter: blur(18px);
+    padding: 0 46px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     position: sticky;
     top: 0;
     z-index: 99;
@@ -97,266 +79,476 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 24px;
-    font-weight: 900;
-    color: #fff;
+    gap: 18px;
 }
 
-.logo span {
-    width: 42px;
-    height: 42px;
-    border-radius: 15px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #0ea5e9, #7c3aed);
-    box-shadow: 0 12px 30px rgba(14, 165, 233, .28);
+.logo-box {
+    width: 72px;
+    height: 72px;
+    background: #5471c8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 21px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.logo-box .e {
+    font-size: 46px;
+    line-height: 38px;
+}
+
+.logo-text {
+    font-size: 33px;
+    color: #5471c8;
+    font-weight: 800;
+    line-height: 1.15;
 }
 
 .nav-links {
     display: flex;
+    gap: 28px;
     align-items: center;
-    gap: 24px;
-}
-
-.nav-links a {
-    color: #cbd5e1;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
-    color: #38bdf8;
-}
-
-.btn {
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 18px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 900;
-    transition: .25s;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: #fff;
-    box-shadow: 0 16px 34px rgba(37, 99, 235, .30);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: rgba(30, 41, 59, .82);
-    color: #e2e8f0;
-    border: 1px solid rgba(148, 163, 184, .22);
-}
-
-.btn-danger {
-    background: rgba(239, 68, 68, .15);
-    color: #fecaca;
-    border: 1px solid rgba(239, 68, 68, .28);
+    color: #5471c8;
 }
 
 .hero {
-    max-width: 1260px;
-    margin: 0 auto;
-    padding: 88px 44px 55px;
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 36px;
-    align-items: center;
-}
-
-.badge-soft {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 14px;
-    border-radius: 999px;
-    background: rgba(14, 165, 233, .13);
-    border: 1px solid rgba(14, 165, 233, .28);
-    color: #7dd3fc;
-    font-size: 14px;
-    font-weight: 900;
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    font-size: 62px;
-    line-height: 1.04;
-    letter-spacing: -1.7px;
-    color: #fff;
-    margin-bottom: 22px;
-}
-
-.hero h1 strong {
-    background: linear-gradient(90deg, #38bdf8, #c084fc, #86efac);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    color: #cbd5e1;
-    font-size: 18px;
-    line-height: 1.85;
-    margin-bottom: 30px;
-}
-
-.hero-actions {
+    min-height: 650px;
+    background:
+        linear-gradient(rgba(24, 52, 78, 0.72), rgba(24, 52, 78, 0.72)),
+        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
     display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 92px;
 }
 
-.hero-preview {
-    background: rgba(15, 23, 42, .76);
-    border: 1px solid rgba(148, 163, 184, .18);
-    border-radius: 32px;
-    padding: 22px;
-    box-shadow: 0 28px 80px rgba(0, 0, 0, .35);
-    backdrop-filter: blur(18px);
+.hero-content {
+    color: white;
+    max-width: 720px;
 }
 
-.hero-preview img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 24px;
+.hero-content h1 {
+    font-size: 78px;
+    line-height: 1.1;
+    margin-bottom: 55px;
+    font-weight: 800;
 }
 
-.preview-info {
-    padding: 20px 8px 6px;
-}
-
-.preview-info h3 {
-    color: #fff;
+.hero-content p {
     font-size: 24px;
-    margin-bottom: 8px;
+    line-height: 1.35;
+    font-weight: 800;
+    text-align: justify;
+    max-width: 680px;
 }
 
-.preview-info p {
-    margin: 0;
-    font-size: 15px;
-    color: #94a3b8;
+.floating-card {
+    max-width: 1120px;
+    margin: -95px auto 50px;
+    background: #5b78d1;
+    border-radius: 9px;
+    min-height: 250px;
+    box-shadow: 0 13px 24px rgba(0,0,0,0.28);
+    display: grid;
+    grid-template-columns: 1fr 180px 180px 180px;
+    gap: 34px;
+    align-items: center;
+    padding: 45px 70px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.floating-card h2 {
+    font-size: 36px;
+    line-height: 1.25;
+}
+
+.mini-card {
+    height: 145px;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.mini-card .ico {
+    font-size: 50px;
+}
+
+.cyan {
+    background: #11c5c8;
+}
+
+.green {
+    background: #c9e76a;
+}
+
+.red {
+    background: #ff7070;
 }
 
 .section {
-    max-width: 1260px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 54px 44px;
+    padding: 45px 20px;
 }
 
-.section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 20px;
-    margin-bottom: 28px;
+.section-label {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #06c4c6;
+    padding-bottom: 9px;
 }
 
-.section-head h2 {
-    color: #fff;
-    font-size: 38px;
-    letter-spacing: -.8px;
+.section-title {
+    font-size: 43px;
+    margin: 8px 0 24px;
+    font-weight: 900;
 }
 
-.section-head p {
-    color: #94a3b8;
-    line-height: 1.7;
-    max-width: 650px;
-}
-
-.feature-grid,
-.stats-grid,
-.portfolio-grid {
+.about-grid {
     display: grid;
-    gap: 22px;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 55px;
+    align-items: center;
 }
 
-.feature-grid {
-    grid-template-columns: repeat(4, 1fr);
+.about-text p {
+    font-size: 20px;
+    line-height: 1.55;
+    text-align: justify;
+    margin-bottom: 22px;
 }
 
-.stats-grid {
-    grid-template-columns: repeat(4, 1fr);
+.about-img {
+    text-align: center;
+}
+
+.about-img img {
+    width: 360px;
+    max-width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    padding: 12px 35px;
+    border-radius: 8px;
+    background: #08c6c9;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.purpose {
+    max-width: 1080px;
+    margin: 35px auto 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #5b78d1;
+    color: white;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.purpose-box {
+    padding: 34px 52px;
+}
+
+.purpose-box:first-child {
+    background: rgba(45, 73, 160, 0.25);
+}
+
+.purpose-box h2 {
+    font-size: 31px;
+    margin-bottom: 18px;
+}
+
+.purpose-box p {
+    font-size: 18px;
+    line-height: 1.35;
+    text-align: justify;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 620px;
+    margin-top: 25px;
+}
+
+.adv-left {
+    background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80");
+    background-size: cover;
+    background-position: center;
+}
+
+.adv-right {
+    background:
+        linear-gradient(rgba(84, 113, 200, 0.80), rgba(84, 113, 200, 0.80)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80");
+    background-size: cover;
+    background-position: center;
+    padding: 70px 65px;
+    color: white;
+}
+
+.adv-right h2 {
+    font-size: 46px;
+    margin-bottom: 25px;
+}
+
+.adv-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    gap: 24px;
     margin-bottom: 28px;
 }
 
-.portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
+.adv-icon {
+    font-size: 76px;
+    color: #04d0d3;
 }
 
-.card,
-.feature-card,
-.portfolio-card,
-.stat-card,
-.panel,
-.profile-card {
-    background: rgba(15, 23, 42, .76);
-    border: 1px solid rgba(148, 163, 184, .18);
-    border-radius: 26px;
-    box-shadow: 0 22px 50px rgba(0, 0, 0, .24);
-    backdrop-filter: blur(18px);
+.adv-item h3 {
+    font-size: 29px;
+    margin-bottom: 8px;
 }
 
-.feature-card,
-.stat-card,
-.panel,
-.profile-card {
-    padding: 24px;
+.adv-item p {
+    font-size: 17px;
+    line-height: 1.4;
 }
 
-.feature-card {
-    transition: .25s;
+.partners {
+    background: #eef2f5;
+    padding: 38px 0 50px;
 }
 
-.feature-card:hover,
-.portfolio-card:hover,
-.stat-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, .45);
+.partners-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 17px;
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 35px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.partner-logo {
+    height: 150px;
+    background: white;
+    border-radius: 50%;
     display: grid;
     place-items: center;
-    font-size: 24px;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    margin-bottom: 16px;
+    color: #5471c8;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 900;
+    border: 4px solid #d9e1f2;
 }
 
-.feature-card h3 {
-    color: #fff;
+.feedback {
+    min-height: 520px;
+    background:
+        linear-gradient(rgba(67, 125, 176, 0.62), rgba(67, 125, 176, 0.62)),
+        url("https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px 0;
+}
+
+.feedback-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feedback h2 {
+    font-size: 43px;
+    margin-top: 8px;
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.feedback-card {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 22px;
+    align-items: center;
+}
+
+.feedback-card img {
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.feedback-card p {
+    font-size: 18px;
+    line-height: 1.35;
+    margin-bottom: 20px;
+}
+
+.feedback-card h3 {
     font-size: 19px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.feature-card p {
-    color: #94a3b8;
-    font-size: 14px;
+.social {
+    background: #eef2f5;
+    padding: 40px 20px 55px;
+    text-align: center;
+}
+
+.social h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.social-grid {
+    max-width: 1120px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+}
+
+.social-card {
+    background: white;
+    height: 75px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 9px 18px rgba(0,0,0,0.16);
+}
+
+.social-icon {
+    font-size: 42px;
+}
+
+.footer {
+    background: #5b78d1;
+    color: white;
+    min-height: 275px;
+    padding: 40px 45px;
+}
+
+.footer-inner {
+    max-width: 1220px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr 1.6fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.footer-logo {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.footer-text {
+    font-size: 18px;
+    line-height: 1.28;
+    text-align: justify;
+}
+
+.footer h3 {
+    font-size: 22px;
+    margin-bottom: 13px;
+    border-bottom: 1px solid white;
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+.footer p,
+.footer li {
+    font-size: 16px;
     line-height: 1.7;
+    list-style: none;
+}
+
+.map-box {
+    height: 160px;
+    background: #dbeafe;
+    border: 4px solid white;
+    display: grid;
+    place-items: center;
+    color: #1e3a8a;
+    font-weight: 800;
+    text-align: center;
+}
+
+.page-head {
+    background: #5b78d1;
+    color: white;
+    padding: 58px 20px;
+    text-align: center;
+}
+
+.page-head h1 {
+    font-size: 46px;
+}
+
+.portfolio-grid {
+    max-width: 1120px;
+    margin: 45px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 }
 
 .portfolio-card {
+    background: white;
+    border-radius: 14px;
     overflow: hidden;
-    transition: .25s;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
 }
 
 .portfolio-card img {
     width: 100%;
-    height: 215px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -365,411 +557,195 @@ a {
 }
 
 .card-body h3 {
-    color: #fff;
-    font-size: 21px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .card-body p {
-    color: #94a3b8;
-    line-height: 1.7;
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-
-.meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    font-size: 16px;
+    line-height: 1.5;
     margin-bottom: 14px;
 }
 
 .badge {
-    display: inline-flex;
-    padding: 7px 11px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 900;
-}
-
-.badge-blue {
-    background: rgba(59, 130, 246, .16);
-    color: #93c5fd;
-}
-
-.badge-green {
-    background: rgba(34, 197, 94, .16);
-    color: #86efac;
-}
-
-.badge-yellow {
-    background: rgba(245, 158, 11, .16);
-    color: #fbbf24;
-}
-
-.badge-purple {
-    background: rgba(168, 85, 247, .16);
-    color: #d8b4fe;
-}
-
-.footer {
-    margin-top: 48px;
-    padding: 30px 44px;
-    text-align: center;
-    color: #94a3b8;
-    border-top: 1px solid rgba(148, 163, 184, .15);
-    background: rgba(2, 6, 23, .55);
+    display: inline-block;
+    background: #e8efff;
+    color: #5471c8;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin: 3px;
+    font-size: 13px;
 }
 
 .login-wrap {
-    min-height: calc(100vh - 78px);
+    min-height: 620px;
     display: grid;
     place-items: center;
-    padding: 34px;
+    padding: 40px 20px;
+}
+
+.login-card,
+.admin-panel {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    padding: 32px;
 }
 
 .login-card {
-    width: 100%;
-    max-width: 450px;
-    padding: 34px;
-    background: rgba(15, 23, 42, .82);
-    border: 1px solid rgba(148, 163, 184, .18);
-    border-radius: 30px;
-    box-shadow: 0 28px 75px rgba(0, 0, 0, .34);
+    width: 430px;
+    max-width: 100%;
 }
 
 .login-card h2 {
-    color: #fff;
     font-size: 32px;
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.login-card p {
-    color: #94a3b8;
-    text-align: center;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #5471c8;
 }
 
 .form-group {
-    margin-bottom: 17px;
+    margin-bottom: 16px;
 }
 
 .form-group label {
     display: block;
-    color: #cbd5e1;
-    margin-bottom: 8px;
-    font-size: 14px;
     font-weight: 800;
+    margin-bottom: 7px;
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    padding: 14px 16px;
-    border-radius: 15px;
-    border: 1px solid rgba(148, 163, 184, .23);
-    outline: none;
-    background: rgba(2, 6, 23, .74);
-    color: #fff;
+    padding: 13px 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
     font-size: 15px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, .13);
-}
-
 textarea {
-    min-height: 116px;
-    resize: vertical;
+    min-height: 100px;
 }
 
-.alert {
-    padding: 13px 15px;
-    border-radius: 15px;
-    margin-bottom: 18px;
-    font-size: 14px;
-    font-weight: 800;
+.admin-wrap {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.alert-danger {
-    background: rgba(239, 68, 68, .14);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, .24);
-}
-
-.alert-success {
-    background: rgba(34, 197, 94, .14);
-    color: #86efac;
-    border: 1px solid rgba(34, 197, 94, .24);
-}
-
-.dashboard {
-    display: flex;
-    min-height: calc(100vh - 78px);
-}
-
-.sidebar {
-    width: 292px;
-    padding: 28px 20px;
-    background: rgba(2, 6, 23, .65);
-    border-right: 1px solid rgba(148, 163, 184, .14);
-    backdrop-filter: blur(18px);
-}
-
-.sidebar h2 {
-    color: #fff;
-    font-size: 21px;
-    margin-bottom: 24px;
-}
-
-.sidebar a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 16px;
-    color: #cbd5e1;
-    margin-bottom: 10px;
-    font-weight: 850;
-}
-
-.sidebar a:hover,
-.sidebar a.active {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: #fff;
-}
-
-.content {
-    flex: 1;
-    padding: 34px;
-}
-
-.content-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
-}
-
-.content-head h1 {
-    color: #fff;
-    font-size: 35px;
-    letter-spacing: -.7px;
-}
-
-.content-head p {
-    color: #94a3b8;
-    margin-top: 6px;
-}
-
-.stat-card .stat-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 17px;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
+.admin-stats {
     display: grid;
-    place-items: center;
-    font-size: 23px;
-    margin-bottom: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 25px;
 }
 
-.stat-card h3 {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 8px;
+.stat {
+    background: #5b78d1;
+    color: white;
+    border-radius: 12px;
+    padding: 25px;
 }
 
-.stat-card .number {
-    color: #fff;
-    font-size: 35px;
-    font-weight: 950;
+.stat h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
 }
 
-.stat-card span {
-    color: #86efac;
-    font-size: 13px;
-    display: block;
-    margin-top: 8px;
+.stat strong {
+    font-size: 34px;
 }
 
-.panel {
-    margin-bottom: 26px;
-}
-
-.panel h2 {
-    color: #fff;
-    font-size: 23px;
-    margin-bottom: 18px;
-}
-
-.table-wrapper {
-    overflow-x: auto;
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 24px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-}
-
-thead {
-    background: rgba(2, 6, 23, .72);
+    background: white;
 }
 
 th,
 td {
-    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 13px;
     text-align: left;
-    border-bottom: 1px solid rgba(148, 163, 184, .13);
-    font-size: 14px;
 }
 
 th {
-    color: #93c5fd;
+    background: #eef2ff;
+    color: #334155;
 }
 
-td {
-    color: #e2e8f0;
+.alert {
+    padding: 12px 15px;
+    background: #dcfce7;
+    color: #166534;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
-tr:hover {
-    background: rgba(30, 41, 59, .46);
-}
-
-.admin-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-}
-
-.search-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-.profile-wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 54px 44px;
-}
-
-.profile-hero {
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 28px;
-    align-items: start;
-}
-
-.profile-hero img {
-    width: 100%;
-    height: 390px;
-    object-fit: cover;
-    border-radius: 26px;
-}
-
-.profile-card h1 {
-    color: #fff;
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.profile-card p {
-    color: #cbd5e1;
-    line-height: 1.8;
-    margin: 16px 0;
-}
-
-.project-list {
-    margin-top: 20px;
-    display: grid;
-    gap: 12px;
-}
-
-.project-item {
-    padding: 14px 16px;
-    border-radius: 16px;
-    background: rgba(2, 6, 23, .45);
-    border: 1px solid rgba(148, 163, 184, .14);
-    color: #e2e8f0;
-}
-
-@media (max-width: 1050px) {
-    .hero,
-    .profile-hero {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-grid,
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .portfolio-grid,
-    .admin-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 760px) {
+@media(max-width: 1000px) {
     .navbar {
-        padding: 0 20px;
+        height: auto;
+        padding: 18px;
+        flex-direction: column;
+        gap: 15px;
     }
 
     .nav-links {
-        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 16px;
+        gap: 14px;
     }
 
-    .nav-links a {
-        font-size: 13px;
+    .hero {
+        padding: 80px 28px;
     }
 
-    .hero,
-    .section,
-    .profile-wrap {
-        padding-left: 22px;
-        padding-right: 22px;
+    .hero-content h1 {
+        font-size: 48px;
     }
 
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .feature-grid,
-    .stats-grid,
-    .portfolio-grid {
+    .floating-card,
+    .about-grid,
+    .purpose,
+    .advantages,
+    .feedback-grid,
+    .footer-inner,
+    .admin-grid {
         grid-template-columns: 1fr;
     }
 
-    .dashboard {
-        flex-direction: column;
+    .floating-card {
+        margin: 20px;
+        padding: 30px;
     }
 
-    .sidebar {
-        width: 100%;
-        border-right: 0;
-        border-bottom: 1px solid rgba(148, 163, 184, .14);
+    .partner-grid,
+    .social-grid,
+    .portfolio-grid,
+    .admin-stats {
+        grid-template-columns: 1fr 1fr;
     }
+}
 
-    .content {
-        padding: 22px;
-    }
-
-    .content-head,
-    .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .search-row {
+@media(max-width: 650px) {
+    .partner-grid,
+    .social-grid,
+    .portfolio-grid,
+    .admin-stats {
         grid-template-columns: 1fr;
+    }
+
+    .logo-text {
+        font-size: 25px;
     }
 }
 </style>
@@ -780,13 +756,18 @@ def navbar():
     return """
     <div class="navbar">
         <a class="logo" href="/">
-            <span>🏛️</span>
-            MuzeyLab
+            <div class="logo-box">
+                <div class="e">e</div>
+                <div>portfel</div>
+            </div>
+            <div class="logo-text">Elektron<br>portfel</div>
         </a>
         <div class="nav-links">
-            <a href="/">Bosh sahifa</a>
-            <a href="/portfolio">Portfolio</a>
-            <a href="/admin/login">Admin</a>
+            <a href="/personal">Shaxsiy ma’lumotlar</a>
+            <a href="/portfolio">Pedagogik portfel</a>
+            <a href="/achievements">Akademik yutuqlar</a>
+            <a href="/reflection">Refleksiya va o‘zini baholash</a>
+            <a href="/about">Biz haqimizda</a>
         </div>
     </div>
     """
@@ -794,155 +775,244 @@ def navbar():
 
 @app.route("/")
 def home():
-    total_students = len(students)
-    total_works = sum(s["works"] for s in students)
-
     html = """
     <!DOCTYPE html>
     <html lang="uz">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MuzeyLab Portfolio</title>
+        <title>Elektron portfel</title>
         {{ css|safe }}
     </head>
     <body>
-        <div class="bg"></div>
         {{ navbar|safe }}
 
         <section class="hero">
-            <div>
-                <div class="badge-soft">🏛️ Elektron o‘quvchi portfolio platformasi</div>
-                <h1>O‘quvchilar yutuqlarini <strong>zamonaviy va tartibli</strong> ko‘rsating</h1>
+            <div class="hero-content">
+                <h1>Elektron<br>portfel</h1>
                 <p>
-                    MuzeyLab Portfolio — o‘qituvchi tomonidan boshqariladigan, o‘quvchilar va ota-onalar
-                    ko‘ra oladigan zamonaviy portfolio platformasi. Unda loyiha ishlari, ijodiy topshiriqlar,
-                    tarixiy tadqiqotlar va yillik natijalar jamlanadi.
+                    Ushbu platformada talabaning o‘quv natijalari, loyihalari,
+                    ijodiy ishlari, refleksiyalari va kompetensiyalari raqamli tarzda
+                    jamlanib, tahlil qilinadi, ham baholash jarayonlari qo‘llab-quvvatlanadi.
                 </p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="/portfolio">Portfoliolarni ko‘rish</a>
-                    <a class="btn btn-secondary" href="/admin/login">Admin panel</a>
-                </div>
             </div>
+        </section>
 
-            <div class="hero-preview">
-                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80">
-                <div class="preview-info">
-                    <h3>Yillik portfolio boshqaruvi</h3>
-                    <p>O‘quvchi faoliyati, loyiha ishlari va natijalari bitta sahifada jamlanadi.</p>
+        <section class="floating-card">
+            <h2>Shaxsiy raqamli<br>o‘quv portfeli</h2>
+            <div class="mini-card cyan">
+                <div class="ico">🌐</div>
+                <div>Xorijiy<br>tajriba</div>
+            </div>
+            <div class="mini-card green">
+                <div class="ico">👩‍🏫</div>
+                <div>Ta’limda<br>kreativlik</div>
+            </div>
+            <div class="mini-card red">
+                <div class="ico">⚙️</div>
+                <div>Mustaqil<br>tadqiqotchilik</div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label">Ma'lumot</div>
+                    <h2 class="section-title">Platforma haqida</h2>
+                    <p>
+                        E-portfel – talabaning o‘quv jarayonidagi natijalari, kompetensiyalari
+                        va ijodiy ishlari raqamli muhitda jamlanadigan shaxsiy elektron to‘plamdir.
+                        U o‘quv faoliyatini individuallashtirish, o‘z-o‘zini baholash va rivojlanishni
+                        tahlil qilishga yordam beradi.
+                    </p>
+                    <p>
+                        E-portfel dars ishlanmalari, loyihalar, refleksiyalar va boshqa raqamli
+                        materiallarni bir tizimda to‘plab, talabaning kompetensiyalarini aniq
+                        namoyish etadi hamda o‘qituvchi uchun baholashning samarali vositasiga aylanadi.
+                    </p>
+                    <a class="btn" href="/about">Ko‘proq</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">👥</div>
-                    <h3>Jami o‘quvchilar</h3>
-                    <div class="number">{{ total_students }}</div>
-                    <span>platformada mavjud</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📚</div>
-                    <h3>Jami ishlar</h3>
-                    <div class="number">{{ total_works }}</div>
-                    <span>portfolio materiallari</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🏛️</div>
-                    <h3>Yo‘nalishlar</h3>
-                    <div class="number">3</div>
-                    <span>tarix, muzey, meros</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🔐</div>
-                    <h3>Boshqaruv</h3>
-                    <div class="number">Admin</div>
-                    <span>faqat admin tahrirlaydi</span>
-                </div>
+        <section class="purpose">
+            <div class="purpose-box">
+                <h2>Platformaning maqsadi</h2>
+                <p>
+                    Talabalarning o‘quv va kasbiy rivojlanish jarayonida hosil qilgan raqamli
+                    artefaktlarini tizimli yig‘ish, baholash va reflektiv tahlil qilish imkonini yaratish.
+                    Platforma talabaning shaxsiy o‘sishini monitoring qilish, kompetensiyalarni dalillarga
+                    asoslangan baholash hamda mustaqil ta’lim, kreativlik va metakognitiv ko‘nikmalarni
+                    rivojlantirish uchun ilmiy asoslangan raqamli muhitni ta’minlaydi.
+                </p>
+                <a class="btn" href="/about">Ko‘proq</a>
+            </div>
+            <div class="purpose-box">
+                <h2>Platformaning vazifasi</h2>
+                <p>
+                    Talabalarning raqamli artefaktlarini tizimli yig‘ish, ularning kompetensiyalarini
+                    dalillarga asoslangan baholash, o‘z-o‘zini reflektiv tahlil qilish ko‘nikmalarini
+                    rivojlantirish va kasbiy portfel shakllantirishni ta’minlash.
+                </p>
+                <a class="btn" href="/portfolio">Ko‘proq</a>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-head">
-                <div>
-                    <h2>Platforma imkoniyatlari</h2>
-                    <p>Sayt o‘quvchilar portfoliolarini ochiq, chiroyli va tartibli ko‘rsatish uchun moslashtirilgan.</p>
-                </div>
-            </div>
+        <section class="advantages">
+            <div class="adv-left"></div>
+            <div class="adv-right">
+                <h2>Afzalliklari</h2>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="icon-box">🎓</div>
-                    <h3>O‘quvchi profili</h3>
-                    <p>Har bir o‘quvchiga alohida sahifa, rasm, sinf, yo‘nalish va tavsif beriladi.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon-box">📁</div>
-                    <h3>Loyiha ishlari</h3>
-                    <p>Ijodiy ishlar, tadqiqotlar va muzey pedagogikasi topshiriqlari ko‘rsatiladi.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon-box">📊</div>
-                    <h3>Dashboard</h3>
-                    <p>Admin o‘quvchilar soni, ishlar soni va umumiy holatni tez ko‘ra oladi.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon-box">🔎</div>
-                    <h3>Qidiruv</h3>
-                    <p>Admin panelda o‘quvchilarni ism, sinf yoki yo‘nalish bo‘yicha qidirish mumkin.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-head">
-                <div>
-                    <h2>Faol portfoliolar</h2>
-                    <p>Quyida platformaga joylangan o‘quvchilar portfoliolaridan namunalar berilgan.</p>
-                </div>
-                <a class="btn btn-primary" href="/portfolio">Barchasini ko‘rish</a>
-            </div>
-
-            <div class="portfolio-grid">
-                {% for s in students[:3] %}
-                <div class="portfolio-card">
-                    <img src="{{ s.image }}">
-                    <div class="card-body">
-                        <h3>{{ s.name }}</h3>
-                        <div class="meta">
-                            <span class="badge badge-blue">{{ s.grade }}</span>
-                            <span class="badge badge-green">{{ s.direction }}</span>
-                            <span class="badge badge-purple">{{ s.score }} ball</span>
-                        </div>
-                        <p>{{ s.description }}</p>
-                        <a class="btn btn-secondary" href="/student/{{ s.id }}">Batafsil ko‘rish</a>
+                <div class="adv-item">
+                    <div class="adv-icon">📄</div>
+                    <div>
+                        <h3>Dalillilik</h3>
+                        <p>Kompetensiyalarni real artefaktlar orqali ishonchli baholashni ta’minlaydi.</p>
                     </div>
                 </div>
-                {% endfor %}
+
+                <div class="adv-item">
+                    <div class="adv-icon">📈</div>
+                    <div>
+                        <h3>Rivojlanish monitoringi</h3>
+                        <p>Talabalarni yutuqlarining dinamikasini tizimli kuzatish imkonini yaratadi.</p>
+                    </div>
+                </div>
+
+                <div class="adv-item">
+                    <div class="adv-icon">👥</div>
+                    <div>
+                        <h3>Refleksiya va metakognitsiya</h3>
+                        <p>O‘z-o‘zini tahlil qilish va o‘qishni boshqarish ko‘nikmalarini rivojlantiradi.</p>
+                    </div>
+                </div>
+
+                <div class="adv-item">
+                    <div class="adv-icon">📚</div>
+                    <div>
+                        <h3>Raqamli savodxonlik</h3>
+                        <p>Talabaning zamonaviy texnologiyalar bilan ishlash kompetensiyasini mustahkamlaydi.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="footer">© 2026 MuzeyLab Portfolio. O‘quvchilar yillik portfolio platformasi.</div>
+        <section class="partners">
+            <div class="partners-inner">
+                <div class="section-label">Hamkorlar</div>
+                <h2 class="section-title">Hamkor tashkilotlar</h2>
+                <div class="partner-grid">
+                    <div class="partner-logo">OTFIV</div>
+                    <div class="partner-logo">NamDPI</div>
+                    <div class="partner-logo">Andijon<br>DPI</div>
+                    <div class="partner-logo">Qarshi<br>DU</div>
+                    <div class="partner-logo">CHDPU</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback">
+            <div class="feedback-inner">
+                <div class="section-label">Fikrlar</div>
+                <h2>Foydalanuvchilar fikri</h2>
+
+                <div class="feedback-grid">
+                    <div class="feedback-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80">
+                        <div>
+                            <p>
+                                E-portfel platformasi ta’lim sifatini oshirib, shaffof baholash,
+                                refleksiya va kasbiy rivojlanishni qo‘llab-quvvatlaydigan samarali
+                                raqamli vositadir.
+                            </p>
+                            <h3>Atamuratov R.</h3>
+                            <span>Toshkent davlat pedagogika universiteti dotsenti</span>
+                        </div>
+                    </div>
+
+                    <div class="feedback-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80">
+                        <div>
+                            <p>
+                                E-portfel ta’lim jarayonini interaktiv qilib, refleksiya,
+                                metakognitsiya va kasbiy rivojlanishni qo‘llab-quvvatlovchi
+                                samarali raqamli muhitdir.
+                            </p>
+                            <h3>Saparboyeva Z.</h3>
+                            <span>CHDPU. Tarix fakulteti talabasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social">
+            <h2>Bizni kuzating</h2>
+            <div class="social-grid">
+                <div class="social-card"><span class="social-icon">▶️</span> YouTube</div>
+                <div class="social-card"><span class="social-icon">✈️</span> Telegram</div>
+                <div class="social-card"><span class="social-icon">📷</span> Instagram</div>
+                <div class="social-card"><span class="social-icon">f</span> Facebook</div>
+            </div>
+        </section>
+
+        {{ footer|safe }}
     </body>
     </html>
     """
-    return render_template_string(html, css=BASE_CSS, navbar=navbar(), students=students,
-                                  total_students=total_students, total_works=total_works)
+    return render_template_string(html, css=CSS, navbar=navbar(), footer=footer())
+
+
+def footer():
+    return """
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <div class="logo-box">
+                    <div class="e">e</div>
+                    <div>portfel</div>
+                </div>
+                <div class="footer-text">
+                    “Elektron portfel” platformasida e’lon qilingan materiallardan nusxa ko‘chirish,
+                    tarqatish va boshqa shakllarda foydalanish faqat tahririyat yozma roziligi bilan
+                    amalga oshirilishi mumkin.
+                </div>
+            </div>
+
+            <div>
+                <h3>Menyu</h3>
+                <ul>
+                    <li>Shaxsiy ma’lumotlar</li>
+                    <li>Pedagogik portfel</li>
+                    <li>Akademik yutuqlar</li>
+                    <li>Refleksiya</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Aloqa uchun</h3>
+                <p>☎ +998939264206</p>
+                <p>✉ yuldashevjavohir2018@gmail.com</p>
+                <p>🌐 www.eportfel.uz</p>
+                <p>📍 Namangan shahar Obi-Hayot MFY</p>
+            </div>
+
+            <div class="map-box">
+                Google Map<br>Namangan shahri
+            </div>
+        </div>
+    </footer>
+    """
 
 
 @app.route("/portfolio")
 def portfolio():
     q = request.args.get("q", "").lower().strip()
-
     if q:
-        filtered = [
-            s for s in students
-            if q in s["name"].lower()
-            or q in s["grade"].lower()
-            or q in s["direction"].lower()
-            or q in s["status"].lower()
-        ]
+        filtered = [s for s in students if q in s["name"].lower() or q in s["direction"].lower() or q in s["grade"].lower()]
     else:
         filtered = students
 
@@ -951,60 +1021,50 @@ def portfolio():
     <html lang="uz">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portfolio</title>
+        <title>Pedagogik portfel</title>
         {{ css|safe }}
     </head>
     <body>
-        <div class="bg"></div>
         {{ navbar|safe }}
+        <div class="page-head">
+            <h1>Pedagogik portfel</h1>
+            <p>Talabalarning raqamli o‘quv portfellari</p>
+        </div>
 
-        <section class="section">
-            <div class="section-head">
-                <div>
-                    <h2>O‘quvchilar portfoliolari</h2>
-                    <p>O‘quvchilarning yillik faoliyati, loyiha ishlari, tarixiy tadqiqotlari va natijalari.</p>
-                </div>
-                <a class="btn btn-primary" href="/admin/login">Admin kirish</a>
-            </div>
-
-            <form class="search-row" method="GET">
-                <input name="q" value="{{ q }}" placeholder="Ism, sinf, yo‘nalish yoki status bo‘yicha qidirish...">
-                <button class="btn btn-primary" type="submit">Qidirish</button>
+        <div class="section">
+            <form method="GET" style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:25px;">
+                <input name="q" value="{{ q }}" placeholder="Ism, sinf yoki yo‘nalish bo‘yicha qidirish...">
+                <button class="btn" type="submit">Qidirish</button>
             </form>
+        </div>
 
-            <div class="portfolio-grid">
-                {% for s in filtered %}
-                <div class="portfolio-card">
-                    <img src="{{ s.image }}" alt="{{ s.name }}">
-                    <div class="card-body">
-                        <h3>{{ s.name }}</h3>
-                        <div class="meta">
-                            <span class="badge badge-blue">{{ s.grade }}</span>
-                            <span class="badge badge-green">{{ s.direction }}</span>
-                            <span class="badge badge-yellow">{{ s.works }} ta ish</span>
-                            <span class="badge badge-purple">{{ s.score }} ball</span>
-                        </div>
-                        <p>{{ s.description }}</p>
-                        <a class="btn btn-secondary" href="/student/{{ s.id }}">Batafsil ko‘rish</a>
-                    </div>
+        <div class="portfolio-grid">
+            {% for s in filtered %}
+            <div class="portfolio-card">
+                <img src="{{ s.image }}">
+                <div class="card-body">
+                    <h3>{{ s.name }}</h3>
+                    <span class="badge">{{ s.grade }}</span>
+                    <span class="badge">{{ s.direction }}</span>
+                    <span class="badge">{{ s.score }} ball</span>
+                    <p>{{ s.description }}</p>
+                    <a class="btn" href="/student/{{ s.id }}">Batafsil</a>
                 </div>
-                {% endfor %}
             </div>
-        </section>
+            {% endfor %}
+        </div>
 
-        <div class="footer">© 2026 MuzeyLab Portfolio.</div>
+        {{ footer|safe }}
     </body>
     </html>
     """
-    return render_template_string(html, css=BASE_CSS, navbar=navbar(), filtered=filtered, q=q)
+    return render_template_string(html, css=CSS, navbar=navbar(), footer=footer(), filtered=filtered, q=q)
 
 
 @app.route("/student/<int:student_id>")
-def student_profile(student_id):
-    student = next((s for s in students if s["id"] == student_id), None)
-
-    if not student:
+def student(student_id):
+    s = next((x for x in students if x["id"] == student_id), None)
+    if not s:
         return redirect(url_for("portfolio"))
 
     html = """
@@ -1012,335 +1072,267 @@ def student_profile(student_id):
     <html lang="uz">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ student.name }}</title>
+        <title>{{ s.name }}</title>
         {{ css|safe }}
     </head>
     <body>
-        <div class="bg"></div>
         {{ navbar|safe }}
-
-        <div class="profile-wrap">
-            <div class="profile-hero">
-                <img src="{{ student.image }}" alt="{{ student.name }}">
-
-                <div class="profile-card">
-                    <div class="badge-soft">🎓 O‘quvchi portfolio profili</div>
-                    <h1>{{ student.name }}</h1>
-
-                    <div class="meta">
-                        <span class="badge badge-blue">{{ student.grade }}</span>
-                        <span class="badge badge-green">{{ student.direction }}</span>
-                        <span class="badge badge-yellow">{{ student.works }} ta ish</span>
-                        <span class="badge badge-purple">{{ student.score }} ball</span>
-                    </div>
-
-                    <p>{{ student.description }}</p>
-
-                    <h2 style="color:#fff; margin-top:22px; margin-bottom:12px;">Portfolio ishlari</h2>
-                    <div class="project-list">
-                        {% for p in student.projects %}
-                        <div class="project-item">📌 {{ p }}</div>
-                        {% endfor %}
-                    </div>
-
-                    <div style="margin-top:24px;">
-                        <a class="btn btn-primary" href="/portfolio">Ortga qaytish</a>
-                    </div>
-                </div>
-            </div>
+        <div class="page-head">
+            <h1>{{ s.name }}</h1>
+            <p>{{ s.direction }}</p>
         </div>
 
-        <div class="footer">© 2026 MuzeyLab Portfolio.</div>
+        <section class="section">
+            <div class="about-grid">
+                <div>
+                    <img src="{{ s.image }}" style="width:100%;border-radius:14px;">
+                </div>
+                <div class="about-text">
+                    <div class="section-label">Shaxsiy portfel</div>
+                    <h2 class="section-title">{{ s.name }}</h2>
+                    <p>{{ s.description }}</p>
+                    <p><b>Sinf:</b> {{ s.grade }}</p>
+                    <p><b>Status:</b> {{ s.status }}</p>
+                    <p><b>Umumiy ball:</b> {{ s.score }}</p>
+                    <h3 style="font-size:25px;margin:20px 0;">Portfolio ishlari</h3>
+                    {% for p in s.projects %}
+                    <p>📌 {{ p }}</p>
+                    {% endfor %}
+                    <a class="btn" href="/portfolio">Ortga</a>
+                </div>
+            </div>
+        </section>
+
+        {{ footer|safe }}
     </body>
     </html>
     """
-    return render_template_string(html, css=BASE_CSS, navbar=navbar(), student=student)
+    return render_template_string(html, css=CSS, navbar=navbar(), footer=footer(), s=s)
+
+
+@app.route("/personal")
+def personal():
+    return simple_page("Shaxsiy ma’lumotlar", "Bu bo‘limda talabaning shaxsiy ma’lumotlari, ta’lim yo‘nalishi va umumiy portfel ma’lumotlari joylashtiriladi.")
+
+
+@app.route("/achievements")
+def achievements():
+    return simple_page("Akademik yutuqlar", "Bu bo‘limda talabaning sertifikatlari, tanlov natijalari, ilmiy va ijodiy yutuqlari jamlanadi.")
+
+
+@app.route("/reflection")
+def reflection():
+    return simple_page("Refleksiya va o‘zini baholash", "Bu bo‘limda talabaning o‘zini baholashi, reflektiv yozuvlari va rivojlanish monitoringi keltiriladi.")
+
+
+@app.route("/about")
+def about():
+    return simple_page("Biz haqimizda", "Elektron portfel platformasi ta’lim jarayonini raqamlashtirish, shaffof baholash va talaba rivojlanishini monitoring qilishga xizmat qiladi.")
+
+
+def simple_page(title, text):
+    html = """
+    <!DOCTYPE html>
+    <html lang="uz">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        {{ css|safe }}
+    </head>
+    <body>
+        {{ navbar|safe }}
+        <div class="page-head">
+            <h1>{{ title }}</h1>
+        </div>
+        <section class="section">
+            <div class="about-text">
+                <div class="section-label">Ma'lumot</div>
+                <h2 class="section-title">{{ title }}</h2>
+                <p>{{ text }}</p>
+                <a class="btn" href="/">Bosh sahifa</a>
+            </div>
+        </section>
+        {{ footer|safe }}
+    </body>
+    </html>
+    """
+    return render_template_string(html, css=CSS, navbar=navbar(), footer=footer(), title=title, text=text)
 
 
 @app.route("/admin/login", methods=["GET", "POST"])
 def admin_login():
     error = None
-
     if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-
-        if username == "admin" and password == "12345":
+        if request.form.get("username") == "admin" and request.form.get("password") == "12345":
             session["admin"] = True
-            return redirect(url_for("admin_dashboard"))
-        else:
-            error = "Login yoki parol noto‘g‘ri. Login: admin, parol: 12345"
+            return redirect(url_for("admin"))
+        error = "Login yoki parol noto‘g‘ri"
 
     html = """
     <!DOCTYPE html>
     <html lang="uz">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Login</title>
+        <title>Admin</title>
         {{ css|safe }}
     </head>
     <body>
-        <div class="bg"></div>
         {{ navbar|safe }}
-
         <div class="login-wrap">
             <form class="login-card" method="POST">
                 <h2>Admin panel</h2>
-                <p>Portfolio ma’lumotlarini boshqarish uchun tizimga kiring.</p>
-
-                {% if error %}
-                <div class="alert alert-danger">{{ error }}</div>
-                {% endif %}
-
+                <p>Platformani boshqarish uchun tizimga kiring.</p>
+                {% if error %}<div class="alert" style="background:#fee2e2;color:#991b1b;">{{ error }}</div>{% endif %}
                 <div class="form-group">
                     <label>Login</label>
-                    <input type="text" name="username" placeholder="admin" required>
+                    <input name="username" placeholder="admin" required>
                 </div>
-
                 <div class="form-group">
                     <label>Parol</label>
-                    <input type="password" name="password" placeholder="12345" required>
+                    <input name="password" type="password" placeholder="12345" required>
                 </div>
-
-                <button class="btn btn-primary" style="width:100%;" type="submit">Kirish</button>
+                <button class="btn" style="width:100%;">Kirish</button>
             </form>
         </div>
     </body>
     </html>
     """
-    return render_template_string(html, css=BASE_CSS, navbar=navbar(), error=error)
+    return render_template_string(html, css=CSS, navbar=navbar(), error=error)
 
 
 @app.route("/admin")
-def admin_dashboard():
+def admin():
     if not session.get("admin"):
         return redirect(url_for("admin_login"))
 
-    q = request.args.get("q", "").lower().strip()
-
-    if q:
-        filtered = [
-            s for s in students
-            if q in s["name"].lower()
-            or q in s["grade"].lower()
-            or q in s["direction"].lower()
-            or q in s["status"].lower()
-        ]
-    else:
-        filtered = students
-
     total_students = len(students)
     total_works = sum(s["works"] for s in students)
-    active_students = len([s for s in students if s["status"] == "Faol"])
-    avg_score = round(sum(s["score"] for s in students) / len(students)) if students else 0
+    active = len([s for s in students if s["status"] == "Faol"])
+    avg = round(sum(s["score"] for s in students) / len(students)) if students else 0
 
     html = """
     <!DOCTYPE html>
     <html lang="uz">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Dashboard</title>
+        <title>Admin panel</title>
         {{ css|safe }}
     </head>
     <body>
-        <div class="bg"></div>
         {{ navbar|safe }}
 
-        <div class="dashboard">
-            <aside class="sidebar">
-                <h2>Admin boshqaruvi</h2>
-                <a class="active" href="/admin">📊 Dashboard</a>
-                <a href="/portfolio">🎓 Portfoliolar</a>
-                <a href="#add-student">➕ O‘quvchi qo‘shish</a>
-                <a href="#students-list">👥 Ro‘yxat</a>
-                <a href="/">🌐 Sayt bosh sahifasi</a>
-                <a href="/admin/logout">🚪 Chiqish</a>
-            </aside>
+        <div class="page-head">
+            <h1>Admin panel</h1>
+            <p>Elektron portfel platformasini boshqarish</p>
+        </div>
 
-            <main class="content">
-                <div class="content-head">
-                    <div>
-                        <h1>Admin Dashboard</h1>
-                        <p>O‘quvchilar portfolio tizimini boshqarish oynasi.</p>
-                    </div>
-                    <a class="btn btn-primary" href="/portfolio">Saytni ko‘rish</a>
+        <div class="admin-wrap">
+            {% if request.args.get('success') %}
+            <div class="alert">Yangi o‘quvchi qo‘shildi.</div>
+            {% endif %}
+            {% if request.args.get('deleted') %}
+            <div class="alert">O‘quvchi o‘chirildi.</div>
+            {% endif %}
+
+            <div class="admin-stats">
+                <div class="stat"><h3>Jami talabalar</h3><strong>{{ total_students }}</strong></div>
+                <div class="stat"><h3>Jami ishlar</h3><strong>{{ total_works }}</strong></div>
+                <div class="stat"><h3>Faol portfellar</h3><strong>{{ active }}</strong></div>
+                <div class="stat"><h3>O‘rtacha ball</h3><strong>{{ avg }}</strong></div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-panel">
+                    <h2 style="margin-bottom:18px;">Talabalar ro‘yxati</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ism</th>
+                                <th>Sinf</th>
+                                <th>Yo‘nalish</th>
+                                <th>Ball</th>
+                                <th>Amal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for s in students %}
+                            <tr>
+                                <td>{{ s.name }}</td>
+                                <td>{{ s.grade }}</td>
+                                <td>{{ s.direction }}</td>
+                                <td>{{ s.score }}</td>
+                                <td>
+                                    <a class="btn" href="/student/{{ s.id }}">Ko‘rish</a>
+                                    <form method="POST" action="/admin/delete/{{ s.id }}" style="display:inline;">
+                                        <button class="btn" style="background:#ef4444;">O‘chirish</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
 
-                {% if request.args.get('success') %}
-                <div class="alert alert-success">Yangi o‘quvchi muvaffaqiyatli qo‘shildi.</div>
-                {% endif %}
-
-                {% if request.args.get('deleted') %}
-                <div class="alert alert-success">O‘quvchi ro‘yxatdan o‘chirildi.</div>
-                {% endif %}
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <h3>Jami o‘quvchilar</h3>
-                        <div class="number">{{ total_students }}</div>
-                        <span>portfolio tizimida</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">📚</div>
-                        <h3>Jami ishlar</h3>
-                        <div class="number">{{ total_works }}</div>
-                        <span>loyiha va ijodiy ishlar</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">✅</div>
-                        <h3>Faol portfoliolar</h3>
-                        <div class="number">{{ active_students }}</div>
-                        <span>faol kuzatuvda</span>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⭐</div>
-                        <h3>O‘rtacha ball</h3>
-                        <div class="number">{{ avg_score }}</div>
-                        <span>umumiy natija</span>
-                    </div>
-                </div>
-
-                <div class="panel" id="students-list">
-                    <h2>O‘quvchilar ro‘yxati</h2>
-
-                    <form class="search-row" method="GET" action="/admin">
-                        <input name="q" value="{{ q }}" placeholder="Ism, sinf, yo‘nalish yoki status bo‘yicha qidirish...">
-                        <button class="btn btn-primary" type="submit">Qidirish</button>
+                <div class="admin-panel">
+                    <h2 style="margin-bottom:18px;">Yangi talaba qo‘shish</h2>
+                    <form method="POST" action="/admin/add">
+                        <div class="form-group">
+                            <label>Ism-familiya</label>
+                            <input name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sinf yoki guruh</label>
+                            <input name="grade" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Yo‘nalish</label>
+                            <select name="direction">
+                                <option>Shaxsiy ma’lumotlar</option>
+                                <option>Pedagogik portfel</option>
+                                <option>Akademik yutuqlar</option>
+                                <option>Refleksiya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ishlar soni</label>
+                            <input name="works" type="number" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Ball</label>
+                            <input name="score" type="number" value="80">
+                        </div>
+                        <div class="form-group">
+                            <label>Rasm URL</label>
+                            <input name="image">
+                        </div>
+                        <div class="form-group">
+                            <label>Tavsif</label>
+                            <textarea name="description"></textarea>
+                        </div>
+                        <button class="btn" style="width:100%;">Saqlash</button>
                     </form>
-
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Ism-familiya</th>
-                                    <th>Sinf</th>
-                                    <th>Yo‘nalish</th>
-                                    <th>Ishlar</th>
-                                    <th>Ball</th>
-                                    <th>Status</th>
-                                    <th>Amal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for s in filtered %}
-                                <tr>
-                                    <td>{{ s.name }}</td>
-                                    <td>{{ s.grade }}</td>
-                                    <td>{{ s.direction }}</td>
-                                    <td>{{ s.works }}</td>
-                                    <td>{{ s.score }}</td>
-                                    <td>
-                                        {% if s.status == "Faol" %}
-                                        <span class="badge badge-green">{{ s.status }}</span>
-                                        {% else %}
-                                        <span class="badge badge-yellow">{{ s.status }}</span>
-                                        {% endif %}
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-secondary" href="/student/{{ s.id }}">Ko‘rish</a>
-                                        <form style="display:inline;" method="POST" action="/admin/delete/{{ s.id }}">
-                                            <button class="btn btn-danger" type="submit">O‘chirish</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
+            </div>
 
-                <div class="admin-grid" id="add-student">
-                    <div class="panel">
-                        <h2>Yangi o‘quvchi qo‘shish</h2>
-                        <form method="POST" action="/admin/add">
-                            <div class="form-group">
-                                <label>Ism-familiya</label>
-                                <input name="name" placeholder="Masalan: Ahmedov Sarvar" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Sinf</label>
-                                <input name="grade" placeholder="Masalan: 8-sinf" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Yo‘nalish</label>
-                                <select name="direction">
-                                    <option>Tarix va muzeyshunoslik</option>
-                                    <option>Madaniy meros</option>
-                                    <option>Ilmiy loyiha</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Ishlar soni</label>
-                                <input name="works" type="number" min="0" value="0">
-                            </div>
-                            <div class="form-group">
-                                <label>Ball</label>
-                                <input name="score" type="number" min="0" max="100" value="80">
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <select name="status">
-                                    <option>Faol</option>
-                                    <option>Ko‘rib chiqilmoqda</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Rasm URL</label>
-                                <input name="image" placeholder="Rasm linki. Bo‘sh qolsa standart rasm chiqadi.">
-                            </div>
-                            <div class="form-group">
-                                <label>Qisqacha tavsif</label>
-                                <textarea name="description" placeholder="O‘quvchi portfolioga oid qisqacha tavsif..."></textarea>
-                            </div>
-                            <button class="btn btn-primary" style="width:100%;" type="submit">Saqlash</button>
-                        </form>
-                    </div>
-
-                    <div class="panel">
-                        <h2>Admin eslatma</h2>
-                        <p style="color:#cbd5e1; line-height:1.8;">
-                            Ushbu admin panel orqali o‘quvchi qo‘shish, ro‘yxatni ko‘rish,
-                            qidirish va portfolio sahifalariga o‘tish mumkin. Oddiy foydalanuvchilar
-                            faqat public portfolio sahifalarini ko‘radi.
-                        </p>
-                        <br>
-                        <a class="btn btn-secondary" href="/portfolio">Public portfolio sahifasini ochish</a>
-                    </div>
-                </div>
-            </main>
+            <br>
+            <a class="btn" href="/admin/logout">Chiqish</a>
         </div>
     </body>
     </html>
     """
-
-    return render_template_string(
-        html,
-        css=BASE_CSS,
-        navbar=navbar(),
-        students=students,
-        filtered=filtered,
-        total_students=total_students,
-        total_works=total_works,
-        active_students=active_students,
-        avg_score=avg_score,
-        q=q,
-        request=request
-    )
+    return render_template_string(html, css=CSS, navbar=navbar(), students=students,
+                                  total_students=total_students, total_works=total_works,
+                                  active=active, avg=avg, request=request)
 
 
 @app.route("/admin/add", methods=["POST"])
-def add_student():
+def admin_add():
     if not session.get("admin"):
         return redirect(url_for("admin_login"))
 
     name = request.form.get("name")
     grade = request.form.get("grade")
     direction = request.form.get("direction")
-    status = request.form.get("status")
     works = request.form.get("works")
     score = request.form.get("score")
     image = request.form.get("image")
@@ -1350,7 +1342,7 @@ def add_student():
         image = "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80"
 
     if not description:
-        description = f"{name}ning yillik o‘quv faoliyati, loyiha ishlari va portfolio natijalari ushbu sahifada jamlanadi."
+        description = f"{name}ning elektron portfel materiallari ushbu sahifada jamlanadi."
 
     try:
         works = int(works)
@@ -1369,30 +1361,25 @@ def add_student():
         "name": name,
         "grade": grade,
         "direction": direction,
-        "status": status,
+        "status": "Faol",
         "works": works,
         "score": score,
         "image": image,
         "description": description,
-        "projects": [
-            "Yillik portfolio materiali",
-            "Ijodiy yoki tadqiqot ishi",
-            "O‘quv natijalari jamlanmasi"
-        ]
+        "projects": ["Raqamli artefakt", "Refleksiya", "Akademik natija"]
     })
 
-    return redirect(url_for("admin_dashboard", success=1))
+    return redirect(url_for("admin", success=1))
 
 
 @app.route("/admin/delete/<int:student_id>", methods=["POST"])
-def delete_student(student_id):
+def admin_delete(student_id):
     if not session.get("admin"):
         return redirect(url_for("admin_login"))
 
     global students
     students = [s for s in students if s["id"] != student_id]
-
-    return redirect(url_for("admin_dashboard", deleted=1))
+    return redirect(url_for("admin", deleted=1))
 
 
 @app.route("/admin/logout")
