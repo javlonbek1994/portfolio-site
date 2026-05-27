@@ -516,3 +516,100 @@ textarea {
     letter-spacing: -2px;
     color: white;
 }
+.hero-title{
+    font-size: 90px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -2px;
+    color: white;
+}
+
+/* HERO */
+
+.hero{
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero p{
+    max-width: 700px;
+    margin: 25px auto;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+/* BUTTON */
+
+.btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+}
+
+/* SECTION TITLE */
+
+.section-title{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+/* PORTFOLIO SECTION */
+
+.portfolio-section{
+    padding: 80px 40px;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    padding: 80px 20px;
+}
+
+.contact-info{
+    width: 75%;
+    margin: auto;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.contact-info h3{
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.contact-info p{
+    font-size: 18px;
+    margin: 15px 0;
+    color: #e2e8f0;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+    font-size: 15px;
+}
