@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for, session
 app = Flask(__name__)
 app.secret_key = "muzeylab_super_secret_key"
 
-
 students = [
     {
         "id": 1,
@@ -78,30 +77,38 @@ def student(student_id):
 
 @app.route("/personal")
 def personal():
-    title = "Shaxsiy ma’lumotlar"
-    text = "Bu bo‘limda talabaning shaxsiy ma’lumotlari, ta’lim yo‘nalishi va umumiy portfel ma’lumotlari joylashtiriladi."
-    return render_template("simple.html", title=title, text=text)
+    return render_template(
+        "simple.html",
+        title="Shaxsiy ma’lumotlar",
+        text="Bu bo‘limda talabaning shaxsiy ma’lumotlari, ta’lim yo‘nalishi va umumiy portfel ma’lumotlari joylashtiriladi."
+    )
 
 
 @app.route("/achievements")
 def achievements():
-    title = "Akademik yutuqlar"
-    text = "Bu bo‘limda talabaning sertifikatlari, tanlov natijalari, ilmiy va ijodiy yutuqlari jamlanadi."
-    return render_template("simple.html", title=title, text=text)
+    return render_template(
+        "simple.html",
+        title="Akademik yutuqlar",
+        text="Bu bo‘limda talabaning sertifikatlari, tanlov natijalari, ilmiy va ijodiy yutuqlari jamlanadi."
+    )
 
 
 @app.route("/reflection")
 def reflection():
-    title = "Refleksiya va o‘zini baholash"
-    text = "Bu bo‘limda talabaning o‘zini baholashi, reflektiv yozuvlari va rivojlanish monitoringi keltiriladi."
-    return render_template("simple.html", title=title, text=text)
+    return render_template(
+        "simple.html",
+        title="Refleksiya va o‘zini baholash",
+        text="Bu bo‘limda talabaning o‘zini baholashi, reflektiv yozuvlari va rivojlanish monitoringi keltiriladi."
+    )
 
 
 @app.route("/about")
 def about():
-    title = "Biz haqimizda"
-    text = "Elektron portfel platformasi ta’lim jarayonini raqamlashtirish, shaffof baholash va talaba rivojlanishini monitoring qilishga xizmat qiladi."
-    return render_template("simple.html", title=title, text=text)
+    return render_template(
+        "simple.html",
+        title="Biz haqimizda",
+        text="Muzey Lab platformasi muzey pedagogikasi, raqamli portfolio va tarixiy tafakkurni rivojlantirishga xizmat qiladi."
+    )
 
 
 @app.route("/admin/login", methods=["GET", "POST"])
@@ -142,13 +149,13 @@ def admin_add():
     if not session.get("admin"):
         return redirect(url_for("admin_login"))
 
-    name = request.form.get("name")
-    grade = request.form.get("grade")
-    direction = request.form.get("direction")
-    works = request.form.get("works")
-    score = request.form.get("score")
-    image = request.form.get("image")
-    description = request.form.get("description")
+    name = request.form.get("name", "").strip()
+    grade = request.form.get("grade", "").strip()
+    direction = request.form.get("direction", "").strip()
+    works = request.form.get("works", "0")
+    score = request.form.get("score", "80")
+    image = request.form.get("image", "").strip()
+    description = request.form.get("description", "").strip()
 
     if not image:
         image = "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80"
@@ -158,12 +165,12 @@ def admin_add():
 
     try:
         works = int(works)
-    except:
+    except ValueError:
         works = 0
 
     try:
         score = int(score)
-    except:
+    except ValueError:
         score = 80
 
     new_id = max([s["id"] for s in students]) + 1 if students else 1
@@ -204,4 +211,4 @@ def admin_logout():
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)
