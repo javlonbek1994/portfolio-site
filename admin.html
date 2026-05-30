@@ -1,149 +1,103 @@
-<!DOCTYPE html>
-<html lang="uz">
+{% extends "base.html" %}
 
-<head>
+{% block title %}Admin panel{% endblock %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Muzey Lab Admin</title>
-
-</head>
-
-<body>
-
-<div class="bg-animation"></div>
-
-<!-- SIDEBAR -->
-
-<div class="sidebar">
-
-<h2>Muzey Lab</h2>
-
-<a href="#">📊 Dashboard</a>
-<a href="#">🎓 Talabalar</a>
-<a href="#">📁 Portfolio</a>
-<a href="#">📜 Sertifikatlar</a>
-<a href="#">📈 Statistika</a>
-<a href="/login">🚪 Logout</a>
-
+{% block content %}
+<div class="page-head">
+    <h1>Admin panel</h1>
+    <p>Muzey Lab platformasini boshqarish</p>
 </div>
 
-<!-- MAIN CONTENT -->
+<div class="admin-wrap">
+    <div class="admin-stats">
+        <div class="stat"><h3>Jami talabalar</h3><strong>{{ total_students }}</strong></div>
+        <div class="stat"><h3>Jami ishlar</h3><strong>{{ total_works }}</strong></div>
+        <div class="stat"><h3>Faol portfellar</h3><strong>{{ active }}</strong></div>
+        <div class="stat"><h3>O‘rtacha ball</h3><strong>{{ avg }}</strong></div>
+    </div>
 
-<div class="main-content">
+    <div class="admin-grid">
+        <div class="admin-panel">
+            <h2>Talabalar ro‘yxati</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ism</th>
+                            <th>Sinf</th>
+                            <th>Yo‘nalish</th>
+                            <th>Ball</th>
+                            <th>Amal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in students %}
+                        <tr>
+                            <td>{{ s.name }}</td>
+                            <td>{{ s.grade }}</td>
+                            <td>{{ s.direction }}</td>
+                            <td>{{ s.score }}</td>
+                            <td>
+                                <a class="btn small-btn" href="/student/{{ s.id }}">Ko‘rish</a>
+                                <form method="POST" action="/admin/delete/{{ s.id }}" class="inline-form">
+                                    <button class="btn danger-btn">O‘chirish</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-<!-- TOPBAR -->
+        <div class="admin-panel">
+            <h2>Yangi talaba qo‘shish</h2>
+            <form method="POST" action="/admin/add">
+                <div class="form-group">
+                    <label>Ism-familiya</label>
+                    <input name="name" required>
+                </div>
 
-<div class="topbar">
+                <div class="form-group">
+                    <label>Sinf yoki guruh</label>
+                    <input name="grade" required>
+                </div>
 
-<h1>Admin Dashboard</h1>
+                <div class="form-group">
+                    <label>Yo‘nalish</label>
+                    <select name="direction">
+                        <option>Shaxsiy ma’lumotlar</option>
+                        <option>Pedagogik portfel</option>
+                        <option>Akademik yutuqlar</option>
+                        <option>Refleksiya</option>
+                    </select>
+                </div>
 
-<div class="admin-box">
-Admin Panel
+                <div class="form-group">
+                    <label>Ishlar soni</label>
+                    <input name="works" type="number" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Ball</label>
+                    <input name="score" type="number" value="80">
+                </div>
+
+                <div class="form-group">
+                    <label>Rasm URL</label>
+                    <input name="image">
+                </div>
+
+                <div class="form-group">
+                    <label>Tavsif</label>
+                    <textarea name="description"></textarea>
+                </div>
+
+                <button class="btn full-btn">Saqlash</button>
+            </form>
+        </div>
+    </div>
+
+    <a class="btn logout-btn" href="/admin/logout">Chiqish</a>
 </div>
-
-</div>
-
-<!-- STATS -->
-
-<div class="stats-grid">
-
-<div class="stat-card">
-<h2>120+</h2>
-<p>Talabalar</p>
-</div>
-
-<div class="stat-card">
-<h2>340+</h2>
-<p>Portfolio</p>
-</div>
-
-<div class="stat-card">
-<h2>25+</h2>
-<p>Mentorlar</p>
-</div>
-
-<div class="stat-card">
-<h2>15+</h2>
-<p>Administratorlar</p>
-</div>
-
-</div>
-
-<!-- STUDENT FORM -->
-
-<div class="dashboard-box">
-
-<h2>Talaba qo‘shish</h2>
-
-<form class="student-form">
-
-<input type="text" placeholder="Talaba ismi">
-
-<input type="text" placeholder="Fakultet">
-
-<input type="text" placeholder="Kurs">
-
-<button type="submit">
-Talaba qo‘shish
-</button>
-
-</form>
-
-</div>
-
-<!-- STUDENTS -->
-
-<div class="dashboard-box">
-
-<h2>Top Talabalar</h2>
-
-<div class="portfolio-grid">
-
-<div class="portfolio-card">
-
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
-
-<h3>Javlonbek</h3>
-
-<p>Tarix fakulteti • 3-kurs</p>
-
-</div>
-
-<div class="portfolio-card">
-
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
-
-<h3>Madina</h3>
-
-<p>Pedagogika • 2-kurs</p>
-
-</div>
-
-<div class="portfolio-card">
-
-<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d">
-
-<h3>Azizbek</h3>
-
-<p>IT fakulteti • 4-kurs</p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-© 2026 Muzey Lab Professional Dashboard
-</div>
-
-</div>
-
-</body>
-</html>
+{% endblock %}
