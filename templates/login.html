@@ -1,44 +1,28 @@
-<!DOCTYPE html>
-<html lang="uz">
+{% extends "base.html" %}
 
-<head>
+{% block title %}Admin login{% endblock %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% block content %}
+<div class="login-wrap">
+    <form class="login-card" method="POST">
+        <h2>Admin panel</h2>
+        <p>Platformani boshqarish uchun tizimga kiring.</p>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
 
-<title>Login - Muzey Lab</title>
+        <div class="form-group">
+            <label>Login</label>
+            <input name="username" placeholder="admin" required>
+        </div>
 
-</head>
+        <div class="form-group">
+            <label>Parol</label>
+            <input name="password" type="password" placeholder="12345" required>
+        </div>
 
-<body>
-
-<div class="bg-animation"></div>
-
-<section class="hero">
-
-<div class="portfolio-card" style="max-width:500px;width:100%;padding:40px;">
-
-<h1 style="font-size:60px;margin-bottom:30px;text-align:center;">
-Login
-</h1>
-
-<form action="/admin" method="GET" class="student-form">
-
-<input type="text" placeholder="Login">
-
-<input type="password" placeholder="Parol">
-
-<button type="submit">
-Kirish
-</button>
-
-</form>
-
+        <button class="btn full-btn">Kirish</button>
+    </form>
 </div>
-
-</section>
-
-</body>
-</html>
+{% endblock %}
