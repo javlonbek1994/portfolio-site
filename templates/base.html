@@ -1,18 +1,129 @@
-
 <!DOCTYPE html>
+
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Muzey Lab{% endblock %}</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
 </head>
 <body>
 
 {% block content %}
 {% endblock %}
+
+<section class="social">
+    <h2>Bizni kuzating</h2>
+
+```
+<div class="social-grid">
+
+    <a class="social-card" href="#">
+        <span class="youtube-icon">▶</span>
+        <b>YouTube</b>
+    </a>
+
+    <a class="social-card" href="#">
+        <span class="telegram-icon">✈</span>
+        <b>Telegram</b>
+    </a>
+
+    <a class="social-card" href="#">
+        <span class="instagram-icon">◎</span>
+        <b>Instagram</b>
+    </a>
+
+    <a class="social-card" href="#">
+        <span class="facebook-icon">f</span>
+        <b>Facebook</b>
+    </a>
+
+</div>
+```
+
+</section>
+
+<footer class="footer">
+
+```
+<div class="footer-inner">
+
+    <div class="footer-about">
+
+        <div class="e-logo">
+            <div class="e-letter">e</div>
+            <div class="e-text">portfel</div>
+        </div>
+
+        <div>
+
+            <p>
+                “Elektron portfel” platformasida e’lon qilingan
+                materiallardan nusxa ko‘chirish, tarqatish va
+                boshqa shakllarda foydalanish faqat tahririyat
+                yozma roziligi bilan amalga oshirilishi mumkin.
+            </p>
+
+            <div class="store-row">
+
+                <a href="#">
+                    Google Play
+                </a>
+
+                <a href="#">
+                    App Store
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-menu">
+
+        <h3>Menyu</h3>
+
+        <a href="/personal">Shaxsiy ma’lumotlar</a>
+        <a href="/portfolio">Pedagogik portfel</a>
+        <a href="/achievements">Akademik yutuqlar</a>
+        <a href="/reflection">Refleksiya</a>
+
+    </div>
+
+    <div class="footer-contact">
+
+        <h3>Aloqa uchun</h3>
+
+        <p>☎ +998 93 269 15 67</p>
+        <p>✉ javlonbek932691567@gmail.com</p>
+        <p>🌐 muzey-lab.uz</p>
+
+        <p>
+            📍 Namangan viloyati,
+            Uchqo‘rg‘on tumani
+        </p>
+
+    </div>
+
+    <div class="footer-map">
+
+        <iframe
+            src="https://maps.google.com/maps?q=Namangan&t=&z=12&ie=UTF8&iwloc=&output=embed"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</div>
+```
+
+</footer>
 
 </body>
 </html>
