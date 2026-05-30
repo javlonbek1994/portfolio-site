@@ -1,131 +1,156 @@
 {% extends "base.html" %}
 
-{% block title %}Muzey Lab{% endblock %}
+{% block title %}Virtual Museum Pedagogy Lab{% endblock %}
 
 {% block content %}
 
 <section class="hero">
-    <div class="hero-content">
-        <span class="badge">Virtual Museum Pedagogy Lab</span>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Virtual Museum Pedagogy Lab</h1>
+            <p>
+                Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini muzey pedagogikasi,
+                virtual eksponatlar va raqamli ta’lim texnologiyalari orqali rivojlantirish platformasi.
+            </p>
+            <a href="/portfolio" class="hero-btn">Boshlash</a>
+        </div>
+    </div>
+</section>
 
-        <h1>Bo‘lajak tarix o‘qituvchilari uchun raqamli platforma</h1>
+<section class="info-box">
+    <div class="info-title">
+        <h2>Shaxsiy raqamli o‘quv portfeli</h2>
+    </div>
 
+    <div class="info-items">
+        <div class="info-item">
+            <div class="info-icon">🏛️</div>
+            <p>Virtual<br>muzey</p>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">📜</div>
+            <p>Tarixiy<br>manbalar</p>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">🧠</div>
+            <p>Tarixiy<br>tafakkur</p>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-text">
+        <span class="small-title">Ma’lumot</span>
+        <h2>Platforma haqida</h2>
         <p>
-            Muzey pedagogikasi, virtual eksponatlar va tarixiy manbalar asosida
-            bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirishga
-            qaratilgan innovatsion ta’lim muhiti.
+            Virtual Museum Pedagogy Lab — bo‘lajak tarix o‘qituvchilarining tarixiy tafakkuri,
+            manbashunoslik ko‘nikmalari va muzey pedagogik kompetensiyalarini rivojlantirishga
+            qaratilgan raqamli ta’lim platformasidir. Platforma orqali talabalar virtual eksponatlar
+            bilan ishlaydi, tarixiy manbalarni tahlil qiladi, mustaqil xulosalar chiqaradi va
+            o‘z o‘quv portfelini shakllantiradi.
         </p>
-
-        <div class="hero-buttons">
-            <a href="/portfolio" class="btn">Portfolio ko‘rish</a>
-            <a href="/about" class="btn btn-outline">Batafsil ma’lumot</a>
-        </div>
+        <a href="/about" class="more-btn">Ko‘proq</a>
     </div>
 
-    <div class="hero-card">
-        <h2>Virtual muzey laboratoriyasi</h2>
+    <div class="about-card">
+        <div class="circle">👩‍🏫</div>
+        <div class="about-line"></div>
+        <div class="about-line short"></div>
+        <div class="mini-icons">
+            <span>🏅</span>
+            <span>📘</span>
+            <span>🏆</span>
+        </div>
+        <div class="doc-row">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</section>
 
-        <div class="mini-card cyan">
-            <div class="icon">🏛️</div>
+<section class="mission-section">
+    <div class="mission-card">
+        <h2>Platformaning maqsadi</h2>
+        <p>
+            Talabalarning tarixiy tafakkuri, dalillar bilan ishlash, tahlil qilish va
+            tarixiy jarayonlarni mustaqil talqin etish ko‘nikmalarini rivojlantirish.
+        </p>
+        <a href="/portfolio">Ko‘proq</a>
+    </div>
+
+    <div class="mission-card darker">
+        <h2>Platformaning vazifasi</h2>
+        <p>
+            Virtual muzey materiallari, tarixiy manbalar, loyiha ishlari va refleksiya
+            topshiriqlarini yagona raqamli muhitda jamlash.
+        </p>
+        <a href="/portfolio">Ko‘proq</a>
+    </div>
+</section>
+
+<section class="advantages">
+    <div class="advantages-left"></div>
+
+    <div class="advantages-right">
+        <h2>Afzalliklari</h2>
+
+        <div class="adv-item">
+            <span>🔎</span>
             <div>
-                <h3>Virtual eksponatlar</h3>
-                <p>Tarixiy obyektlarni raqamli muhitda o‘rganish</p>
+                <h3>Dalillilik</h3>
+                <p>Tarixiy manbalar va eksponatlar asosida ishonchli tahlil shakllanadi.</p>
             </div>
         </div>
 
-        <div class="mini-card purple">
-            <div class="icon">📜</div>
+        <div class="adv-item">
+            <span>📈</span>
             <div>
-                <h3>Tarixiy manbalar</h3>
-                <p>Manbalarni tahlil qilish va talqin etish</p>
+                <h3>Rivojlanish monitoringi</h3>
+                <p>Talabalarning yutuqlari va rivojlanish dinamikasi kuzatib boriladi.</p>
             </div>
         </div>
 
-        <div class="mini-card blue">
-            <div class="icon">🧠</div>
+        <div class="adv-item">
+            <span>💬</span>
             <div>
-                <h3>Tarixiy tafakkur</h3>
-                <p>Kuzatish, tahlil, xulosa va yaratish bosqichlari</p>
+                <h3>Refleksiya</h3>
+                <p>O‘z-o‘zini baholash va kasbiy rivojlanish ko‘nikmalari shakllanadi.</p>
+            </div>
+        </div>
+
+        <div class="adv-item">
+            <span>💻</span>
+            <div>
+                <h3>Raqamli savodxonlik</h3>
+                <p>Talabalar zamonaviy texnologiyalar bilan ishlashni o‘rganadi.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <h2 class="section-title">Platformaning asosiy yo‘nalishlari</h2>
+<section class="partners-section">
+    <span class="small-title">Hamkorlar</span>
+    <h2>Hamkor tashkilotlar</h2>
 
-    <div class="cards">
-        <div class="card">
-            <h3>🎯 Maqsad</h3>
-            <p>
-                Bo‘lajak tarix o‘qituvchilarida tarixiy tafakkur,
-                manbashunoslik ko‘nikmalari va muzey pedagogik kompetensiyalarini rivojlantirish.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📚 Mazmun</h3>
-            <p>
-                Tarixiy manbalar, virtual muzey eksponatlari, interaktiv topshiriqlar
-                va ijodiy loyiha ishlari.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>⚙️ Jarayon</h3>
-            <p>
-                Kuzatish → tahlil qilish → talqin etish → xulosa chiqarish →
-                raqamli mahsulot yaratish.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📈 Natija</h3>
-            <p>
-                Talabalarda mustaqil fikrlash, tarixiy dalillar bilan ishlash
-                va ijodiy yondashuv shakllanadi.
-            </p>
-        </div>
+    <div class="partners">
+        <img src="{{ url_for('static', filename='images/partner1.jpg') }}" alt="Hamkor">
+        <img src="{{ url_for('static', filename='images/partner2.jpg') }}" alt="Hamkor">
+        <img src="{{ url_for('static', filename='images/partner3.jpg') }}" alt="Hamkor">
+        <img src="{{ url_for('static', filename='images/partner4.jpg') }}" alt="Hamkor">
     </div>
 </section>
 
-<section class="steps-section">
-    <h2 class="section-title">O‘quv jarayoni modeli</h2>
+<section class="follow-section">
+    <h2>Bizni kuzating</h2>
 
-    <div class="steps">
-        <div class="step">
-            <span>01</span>
-            <h3>Kuzatish</h3>
-            <p>Virtual eksponat va tarixiy manba bilan tanishish.</p>
-        </div>
-
-        <div class="step">
-            <span>02</span>
-            <h3>Tahlil</h3>
-            <p>Manba mazmuni, davri, muallifi va tarixiy ahamiyatini aniqlash.</p>
-        </div>
-
-        <div class="step">
-            <span>03</span>
-            <h3>Talqin</h3>
-            <p>Tarixiy voqea va jarayonlarga mustaqil munosabat bildirish.</p>
-        </div>
-
-        <div class="step">
-            <span>04</span>
-            <h3>Yaratish</h3>
-            <p>Portfolio, loyiha, taqdimot yoki virtual ekspozitsiya yaratish.</p>
-        </div>
+    <div class="socials">
+        <a href="#">▶️ YouTube</a>
+        <a href="#">✈️ Telegram</a>
+        <a href="#">📷 Instagram</a>
+        <a href="#">📘 Facebook</a>
     </div>
-</section>
-
-<section class="cta">
-    <h2>Raqamli tarix ta’limini birgalikda rivojlantiramiz</h2>
-    <p>
-        Muzey pedagogikasi asosida talabalarning tarixiy tafakkurini shakllantirish
-        uchun zamonaviy, qulay va interaktiv platforma.
-    </p>
-    <a href="/portfolio" class="btn">Boshlash</a>
 </section>
 
 {% endblock %}
