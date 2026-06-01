@@ -1,96 +1,47 @@
-{% extends "base.html" %}
+<div class="about-profile-card">
 
-{% block title %}Biz haqimizda{% endblock %}
+```
+<!-- Ilmiy rahbar -->
 
-{% block content %}
+<div class="profile-person">
 
-<section class="about-banner">
+    <img src="{{ url_for('static', filename='images/supervisor.jpg') }}" alt="Ilmiy rahbar">
 
-    <div class="about-overlay">
-        <h1>Biz haqimizda</h1>
-        <p>Virtual Museum Pedagogy Lab</p>
-    </div>
+    <div>
 
-</section>
-
-<section class="about-page">
-
-    <section class="about-card">
-
-        <h2>Platforma haqida</h2>
+        <h3>👨‍🏫 Ilmiy rahbar</h3>
 
         <p>
-            Virtual Museum Pedagogy Lab bo‘lajak tarix o‘qituvchilarining
-            tarixiy tafakkurini rivojlantirish, muzey pedagogikasi
-            imkoniyatlaridan samarali foydalanish hamda raqamli ta’lim
-            texnologiyalarini integratsiya qilishga qaratilgan innovatsion
-            ta’lim platformasidir.
+            Pedagogika fanlari doktori, professor.
         </p>
 
-    </section>
-
-    <div class="about-grid">
-
-        <div class="about-info-card">
-            <h2>🎯 Maqsadimiz</h2>
-
-            <p>
-                Talabalarning tarixiy tafakkuri, manbashunoslik ko‘nikmalari,
-                tanqidiy fikrlashi va kasbiy kompetensiyalarini rivojlantirish.
-            </p>
-        </div>
-
-        <div class="about-info-card">
-            <h2>📌 Vazifalarimiz</h2>
-
-            <ul>
-                <li>Virtual eksponatlar bilan ishlash</li>
-                <li>Tarixiy manbalarni tahlil qilish</li>
-                <li>Talabalar portfelini yuritish</li>
-                <li>Muzey pedagogikasi metodlarini joriy etish</li>
-                <li>Raqamli ta’lim texnologiyalaridan foydalanish</li>
-            </ul>
-        </div>
+        <p>📧 E-mail</p>
+        <p>📍 Toshkent shahri</p>
 
     </div>
 
-    <!-- Ilmiy rahbar -->
+</div>
 
-    <div class="author-card">
+<!-- Muallif -->
 
-        <img src="{{ url_for('static', filename='images/supervisor.jpg') }}" alt="Ilmiy rahbar">
+<div class="profile-person">
 
-        <div>
-            <h3>👨‍🏫 Ilmiy rahbar</h3>
+    <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Muallif">
 
-            <p>
-                Dissertatsiya va ilmiy faoliyat bo‘yicha ilmiy maslahatchi.
-            </p>
-        </div>
+    <div>
 
-    </div>
+        <h3>Niyozov Javlonbek Jaxongir o‘g‘li</h3>
 
-    <!-- Loyiha muallifi -->
+        <p>
+            Toshkent Kimyo Xalqaro Universiteti Namangan filiali
+            katta o‘qituvchisi.
+        </p>
 
-    <div class="author-card">
-
-        <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Muallif">
-
-        <div>
-
-            <h3>Niyozov Javlonbek Jaxongir o‘g‘li</h3>
-
-            <p>
-                Toshkent Kimyo Xalqaro Universiteti Namangan filiali
-                katta o‘qituvchisi.
-            </p>
-
-            <p>📧 j.niyozov@kiut.uz</p>
-
-        </div>
+        <p>📧 j.niyozov@kiut.uz</p>
 
     </div>
 
-</section>
+</div>
+```
 
-{% endblock %}
+</div>
