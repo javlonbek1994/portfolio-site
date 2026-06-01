@@ -1,30 +1,74 @@
 from flask import Flask, render_template, request, redirect, session
+import sqlite3
+import os
 
 app = Flask(__name__)
 app.secret_key = "muzeylab_secret_key"
 
-students = [
-    {
-        "id": 1,
-        "name": "Aliyev Muhammad",
-        "grade": "Tarix yo‘nalishi",
-        "direction": "Pedagogik portfel",
-        "works": 12,
-        "score": 90,
-        "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
-        "description": "Tarixiy tafakkur va muzey pedagogikasi bo‘yicha faol talaba."
-    },
-    {
-        "id": 2,
-        "name": "Karimova Madina",
-        "grade": "Tarix yo‘nalishi",
-        "direction": "Akademik yutuqlar",
-        "works": 9,
-        "score": 86,
-        "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
-        "description": "Madaniy meros va tarixiy manbalar bilan ishlash bo‘yicha portfolio yuritadi."
-    }
-]
+DB_NAME = "database.db"
+
+
+def get_db():
+    conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_db():
+    conn = get_db()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            grade TEXT NOT NULL,
+            direction TEXT NOT NULL,
+            works INTEGER DEFAULT 0,
+            score INTEGER DEFAULT 80,
+            image TEXT,
+            description TEXT
+        )
+    """)
+    conn.commit()
+
+    count = conn.execute("SELECT COUNT(*) FROM students").fetchone()[0]
+
+    if count == 0:
+        conn.execute("""
+            INSERT INTO students 
+            (name, grade, direction, works, score, image, description)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "Aliyev Muhammad",
+            "Tarix yo‘nalishi",
+            "Pedagogik portfel",
+            12,
+            90,
+            "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
+            "Tarixiy tafakkur va muzey pedagogikasi bo‘yicha faol talaba."
+        ))
+
+        conn.execute("""
+            INSERT INTO students 
+            (name, grade, direction, works, score, image, description)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "Karimova Madina",
+            "Tarix yo‘nalishi",
+            "Akademik yutuqlar",
+            9,
+            86,
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+            "Madaniy meros va tarixiy manbalar bilan ishlash bo‘yicha portfolio yuritadi."
+        ))
+
+        conn.commit()
+
+    conn.close()
+
+
+@app.before_request
+def before_request():
+    init_db()
 
 
 @app.route("/")
@@ -34,22 +78,25 @@ def home():
 
 @app.route("/portfolio")
 def portfolio():
+    conn = get_db()
+    students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
+    conn.close()
     return render_template("portfolio.html", students=students)
 
 
 @app.route("/student")
 def student_list():
+    conn = get_db()
+    students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
+    conn.close()
     return render_template("portfolio.html", students=students)
 
 
 @app.route("/student/<int:student_id>")
 def student_detail(student_id):
-    student = None
-
-    for s in students:
-        if s["id"] == student_id:
-            student = s
-            break
+    conn = get_db()
+    student = conn.execute("SELECT * FROM students WHERE id = ?", (student_id,)).fetchone()
+    conn.close()
 
     if student is None:
         return "Talaba topilmadi", 404
@@ -84,13 +131,14 @@ def admin():
     if not session.get("admin"):
         return redirect("/login")
 
-    total_students = len(students)
-    total_works = sum(int(s["works"]) for s in students)
+    conn = get_db()
+    students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
 
-    if total_students > 0:
-        avg = round(sum(int(s["score"]) for s in students) / total_students)
-    else:
-        avg = 0
+    total_students = conn.execute("SELECT COUNT(*) FROM students").fetchone()[0]
+    total_works = conn.execute("SELECT COALESCE(SUM(works), 0) FROM students").fetchone()[0]
+    avg = conn.execute("SELECT COALESCE(ROUND(AVG(score)), 0) FROM students").fetchone()[0]
+
+    conn.close()
 
     active = total_students
 
@@ -109,10 +157,6 @@ def admin_add():
     if not session.get("admin"):
         return redirect("/login")
 
-    new_id = 1
-    if students:
-        new_id = max(s["id"] for s in students) + 1
-
     name = request.form.get("name")
     grade = request.form.get("grade")
     direction = request.form.get("direction")
@@ -127,16 +171,22 @@ def admin_add():
     if not description:
         description = "Talabaning pedagogik portfeli va o‘quv faoliyati haqida ma’lumot."
 
-    students.append({
-        "id": new_id,
-        "name": name,
-        "grade": grade,
-        "direction": direction,
-        "works": int(works),
-        "score": int(score),
-        "image": image,
-        "description": description
-    })
+    conn = get_db()
+    conn.execute("""
+        INSERT INTO students 
+        (name, grade, direction, works, score, image, description)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        name,
+        grade,
+        direction,
+        int(works),
+        int(score),
+        image,
+        description
+    ))
+    conn.commit()
+    conn.close()
 
     return redirect("/admin")
 
@@ -146,8 +196,10 @@ def admin_delete(student_id):
     if not session.get("admin"):
         return redirect("/login")
 
-    global students
-    students = [s for s in students if s["id"] != student_id]
+    conn = get_db()
+    conn.execute("DELETE FROM students WHERE id = ?", (student_id,))
+    conn.commit()
+    conn.close()
 
     return redirect("/admin")
 
@@ -160,11 +212,5 @@ def logout():
 
 
 if __name__ == "__main__":
-    import os
-
     port = int(os.environ.get("PORT", 5000))
-
-    app.run(
-        host="0.0.0.0",
-        port=port
-    )
+    app.run(host="0.0.0.0", port=port)
