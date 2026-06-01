@@ -1,1 +1,68 @@
+```html
+{% extends "base.html" %}
 
+{% block title %}Talaba kabineti{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>🎓 Talaba kabineti</h1>
+    <p>Muzey Lab platformasidagi shaxsiy kabinet</p>
+</div>
+
+<div class="admin-wrap">
+
+    <div class="admin-stats">
+
+        <div class="stat">
+            <h3>Foydalanuvchi</h3>
+            <strong>{{ session.full_name }}</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Login</h3>
+            <strong>{{ session.username }}</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Rol</h3>
+            <strong>Talaba</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Holat</h3>
+            <strong>Faol</strong>
+        </div>
+
+    </div>
+
+    <div class="admin-panel">
+
+        <h2>Mening portfelim</h2>
+
+        <p>
+            Ushbu kabinet orqali talaba o‘zining pedagogik portfeli,
+            sertifikatlari, ilmiy maqolalari, refleksiya ishlari va
+            akademik yutuqlarini boshqarishi mumkin.
+        </p>
+
+        <br>
+
+        <a href="/portfolio" class="btn">
+            📚 Portfellarni ko‘rish
+        </a>
+
+        <a href="/about" class="btn">
+            ℹ️ Loyiha haqida
+        </a>
+
+        <a href="/logout" class="btn danger-btn">
+            🚪 Chiqish
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
+```
