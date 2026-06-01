@@ -158,7 +158,14 @@ def student_dashboard():
 @app.route("/about")
 def about():
     return render_template("about.html")
+@app.route("/achievements")
+def achievements():
+    return render_template("achievements.html")
 
+
+@app.route("/reflection")
+def reflection():
+    return render_template("reflection.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
