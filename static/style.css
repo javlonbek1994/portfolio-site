@@ -1679,3 +1679,8 @@ body{
     border-radius:50%;
     object-fit:cover;
 }
+.about-profile-card{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+}
