@@ -128,7 +128,7 @@ def student_list():
     conn = get_db()
     students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
     conn.close()
-    return render_template("portfolio.html", students=students)
+return render_template("portfolio.html", students=students)
 
 
 @app.route("/student/<int:student_id>")
