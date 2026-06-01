@@ -1706,3 +1706,42 @@ body{
     object-fit:cover;
     border:4px solid #4f6ddf;
 }
+.about-profile-card{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    background:#fff;
+    border-radius:25px;
+    padding:50px;
+    box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+.profile-person{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.profile-person:last-child{
+    margin-bottom:0;
+}
+
+.profile-person img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #4f6ddf;
+}
+
+.profile-person h3{
+    font-size:30px;
+    color:#4f6ddf;
+    margin-bottom:15px;
+}
+
+.profile-person p{
+    font-size:18px;
+    line-height:1.8;
+}
