@@ -4,48 +4,81 @@
 
 {% block content %}
 
+<section class="about-banner">
+
+```
+<div class="about-overlay">
+
+    <h1>Biz haqimizda</h1>
+
+    <p>Virtual Museum Pedagogy Lab</p>
+
+</div>
+```
+
+</section>
+
 <section class="about-page">
 
-    <div class="about-hero">
-        <span class="small-title">Biz haqimizda</span>
-        <h1>Virtual Museum Pedagogy Lab</h1>
+```
+<section class="about-card">
+
+    <h2>Platforma haqida</h2>
+
+    <p>
+        Virtual Museum Pedagogy Lab bo‘lajak tarix o‘qituvchilarining
+        tarixiy tafakkurini rivojlantirish, muzey pedagogikasi
+        imkoniyatlaridan samarali foydalanish hamda raqamli ta’lim
+        texnologiyalarini integratsiya qilishga qaratilgan innovatsion
+        ta’lim platformasidir.
+    </p>
+
+</section>
+
+<div class="about-grid">
+
+    <div class="about-info-card">
+        <h2>🎯 Maqsadimiz</h2>
+
         <p>
-            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirish,
-            muzey pedagogikasi va raqamli ta’lim texnologiyalarini birlashtiruvchi
-            innovatsion ta’lim platformasi.
+            Talabalarning tarixiy tafakkuri, manbashunoslik ko‘nikmalari,
+            tanqidiy fikrlashi va kasbiy kompetensiyalarini rivojlantirish.
         </p>
     </div>
 
-    <div class="about-grid">
+    <div class="about-info-card">
+        <h2>📌 Vazifalarimiz</h2>
 
-        <div class="about-info-card">
-            <h2>🎯 Maqsadimiz</h2>
-            <p>
-                Talabalarning tarixiy tafakkuri, manbashunoslik ko‘nikmalari,
-                tanqidiy fikrlashi va kasbiy kompetensiyalarini rivojlantirish.
-            </p>
-        </div>
+        <ul>
+            <li>Virtual eksponatlar bilan ishlash</li>
+            <li>Tarixiy manbalarni tahlil qilish</li>
+            <li>Talabalar portfelini yuritish</li>
+            <li>Muzey pedagogikasi metodlarini joriy etish</li>
+            <li>Raqamli ta’lim texnologiyalaridan foydalanish</li>
+        </ul>
+    </div>
 
-        <div class="about-info-card">
-            <h2>📌 Vazifalarimiz</h2>
-            <ul>
-                <li>Virtual eksponatlar bilan ishlash</li>
-                <li>Tarixiy manbalarni tahlil qilish</li>
-                <li>Talabalar portfelini yuritish</li>
-                <li>Muzey pedagogikasi metodlarini joriy etish</li>
-                <li>Raqamli ta’lim texnologiyalaridan foydalanish</li>
-            </ul>
-        </div>
+</div>
 
-        <div class="about-info-card">
-            <h2>👨‍🏫 Loyiha muallifi</h2>
-            <p>
-                Niyozov Javlonbek Jaxongir o‘g‘li — Toshkent Kimyo Xalqaro
-                Universiteti Namangan filiali katta o‘qituvchisi.
-            </p>
-        </div>
+<div class="author-card">
+
+    <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Muallif">
+
+    <div>
+
+        <h3>Niyozov Javlonbek Jaxongir o‘g‘li</h3>
+
+        <p>
+            Toshkent Kimyo Xalqaro Universiteti Namangan filiali
+            katta o‘qituvchisi.
+        </p>
+
+        <p>📧 j.niyozov@kiut.uz</p>
 
     </div>
+
+</div>
+```
 
 </section>
 
