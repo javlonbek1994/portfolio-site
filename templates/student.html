@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}Student{% endblock %}
+{% block title %}Talaba{% endblock %}
 
 {% block content %}
-<h1>Student sahifasi</h1>
+<div class="page-head">
+    <h1>{{ student.name }}</h1>
+    <p>{{ student.grade }} — {{ student.direction }}</p>
+</div>
+
+<div class="student-profile">
+    <img src="{{ student.image }}" alt="{{ student.name }}">
+
+    <div>
+        <h2>Portfolio ma'lumotlari</h2>
+        <p>{{ student.description }}</p>
+
+        <p><strong>Ishlar soni:</strong> {{ student.works }}</p>
+        <p><strong>Ball:</strong> {{ student.score }}</p>
+
+        <a class="btn" href="/admin">Orqaga</a>
+    </div>
+</div>
 {% endblock %}
