@@ -1,1 +1,60 @@
+```html
+{% extends "base.html" %}
 
+{% block title %}O‘qituvchi paneli{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+    <h1>👨‍🏫 O‘qituvchi paneli</h1>
+    <p>Talabalar portfellarini ko‘rish va baholash</p>
+</div>
+
+<div class="admin-wrap">
+
+    <div class="admin-panel">
+        <h2>Talabalar ro‘yxati</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ism</th>
+                    <th>Guruh</th>
+                    <th>Yo‘nalish</th>
+                    <th>Ball</th>
+                    <th>Portfolio</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.grade }}</td>
+                    <td>{{ s.direction }}</td>
+                    <td>{{ s.score }}</td>
+
+                    <td>
+                        <a class="btn small-btn"
+                           href="/student/{{ s.id }}">
+                            Ko‘rish
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <br>
+
+    <a href="/logout" class="btn">
+        Chiqish
+    </a>
+
+</div>
+
+{% endblock %}
+```
