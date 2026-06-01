@@ -146,6 +146,14 @@ def student_detail(student_id):
     return render_template("student.html", student=student)
 
 
+@app.route("/student-dashboard")
+def student_dashboard():
+    if session.get("role") != "student":
+        return redirect("/login")
+
+    return render_template("student_dashboard.html")
+
+
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -179,7 +187,7 @@ def login():
                 return redirect("/teacher")
 
             return redirect("/student-dashboard")
-            
+
         error = "Login yoki parol noto‘g‘ri"
 
     return render_template("login.html", error=error)
