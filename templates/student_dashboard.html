@@ -1,68 +1,57 @@
-```html
 {% extends "base.html" %}
 
 {% block title %}Talaba kabineti{% endblock %}
 
 {% block content %}
 
-<div class="page-head">
-    <h1>🎓 Talaba kabineti</h1>
-    <p>Muzey Lab platformasidagi shaxsiy kabinet</p>
-</div>
+<section class="dashboard-hero">
+    <div>
+        <span class="small-title">Shaxsiy kabinet</span>
+        <h1>🎓 Talaba kabineti</h1>
+        <p>Muzey Lab platformasida o‘z pedagogik portfelingizni boshqaring.</p>
+    </div>
+</section>
 
-<div class="admin-wrap">
-
-    <div class="admin-stats">
-
-        <div class="stat">
-            <h3>Foydalanuvchi</h3>
-            <strong>{{ session.full_name }}</strong>
-        </div>
-
-        <div class="stat">
-            <h3>Login</h3>
-            <strong>{{ session.username }}</strong>
-        </div>
-
-        <div class="stat">
-            <h3>Rol</h3>
-            <strong>Talaba</strong>
-        </div>
-
-        <div class="stat">
-            <h3>Holat</h3>
-            <strong>Faol</strong>
-        </div>
-
+<section class="dashboard-stats">
+    <div class="dash-card">
+        <span>👤</span>
+        <p>Foydalanuvchi</p>
+        <h2>{{ session.full_name }}</h2>
     </div>
 
-    <div class="admin-panel">
+    <div class="dash-card">
+        <span>🔐</span>
+        <p>Login</p>
+        <h2>{{ session.username }}</h2>
+    </div>
 
+    <div class="dash-card">
+        <span>🎓</span>
+        <p>Rol</p>
+        <h2>Talaba</h2>
+    </div>
+
+    <div class="dash-card">
+        <span>✅</span>
+        <p>Holat</p>
+        <h2>Faol</h2>
+    </div>
+</section>
+
+<section class="student-panel-box">
+    <div class="student-panel-text">
         <h2>Mening portfelim</h2>
-
         <p>
-            Ushbu kabinet orqali talaba o‘zining pedagogik portfeli,
-            sertifikatlari, ilmiy maqolalari, refleksiya ishlari va
-            akademik yutuqlarini boshqarishi mumkin.
+            Bu kabinet orqali siz pedagogik portfel, sertifikatlar, ilmiy maqolalar,
+            refleksiya ishlari va akademik yutuqlarni boshqarishingiz mumkin.
         </p>
-
-        <br>
-
-        <a href="/portfolio" class="btn">
-            📚 Portfellarni ko‘rish
-        </a>
-
-        <a href="/about" class="btn">
-            ℹ️ Loyiha haqida
-        </a>
-
-        <a href="/logout" class="btn danger-btn">
-            🚪 Chiqish
-        </a>
-
     </div>
 
-</div>
+    <div class="student-actions">
+        <a href="/portfolio">📚 Portfellar</a>
+        <a href="/about">ℹ️ Loyiha haqida</a>
+        <a href="/logout" class="danger">🚪 Chiqish</a>
+    </div>
+</section>
 
 {% endblock %}
-```
