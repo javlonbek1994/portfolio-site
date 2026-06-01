@@ -1,24 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Talaba{% endblock %}
+{% block title %}Talaba portfeli{% endblock %}
 
 {% block content %}
-<div class="page-head">
-    <h1>{{ student.name }}</h1>
-    <p>{{ student.grade }} — {{ student.direction }}</p>
-</div>
 
-<div class="student-profile">
-    <img src="{{ student.image }}" alt="{{ student.name }}">
+<section class="student-detail">
+    <div class="student-detail-card">
 
-    <div>
-        <h2>Portfolio ma'lumotlari</h2>
-        <p>{{ student.description }}</p>
+        <img src="{{ student.image }}" alt="{{ student.name }}">
 
-        <p><strong>Ishlar soni:</strong> {{ student.works }}</p>
-        <p><strong>Ball:</strong> {{ student.score }}</p>
+        <div class="student-detail-info">
+            <span class="small-title">Talaba portfeli</span>
 
-        <a class="btn" href="/admin">Orqaga</a>
+            <h1>{{ student.name }}</h1>
+
+            <p><strong>Guruh:</strong> {{ student.grade }}</p>
+            <p><strong>Yo‘nalish:</strong> {{ student.direction }}</p>
+            <p><strong>Ishlar soni:</strong> {{ student.works }}</p>
+            <p><strong>Ball:</strong> {{ student.score }}</p>
+
+            <p class="student-description">
+                {{ student.description }}
+            </p>
+
+            <a href="/portfolio" class="btn">Portfellarga qaytish</a>
+        </div>
+
     </div>
-</div>
+</section>
+
 {% endblock %}
