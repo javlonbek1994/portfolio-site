@@ -178,8 +178,8 @@ def login():
             if user["role"] == "teacher":
                 return redirect("/teacher")
 
-            return redirect("/student")
-
+            return redirect("/student-dashboard")
+            
         error = "Login yoki parol noto‘g‘ri"
 
     return render_template("login.html", error=error)
