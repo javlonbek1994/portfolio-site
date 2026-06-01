@@ -7,26 +7,66 @@
 <section class="student-detail">
     <div class="student-detail-card">
 
-        <img src="{{ student.image }}" alt="{{ student.name }}">
+```
+    <img src="{{ student.image }}" alt="{{ student.name }}">
 
-        <div class="student-detail-info">
-            <span class="small-title">Talaba portfeli</span>
+    <div class="student-detail-info">
 
-            <h1>{{ student.name }}</h1>
+        <span class="small-title">Talaba portfeli</span>
 
-            <p><strong>Guruh:</strong> {{ student.grade }}</p>
-            <p><strong>Yo‘nalish:</strong> {{ student.direction }}</p>
-            <p><strong>Ishlar soni:</strong> {{ student.works }}</p>
-            <p><strong>Ball:</strong> {{ student.score }}</p>
+        <h1>{{ student.name }}</h1>
 
-            <p class="student-description">
-                {{ student.description }}
-            </p>
+        <div class="sd-cards">
 
-            <a href="/portfolio" class="btn">Portfellarga qaytish</a>
+            <div class="sd-card">
+                <div class="sd-icon">🎓</div>
+                <p>Guruh</p>
+                <h2>{{ student.grade }}</h2>
+            </div>
+
+            <div class="sd-card">
+                <div class="sd-icon">📚</div>
+                <p>Yo‘nalish</p>
+                <h2>{{ student.direction }}</h2>
+            </div>
+
+            <div class="sd-card">
+                <div class="sd-icon">📝</div>
+                <p>Ishlar soni</p>
+                <h2>{{ student.works }}</h2>
+            </div>
+
+            <div class="sd-card">
+                <div class="sd-icon">🏆</div>
+                <p>Ball</p>
+                <h2>{{ student.score }}</h2>
+            </div>
+
         </div>
 
+        <div class="sd-main">
+
+            <div>
+                <h2>Talaba haqida</h2>
+
+                <p class="student-description">
+                    {{ student.description }}
+                </p>
+            </div>
+
+        </div>
+
+        <br>
+
+        <a href="/portfolio" class="btn">
+            ← Portfellarga qaytish
+        </a>
+
     </div>
+
+</div>
+```
+
 </section>
 
 {% endblock %}
