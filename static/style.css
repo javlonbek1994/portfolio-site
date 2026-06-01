@@ -1635,3 +1635,47 @@ body{
 .about-info-card ul{
     padding-left:22px;
 }
+.about-banner{
+    height:300px;
+    background:url('/static/images/museum-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.about-overlay{
+    height:100%;
+    background:rgba(50,80,180,.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.about-overlay h1{
+    font-size:52px;
+}
+
+.about-card{
+    max-width:1000px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.author-card{
+    display:flex;
+    gap:25px;
+    align-items:center;
+    margin-top:30px;
+}
+
+.author-card img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+}
