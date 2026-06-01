@@ -1,3 +1,4 @@
+```html
 {% extends "base.html" %}
 
 {% block title %}Virtual Museum Pedagogy Lab{% endblock %}
@@ -40,6 +41,28 @@
     </div>
 </section>
 
+<section class="stats-section">
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Virtual eksponatlar</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100+</h2>
+        <p>Talabalar</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>50+</h2>
+        <p>Portfolio</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>10+</h2>
+        <p>Hamkorlar</p>
+    </div>
+</section>
+
 <section class="about-section">
     <div class="about-text">
         <span class="small-title">Ma’lumot</span>
@@ -67,6 +90,18 @@
             <div></div>
             <div></div>
         </div>
+    </div>
+</section>
+
+<section class="museum-section">
+    <span class="small-title">Virtual Muzey</span>
+    <h2>Eksponatlar galereyasi</h2>
+
+    <div class="museum-grid">
+        <div class="museum-card">🏺 Arxeologiya</div>
+        <div class="museum-card">⚔️ Temuriylar</div>
+        <div class="museum-card">📜 Jadidchilik</div>
+        <div class="museum-card">🏛️ Mustaqillik davri</div>
     </div>
 </section>
 
@@ -130,6 +165,15 @@
     </div>
 </section>
 
+<section class="news-section">
+    <h2>So‘nggi yangiliklar</h2>
+
+    <div class="news-card">
+        <h3>Virtual muzey laboratoriyasi ishga tushdi</h3>
+        <p>Platformaning yangi imkoniyatlari talabalar uchun taqdim etildi.</p>
+    </div>
+</section>
+
 <section class="partners-section">
     <span class="small-title">Hamkorlar</span>
     <h2>Hamkor tashkilotlar</h2>
@@ -147,7 +191,6 @@
     <h2>Faol talabalar</h2>
 
     <div class="students-grid">
-
         <div class="student-card">
             <img src="{{ url_for('static', filename='images/student1.jpg') }}" alt="Talaba">
             <h3>Talaba F.I.Sh.</h3>
@@ -168,8 +211,30 @@
             <p>Tarix ta'lim yo‘nalishi</p>
             <a href="/student">Portfolio</a>
         </div>
-
     </div>
+</section>
+
+<section class="author-section">
+    <h2>Loyiha rahbari</h2>
+
+    <div class="author-card">
+        <h3>Niyozov Javlonbek Jaxongir o‘g‘li</h3>
+        <p>
+            Toshkent Kimyo Xalqaro Universiteti Namangan filiali
+            katta o‘qituvchisi va Virtual Museum Pedagogy Lab muallifi.
+        </p>
+    </div>
+</section>
+
+<section class="contact-section">
+    <h2>Biz bilan bog‘laning</h2>
+
+    <form>
+        <input type="text" placeholder="Ismingiz">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Xabaringiz"></textarea>
+        <button type="submit">Yuborish</button>
+    </form>
 </section>
 
 <section class="follow-section">
@@ -184,3 +249,4 @@
 </section>
 
 {% endblock %}
+```
