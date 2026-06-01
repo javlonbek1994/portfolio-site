@@ -4,54 +4,57 @@
 
 {% block content %}
 
-<section class="dashboard-hero">
-    <div>
-        <span class="small-title">Shaxsiy kabinet</span>
+<section class="sd-page">
+
+    <div class="sd-header">
+        <span>Shaxsiy kabinet</span>
         <h1>🎓 Talaba kabineti</h1>
         <p>Muzey Lab platformasida o‘z pedagogik portfelingizni boshqaring.</p>
     </div>
-</section>
 
-<section class="dashboard-stats">
-    <div class="dash-card">
-        <span>👤</span>
-        <p>Foydalanuvchi</p>
-        <h2>{{ session.full_name }}</h2>
+    <div class="sd-cards">
+        <div class="sd-card">
+            <div class="sd-icon">👤</div>
+            <p>Foydalanuvchi</p>
+            <h2>{{ session.full_name }}</h2>
+        </div>
+
+        <div class="sd-card">
+            <div class="sd-icon">🔐</div>
+            <p>Login</p>
+            <h2>{{ session.username }}</h2>
+        </div>
+
+        <div class="sd-card">
+            <div class="sd-icon">🎓</div>
+            <p>Rol</p>
+            <h2>Talaba</h2>
+        </div>
+
+        <div class="sd-card">
+            <div class="sd-icon">✅</div>
+            <p>Holat</p>
+            <h2>Faol</h2>
+        </div>
     </div>
 
-    <div class="dash-card">
-        <span>🔐</span>
-        <p>Login</p>
-        <h2>{{ session.username }}</h2>
+    <div class="sd-main">
+        <div>
+            <h2>Mening portfelim</h2>
+            <p>
+                Bu kabinet orqali siz pedagogik portfel, sertifikatlar,
+                ilmiy maqolalar, refleksiya ishlari va akademik yutuqlarni
+                boshqarishingiz mumkin.
+            </p>
+        </div>
+
+        <div class="sd-buttons">
+            <a href="/portfolio">📚 Portfellar</a>
+            <a href="/about">ℹ️ Loyiha haqida</a>
+            <a href="/logout" class="sd-danger">🚪 Chiqish</a>
+        </div>
     </div>
 
-    <div class="dash-card">
-        <span>🎓</span>
-        <p>Rol</p>
-        <h2>Talaba</h2>
-    </div>
-
-    <div class="dash-card">
-        <span>✅</span>
-        <p>Holat</p>
-        <h2>Faol</h2>
-    </div>
-</section>
-
-<section class="student-panel-box">
-    <div class="student-panel-text">
-        <h2>Mening portfelim</h2>
-        <p>
-            Bu kabinet orqali siz pedagogik portfel, sertifikatlar, ilmiy maqolalar,
-            refleksiya ishlari va akademik yutuqlarni boshqarishingiz mumkin.
-        </p>
-    </div>
-
-    <div class="student-actions">
-        <a href="/portfolio">📚 Portfellar</a>
-        <a href="/about">ℹ️ Loyiha haqida</a>
-        <a href="/logout" class="danger">🚪 Chiqish</a>
-    </div>
 </section>
 
 {% endblock %}
