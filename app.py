@@ -30,13 +30,50 @@ def init_db():
         )
     """)
 
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            role TEXT NOT NULL,
+            full_name TEXT NOT NULL
+        )
+    """)
+
     conn.commit()
 
-    count = conn.execute("SELECT COUNT(*) FROM students").fetchone()[0]
+    user_count = conn.execute(
+        "SELECT COUNT(*) FROM users"
+    ).fetchone()[0]
+
+    if user_count == 0:
+        conn.execute("""
+            INSERT INTO users
+            (username, password, role, full_name)
+            VALUES (?, ?, ?, ?)
+        """, ("admin", "12345", "admin", "Administrator"))
+
+        conn.execute("""
+            INSERT INTO users
+            (username, password, role, full_name)
+            VALUES (?, ?, ?, ?)
+        """, ("teacher", "12345", "teacher", "O‘qituvchi"))
+
+        conn.execute("""
+            INSERT INTO users
+            (username, password, role, full_name)
+            VALUES (?, ?, ?, ?)
+        """, ("student", "12345", "student", "Talaba"))
+
+        conn.commit()
+
+    count = conn.execute(
+        "SELECT COUNT(*) FROM students"
+    ).fetchone()[0]
 
     if count == 0:
         conn.execute("""
-            INSERT INTO students 
+            INSERT INTO students
             (name, grade, direction, works, score, image, description)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (
@@ -50,7 +87,7 @@ def init_db():
         ))
 
         conn.execute("""
-            INSERT INTO students 
+            INSERT INTO students
             (name, grade, direction, works, score, image, description)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (
@@ -83,7 +120,6 @@ def portfolio():
     conn = get_db()
     students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
     conn.close()
-
     return render_template("portfolio.html", students=students)
 
 
@@ -92,7 +128,6 @@ def student_list():
     conn = get_db()
     students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
     conn.close()
-
     return render_template("portfolio.html", students=students)
 
 
@@ -124,9 +159,26 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if username == "admin" and password == "12345":
-            session["admin"] = True
-            return redirect("/admin")
+        conn = get_db()
+        user = conn.execute(
+            "SELECT * FROM users WHERE username = ? AND password = ?",
+            (username, password)
+        ).fetchone()
+        conn.close()
+
+        if user:
+            session["user_id"] = user["id"]
+            session["username"] = user["username"]
+            session["role"] = user["role"]
+            session["full_name"] = user["full_name"]
+
+            if user["role"] == "admin":
+                return redirect("/admin")
+
+            if user["role"] == "teacher":
+                return redirect("/teacher")
+
+            return redirect("/student")
 
         error = "Login yoki parol noto‘g‘ri"
 
@@ -135,7 +187,7 @@ def login():
 
 @app.route("/admin")
 def admin():
-    if not session.get("admin"):
+    if session.get("role") != "admin":
         return redirect("/login")
 
     conn = get_db()
@@ -168,9 +220,21 @@ def admin():
     )
 
 
+@app.route("/teacher")
+def teacher():
+    if session.get("role") != "teacher":
+        return redirect("/login")
+
+    conn = get_db()
+    students = conn.execute("SELECT * FROM students ORDER BY id DESC").fetchall()
+    conn.close()
+
+    return render_template("teacher.html", students=students)
+
+
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
-    if not session.get("admin"):
+    if session.get("role") != "admin":
         return redirect("/login")
 
     name = request.form.get("name")
@@ -190,7 +254,7 @@ def admin_add():
     conn = get_db()
 
     conn.execute("""
-        INSERT INTO students 
+        INSERT INTO students
         (name, grade, direction, works, score, image, description)
         VALUES (?, ?, ?, ?, ?, ?, ?)
     """, (
@@ -211,7 +275,7 @@ def admin_add():
 
 @app.route("/admin/delete/<int:student_id>", methods=["POST"])
 def admin_delete(student_id):
-    if not session.get("admin"):
+    if session.get("role") != "admin":
         return redirect("/login")
 
     conn = get_db()
