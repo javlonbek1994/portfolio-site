@@ -732,3 +732,32 @@ body{
     }
 }
 ```
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.footer-brand h2{
+    font-size:32px;
+    color:white;
+}
+
+.socials a{
+    transition:0.3s;
+}
+
+.socials a:hover{
+    transform:translateY(-5px);
+    color:#5876c9;
+}
+
+.footer{
+    background:#5876c9;
+    color:white;
+}
+
+.footer p{
+    line-height:1.7;
+}
