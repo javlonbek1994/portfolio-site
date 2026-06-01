@@ -761,3 +761,14 @@ body{
 .footer p{
     line-height:1.7;
 }
+.socials a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
+
+.socials img{
+    width:28px;
+    height:28px;
+}
