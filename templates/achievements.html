@@ -1,1 +1,35 @@
+{% extends "base.html" %}
 
+{% block title %}Akademik yutuqlar{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <h1 class="hero-title">Akademik yutuqlar</h1>
+
+    <p>
+        Ilmiy maqolalar, konferensiyalar, sertifikatlar,
+        grantlar va ilmiy faoliyat natijalari.
+    </p>
+</section>
+
+<section class="floating-card">
+    <h2>Ilmiy faoliyat</h2>
+
+    <div class="mini-card cyan">
+        <h3>Maqolalar</h3>
+        <p>Mahalliy va xalqaro ilmiy jurnallarda chop etilgan maqolalar.</p>
+    </div>
+
+    <div class="mini-card purple">
+        <h3>Konferensiyalar</h3>
+        <p>Respublika va xalqaro konferensiyalardagi ishtiroklar.</p>
+    </div>
+
+    <div class="mini-card blue">
+        <h3>Sertifikatlar</h3>
+        <p>Malaka oshirish va ilmiy sertifikatlar.</p>
+    </div>
+</section>
+
+{% endblock %}
