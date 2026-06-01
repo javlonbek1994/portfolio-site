@@ -1,63 +1,55 @@
-<div class="about-profile-card">
+{% extends "base.html" %}
 
-    <div class="profile-person">
+{% block title %}Biz haqimizda{% endblock %}
 
-        <img src="{{ url_for('static', filename='images/supervisor.jpg') }}" alt="Ilmiy rahbar">
+{% block content %}
 
-        <div>
-            <h3>👨‍🏫 Xodjayev Begzod Xudoyberdiyevich</h3>
+<section class="about-banner">
+    <div class="about-overlay">
+        <h1>Biz haqimizda</h1>
+        <p>Virtual Museum Pedagogy Lab</p>
+    </div>
+</section>
 
-            <p><strong>Pedagogika fanlari doktori (DSc), professor</strong></p>
+<section class="about-page">
 
-            <p>
-                Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini
-                rivojlantirish, muzey pedagogikasi va zamonaviy pedagogik
-                texnologiyalar bo‘yicha ilmiy tadqiqotlar olib boruvchi
-                yetakchi olimlardan biri.
-            </p>
+    <section class="about-card">
 
-            <p>
-                Virtual Museum Pedagogy Lab loyihasining ilmiy maslahatchisi
-                va dissertatsiya tadqiqotining ilmiy rahbari.
-            </p>
+        <h2>Platforma haqida</h2>
 
-            <p>📍 Toshkent shahri, O‘zbekiston</p>
+        <p>
+            Virtual Museum Pedagogy Lab bo‘lajak tarix o‘qituvchilarining
+            tarixiy tafakkurini rivojlantirish, muzey pedagogikasi
+            imkoniyatlaridan samarali foydalanish hamda raqamli ta’lim
+            texnologiyalarini integratsiya qilishga qaratilgan innovatsion
+            ta’lim platformasidir.
+        </p>
+
+        <div class="profile-person">
+            <img src="{{ url_for('static', filename='images/supervisor.jpg') }}" alt="Ilmiy rahbar">
+
+            <div>
+                <h3>Ilmiy rahbar: Xodjayev Begzod Xudoyberdiyevich</h3>
+                <p>Pedagogika fanlari doktori (DSc), professor</p>
+                <p>Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirish va muzey pedagogikasi yo‘nalishidagi ilmiy tadqiqotlar bo‘yicha ilmiy rahbar.</p>
+                <p>📍 Toshkent shahri, O‘zbekiston</p>
+            </div>
         </div>
 
-    </div>
+        <div class="profile-person">
+            <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Muallif">
 
-    <div class="profile-person">
-
-        <img src="{{ url_for('static', filename='images/author.jpg') }}" alt="Muallif">
-
-        <div>
-            <h3>👨‍🎓 Niyozov Javlonbek Jaxongir o‘g‘li</h3>
-
-            <p>
-                <strong>
-                    Toshkent Kimyo Xalqaro Universiteti Namangan filiali
-                    Ijtimoiy-gumanitar fanlar kafedrasi katta o‘qituvchisi
-                </strong>
-            </p>
-
-            <p>
-                Pedagogika yo‘nalishi bo‘yicha PhD tadqiqotchisi.
-                Ilmiy faoliyati tarix ta’limi, muzey pedagogikasi,
-                tarixiy tafakkurni rivojlantirish metodikasi hamda
-                raqamli ta’lim texnologiyalarini ta’lim jarayoniga
-                integratsiya qilish masalalariga bag‘ishlangan.
-            </p>
-
-            <p>
-                “Bo‘lajak tarix o‘qituvchilarini muzey pedagogikasi
-                vositasida tarixiy tafakkurini rivojlantirish metodikasi”
-                mavzusida ilmiy izlanish olib bormoqda.
-            </p>
-
-            <p>📧 j.niyozov@kiut.uz</p>
-            <p>📍 Namangan shahri, O‘zbekiston</p>
+            <div>
+                <h3>Muallif va tadqiqotchi: Niyozov Javlonbek Jaxongir o‘g‘li</h3>
+                <p>Toshkent Kimyo Xalqaro Universiteti Namangan filiali Ijtimoiy-gumanitar fanlar kafedrasi katta o‘qituvchisi.</p>
+                <p>PhD tadqiqotchisi. “Bo‘lajak tarix o‘qituvchilarini muzey pedagogikasi vositasida tarixiy tafakkurini rivojlantirish metodikasi” mavzusida ilmiy izlanish olib bormoqda.</p>
+                <p>📧 j.niyozov@kiut.uz</p>
+                <p>📍 Namangan shahri, O‘zbekiston</p>
+            </div>
         </div>
 
-    </div>
+    </section>
 
-</div>
+</section>
+
+{% endblock %}
