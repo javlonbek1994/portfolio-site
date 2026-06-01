@@ -1,8 +1,41 @@
-
+```html
 {% extends "base.html" %}
 
-{% block title %}Portfolio{% endblock %}
+{% block title %}Pedagogik portfel{% endblock %}
 
 {% block content %}
-<h1>Portfolio sahifasi</h1>
+
+<section class="students-section">
+    <span class="small-title">Pedagogik portfel</span>
+    <h2>Talabalar portfeli</h2>
+
+    <div class="students-grid">
+
+        {% for student in students %}
+
+        <div class="student-card">
+
+            <img src="{{ student.image }}" alt="{{ student.name }}">
+
+            <h3>{{ student.name }}</h3>
+
+            <p>{{ student.grade }}</p>
+
+            <p><strong>{{ student.direction }}</strong></p>
+
+            <p>Ball: {{ student.score }}</p>
+
+            <a href="/student/{{ student.id }}">
+                Portfolio ko‘rish
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
 {% endblock %}
+```
