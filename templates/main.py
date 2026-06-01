@@ -1,72 +1,62 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
+from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
-
-# DATABASE
-
-def init_db():
-
-    conn = sqlite3.connect("database.db")
-    cur = conn.cursor()
-
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS students(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        faculty TEXT,
-        course TEXT
-    )
-    """)
-
-    conn.commit()
-    conn.close()
-
-init_db()
-
-# HOME
+app.secret_key = "muzeylab_secret"
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# LOGIN
+@app.route("/portfolio")
+def portfolio():
+    return render_template("portfolio.html")
 
-@app.route("/login")
+@app.route("/student")
+def student():
+    return render_template("student.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
-
-# ADMIN PANEL
-
-@app.route("/admin", methods=["GET", "POST"])
-def admin():
-
-    conn = sqlite3.connect("database.db")
-    cur = conn.cursor()
-
-    # STUDENT ADD
 
     if request.method == "POST":
 
-        name = request.form["name"]
-        faculty = request.form["faculty"]
-        course = request.form["course"]
+        username = request.form.get("username")
+        password = request.form.get("password")
 
-        cur.execute(
-            "INSERT INTO students(name, faculty, course) VALUES(?,?,?)",
-            (name, faculty, course)
+        if username == "admin" and password == "12345":
+            session["admin"] = True
+            return redirect("/admin")
+
+        return render_template(
+            "login.html",
+            error="Login yoki parol noto‘g‘ri"
         )
 
-        conn.commit()
+    return render_template("login.html")
 
-    # GET STUDENTS
+@app.route("/admin")
+def admin():
 
-    cur.execute("SELECT * FROM students")
-    students = cur.fetchall()
+    if not session.get("admin"):
+        return redirect("/login")
 
-    conn.close()
+    return render_template("admin.html")
 
-    return render_template("admin.html", students=students)
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    import os
+
+    port = int(os.environ.get("PORT", 5000))
+
+    app.run(
+        host="0.0.0.0",
+        port=port
+    )
