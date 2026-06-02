@@ -158,6 +158,13 @@ def student_dashboard():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+@app.route("/museum")
+def museum():
+    return render_template("museum.html")
+
+
 @app.route("/achievements")
 def achievements():
     return render_template("achievements.html")
