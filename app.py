@@ -174,6 +174,22 @@ def achievements():
 def reflection():
     return render_template("reflection.html")
 
+
+@app.route("/diagnostic/source")
+def diagnostic_source():
+    return render_template("diagnostic_source.html")
+
+
+@app.route("/diagnostic/thinking")
+def diagnostic_thinking():
+    return render_template("diagnostic_thinking.html")
+
+
+@app.route("/diagnostic/reflection")
+def diagnostic_reflection():
+    return render_template("diagnostic_reflection.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
