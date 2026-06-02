@@ -1745,3 +1745,80 @@ body{
     font-size:18px;
     line-height:1.8;
 }
+/* VIRTUAL MUZEY */
+
+.page-header{
+    text-align:center;
+    padding:60px 20px 40px;
+}
+
+.page-header h1{
+    font-size:48px;
+    color:#1e40af;
+    margin-bottom:15px;
+}
+
+.page-header p{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+    color:#555;
+}
+
+.museum-grid{
+    max-width:1300px;
+    margin:auto;
+    padding:40px 20px 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.museum-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.museum-card:hover{
+    transform:translateY(-10px);
+}
+
+.museum-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.museum-content{
+    padding:25px;
+}
+
+.museum-content h3{
+    color:#1e40af;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.museum-content p{
+    line-height:1.7;
+    color:#555;
+}
+
+.museum-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.museum-btn:hover{
+    background:#1d4ed8;
+}
