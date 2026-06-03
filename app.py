@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
+import pandas as pd
 
 app = Flask(__name__)
 app.secret_key = "muzeylab_secret_key"
@@ -270,7 +271,58 @@ def teacher():
 
     return render_template("teacher.html", students=students)
 
+@app.route("/admin/import", methods=["POST"])
+def admin_import():
+    if session.get("role") != "admin":
+        return redirect("/login")
 
+    file = request.files.get("excel_file")
+
+    if not file:
+        return redirect("/admin")
+
+    df = pd.read_excel(file)
+
+    conn = get_db()
+
+    for index, row in df.iterrows():
+        full_name = str(row.iloc[0]).strip()
+        group_name = str(row.iloc[1]).strip()
+        direction = str(row.iloc[2]).strip()
+
+        username = f"talaba{index + 1:03d}"
+        password = "123456"
+
+        conn.execute("""
+            INSERT INTO students
+            (name, grade, direction, works, score, image, description)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            full_name,
+            group_name,
+            direction,
+            0,
+            80,
+            "",
+            f"Login: {username}"
+        ))
+
+        conn.execute("""
+            INSERT OR IGNORE INTO users
+            (username, password, role, full_name)
+            VALUES (?, ?, ?, ?)
+        """, (
+            username,
+            password,
+            "student",
+            full_name
+        ))
+
+    conn.commit()
+    conn.close()
+
+    return redirect("/admin")
+    
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
     if session.get("role") != "admin":
