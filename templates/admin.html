@@ -20,6 +20,28 @@
     <div class="admin-grid">
 
         <div class="admin-panel">
+    <h2>Excel orqali talabalarni yuklash</h2>
+
+    <form method="POST"
+          action="/admin/import"
+          enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Excel fayl</label>
+            <input type="file"
+                   name="excel_file"
+                   accept=".xlsx,.xls"
+                   required>
+        </div>
+
+        <button class="btn full-btn" type="submit">
+            Talabalarni yuklash
+        </button>
+
+    </form>
+</div>
+        
+        <div class="admin-panel">
             <h2>Talabalar ro‘yxati</h2>
 
             <table>
