@@ -19,19 +19,19 @@
 
             <img src="{{ s.image }}" alt="{{ s.name }}">
 
-            <div class="student-info">
-                <h3>{{ s.name }}</h3>
+<div class="student-info">
 
-                <p>{{ s.grade }}</p>
+    <h3>{{ s.name }}</h3>
 
-                <p>{{ s.direction }}</p>
+    <p>
+        <strong>Guruh:</strong> {{ s.grade }}
+    </p>
 
-                <p><strong>Ball:</strong> {{ s.score }}</p>
+    <a href="/student/{{ s.id }}" class="btn">
+        Profilni ko‘rish
+    </a>
 
-                <a href="/student/{{ s.id }}" class="btn">
-                    Profilni ko‘rish
-                </a>
-            </div>
+</div>
 
         </div>
         {% endfor %}
