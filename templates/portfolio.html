@@ -1,4 +1,3 @@
-```html
 {% extends "base.html" %}
 
 {% block title %}Pedagogik portfel{% endblock %}
@@ -11,6 +10,20 @@
 
     <h2>Talabalar portfeli</h2>
 
+    <div class="admin-stats">
+
+        <div class="stat">
+            <h3>Talabalar</h3>
+            <strong>{{ students|length }}</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Portfellar</h3>
+            <strong>{{ students|length }}</strong>
+        </div>
+
+    </div>
+
     <div class="students-grid">
 
         {% for student in students %}
@@ -21,15 +34,22 @@
 
             <h3>{{ student.name }}</h3>
 
-            <p>{{ student.grade }}</p>
-
             <p>
-                <strong>{{ student.direction }}</strong>
+                <strong>Guruh:</strong>
+                {{ student.grade }}
             </p>
 
-            <p>Ball: {{ student.score }}</p>
+            <p>
+                <strong>Portfolio ishlari:</strong>
+                {{ student.works }}
+            </p>
 
-            <a href="/student/{{ student.id }}">
+            <p>
+                <strong>Reyting:</strong>
+                {{ student.score }}
+            </p>
+
+            <a href="/student/{{ student.id }}" class="btn">
                 Portfolio ko‘rish
             </a>
 
@@ -42,4 +62,3 @@
 </section>
 
 {% endblock %}
-```
