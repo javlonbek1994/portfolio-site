@@ -182,9 +182,49 @@ def achievements():
     return render_template("achievements.html")
 
 
-@app.route("/reflection")
+@app.route("/reflection", methods=["GET", "POST"])
 def reflection():
-    return render_template("reflection.html")
+    score = None
+
+    if request.method == "POST":
+        student_name = request.form.get("student_name")
+        reflection_type = request.form.get("reflection_type")
+        text = request.form.get("text", "")
+
+        reflection_score = 0
+        text_lower = text.lower()
+
+        if len(text) >= 300:
+            reflection_score += 5
+
+        if "tajriba" in text_lower or "xulosa" in text_lower:
+            reflection_score += 5
+
+        if "muammo" in text_lower or "yechim" in text_lower:
+            reflection_score += 5
+
+        if "reja" in text_lower or "rivojlanish" in text_lower:
+            reflection_score += 5
+
+        conn = get_db()
+
+        conn.execute("""
+            INSERT INTO reflections
+            (student_name, reflection_type, text, score)
+            VALUES (?, ?, ?, ?)
+        """, (
+            student_name,
+            reflection_type,
+            text,
+            reflection_score
+        ))
+
+        conn.commit()
+        conn.close()
+
+        score = reflection_score
+
+    return render_template("reflection.html", score=score)
 
 
 @app.route("/diagnostic/source")
