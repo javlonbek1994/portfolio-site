@@ -227,6 +227,11 @@ def reflection():
     return render_template("reflection.html", score=score)
 
 
+@app.route("/diagnostic")
+def diagnostic():
+    return render_template("diagnostic.html")
+
+
 @app.route("/diagnostic/source")
 def diagnostic_source():
     return render_template("diagnostic_source.html")
@@ -240,7 +245,6 @@ def diagnostic_thinking():
 @app.route("/diagnostic/reflection")
 def diagnostic_reflection():
     return render_template("diagnostic_reflection.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
