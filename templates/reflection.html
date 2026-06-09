@@ -1,55 +1,141 @@
 {% extends "base.html" %}
 
-{% block title %}Refleksiya{% endblock %}
+{% block title %}Refleksiya markazi{% endblock %}
 
 {% block content %}
 
-<section class="hero">
+<section class="reflection-page">
 
-    <div class="hero-overlay">
-        <div class="hero-content">
-            <h1>Refleksiya</h1>
-            <p>Kasbiy va ilmiy rivojlanish tahlili.</p>
+```
+<div class="reflection-hero">
+    <span>Virtual Museum Pedagogy Lab</span>
+    <h1>Refleksiya markazi</h1>
+
+    <p>
+        Talabalar pedagogik va ilmiy faoliyati bo‘yicha refleksiya yozadi.
+        Tizim refleksiyani avtomatik tahlil qiladi va 20 ballik mezon asosida
+        baholaydi.
+    </p>
+</div>
+
+{% if score is not none %}
+<div class="score-alert">
+    Refleksiya muvaffaqiyatli saqlandi.
+    Sizning avtomatik bahoyingiz:
+    <strong>{{ score }}/20</strong>
+</div>
+{% endif %}
+
+<div class="reflection-layout">
+
+    <div class="reflection-card">
+
+        <h2>Refleksiya yozish</h2>
+
+        <form method="POST" action="/reflection">
+
+            <div class="form-group">
+                <label>Talaba ism-familiyasi</label>
+                <input type="text"
+                       name="student_name"
+                       placeholder="Ism-familiyangizni kiriting"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Refleksiya turi</label>
+
+                <select name="reflection_type" required>
+
+                    <option value="Pedagogik refleksiya">
+                        Pedagogik refleksiya
+                    </option>
+
+                    <option value="Ilmiy faoliyat refleksiyasi">
+                        Ilmiy faoliyat refleksiyasi
+                    </option>
+
+                    <option value="Dars tahlili">
+                        Dars tahlili
+                    </option>
+
+                    <option value="Kuchli tomonlar">
+                        Kuchli tomonlar
+                    </option>
+
+                    <option value="Takomillashtirish yo‘nalishlari">
+                        Takomillashtirish yo‘nalishlari
+                    </option>
+
+                    <option value="2026–2030 rivojlanish rejasi">
+                        2026–2030 rivojlanish rejasi
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+
+                <label>Refleksiya matni</label>
+
+                <textarea
+                    name="text"
+                    placeholder="Tajriba, xulosa, muammo, yechim va rivojlanish rejalaringiz haqida yozing..."
+                    required>
+                </textarea>
+
+            </div>
+
+            <button type="submit" class="admin-btn full">
+                Refleksiyani saqlash va baholash
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="reflection-card">
+
+        <h2>Baholash mezonlari</h2>
+
+        <div class="rubric-item">
+            <strong>Matn uzunligi</strong>
+            <span>5 ball</span>
         </div>
-    </div>
 
-</section>
+        <div class="rubric-item">
+            <strong>Tajriba va xulosa</strong>
+            <span>5 ball</span>
+        </div>
 
-<section class="students-page">
+        <div class="rubric-item">
+            <strong>Muammo va yechim</strong>
+            <span>5 ball</span>
+        </div>
 
-<div class="portfolio-grid">
+        <div class="rubric-item">
+            <strong>Kelgusi reja va rivojlanish</strong>
+            <span>5 ball</span>
+        </div>
 
-    <div class="portfolio-card">
-        <h3>🧑‍🏫 Pedagogik refleksiya</h3>
-        <p>Ta'lim jarayonidagi tajribalar va xulosalar.</p>
-    </div>
+        <div class="rubric-note">
 
-    <div class="portfolio-card">
-        <h3>🔬 Ilmiy faoliyat refleksiyasi</h3>
-        <p>Ilmiy izlanishlar natijalari va tahlili.</p>
-    </div>
+            <p>
+                Maksimal baho:
+                <strong>20 ball</strong>
+            </p>
 
-    <div class="portfolio-card">
-        <h3>📚 Dars tahlillari</h3>
-        <p>O‘tilgan mashg‘ulotlar bo‘yicha xulosalar.</p>
-    </div>
+            <p>
+                Ushbu natija talabaning refleksiv kompetensiyasini
+                baholash uchun ishlatiladi.
+            </p>
 
-    <div class="portfolio-card">
-        <h3>⭐ Kuchli tomonlar</h3>
-        <p>Kasbiy va ilmiy faoliyatdagi ustun jihatlar.</p>
-    </div>
+        </div>
 
-    <div class="portfolio-card">
-        <h3>📈 Takomillashtirish yo‘nalishlari</h3>
-        <p>Rivojlantirilishi zarur bo‘lgan kompetensiyalar.</p>
-    </div>
-
-    <div class="portfolio-card">
-        <h3>🎯 2026–2030 rivojlanish rejasi</h3>
-        <p>Kelgusi yillarga mo‘ljallangan ilmiy va pedagogik maqsadlar.</p>
     </div>
 
 </div>
+```
 
 </section>
 
