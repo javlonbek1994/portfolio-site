@@ -2050,3 +2050,114 @@ body{
         grid-template-columns: 1fr;
     }
 }
+.museum-page{
+    padding: 70px 7%;
+    background: linear-gradient(180deg,#f7f9ff,#eef3ff);
+}
+
+.museum-hero{
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 55px;
+}
+
+.museum-hero span{
+    color:#5573d9;
+    font-weight:800;
+}
+
+.museum-hero h1{
+    font-size:48px;
+    color:#1e40af;
+    margin:10px 0;
+}
+
+.museum-hero p{
+    color:#475569;
+    font-size:18px;
+}
+
+.museum-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.museum-card.pro{
+    min-height:280px;
+    padding:30px;
+    border-radius:28px;
+    background:white;
+    box-shadow:0 20px 45px rgba(15,23,42,.09);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.museum-card.pro::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    height:8px;
+    background:linear-gradient(135deg,#4f6fdc,#22c55e);
+}
+
+.museum-card.pro:hover{
+    transform:translateY(-8px);
+    box-shadow:0 30px 60px rgba(15,23,42,.15);
+}
+
+.museum-icon{
+    width:64px;
+    height:64px;
+    border-radius:20px;
+    background:#eef3ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.museum-card.pro h3{
+    color:#153eaa;
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.museum-card.pro p{
+    color:#475569;
+    line-height:1.7;
+    font-size:16px;
+}
+
+.museum-card.pro a{
+    margin-top:22px;
+    display:inline-block;
+    width:max-content;
+    padding:12px 20px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#4f6fdc);
+    color:white;
+    text-decoration:none;
+    font-weight:800;
+}
+
+@media(max-width:1000px){
+    .museum-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+    .museum-grid{
+        grid-template-columns:1fr;
+    }
+
+    .museum-hero h1{
+        font-size:36px;
+    }
+}
