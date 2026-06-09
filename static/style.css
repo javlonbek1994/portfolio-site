@@ -2396,3 +2396,140 @@ body{
     text-decoration:none;
     font-weight:700;
 }
+/* ACADEMIC ACHIEVEMENTS */
+
+.ach-page{
+    padding:70px 7%;
+    background:linear-gradient(180deg,#f7f9ff,#eef3ff);
+}
+
+.ach-hero{
+    text-align:center;
+    max-width:850px;
+    margin:0 auto 50px;
+}
+
+.ach-hero span{
+    color:#5573d9;
+    font-weight:800;
+}
+
+.ach-hero h1{
+    font-size:48px;
+    color:#1e40af;
+    margin:10px 0;
+}
+
+.ach-hero p{
+    color:#475569;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.ach-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-bottom:50px;
+}
+
+.ach-card{
+    background:white;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 20px 45px rgba(15,23,42,.08);
+    transition:.3s;
+}
+
+.ach-card:hover,
+.profile-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 28px 60px rgba(15,23,42,.14);
+}
+
+.ach-icon,
+.profile-icon{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:#eef3ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.ach-card h3,
+.profile-card h3{
+    color:#1e40af;
+    font-size:24px;
+    margin-bottom:14px;
+}
+
+.ach-card p,
+.ach-card li,
+.profile-card p{
+    color:#475569;
+    line-height:1.7;
+    font-size:16px;
+}
+
+.ach-card ul{
+    padding-left:18px;
+}
+
+.profile-section{
+    background:white;
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 20px 45px rgba(15,23,42,.08);
+}
+
+.profile-section h2{
+    text-align:center;
+    color:#1e40af;
+    font-size:34px;
+    margin-bottom:30px;
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.profile-card{
+    text-decoration:none;
+    color:inherit;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:22px;
+    padding:25px;
+    transition:.3s;
+}
+
+.profile-card span{
+    display:inline-block;
+    margin-top:15px;
+    color:#2563eb;
+    font-weight:800;
+}
+
+@media(max-width:1100px){
+    .ach-grid,
+    .profile-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+    .ach-grid,
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ach-hero h1{
+        font-size:36px;
+    }
+}
