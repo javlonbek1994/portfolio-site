@@ -3,108 +3,138 @@
 {% block title %}Admin panel{% endblock %}
 
 {% block content %}
-<div class="page-head">
-    <h1>Admin panel</h1>
-    <p>Muzey Lab platformasini boshqarish</p>
-</div>
+<div class="admin-page">
 
-<div class="admin-wrap">
+    <div class="admin-hero">
+        <div>
+            <span class="admin-label">Muzey Lab boshqaruv paneli</span>
+            <h1>Admin panel</h1>
+            <p>Talabalar, portfellar, baholar va yuklangan ishlarni boshqarish.</p>
+        </div>
 
-    <div class="admin-stats">
-        <div class="stat"><h3>Jami talabalar</h3><strong>{{ total_students }}</strong></div>
-        <div class="stat"><h3>Jami ishlar</h3><strong>{{ total_works }}</strong></div>
-        <div class="stat"><h3>Faol portfellar</h3><strong>{{ active }}</strong></div>
-        <div class="stat"><h3>O‘rtacha ball</h3><strong>{{ avg }}</strong></div>
+        <a href="/logout" class="admin-logout">Chiqish</a>
     </div>
 
-    <div class="admin-grid">
-
-        <div class="admin-panel">
-    <h2>Excel orqali talabalarni yuklash</h2>
-
-    <form method="POST"
-          action="/admin/import"
-          enctype="multipart/form-data">
-
-        <div class="form-group">
-            <label>Excel fayl</label>
-            <input type="file"
-                   name="excel_file"
-                   accept=".xlsx,.xls"
-                   required>
+    <div class="admin-stats">
+        <div class="stat-card">
+            <span>👥</span>
+            <p>Jami talabalar</p>
+            <strong>{{ total_students }}</strong>
         </div>
 
-        <button class="btn full-btn" type="submit">
-            Talabalarni yuklash
-        </button>
-
-    </form>
-</div>
-        
-        <div class="admin-panel">
-            <h2>Talabalar ro‘yxati</h2>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ism</th>
-                        <th>Guruh</th>
-                        <th>Yo‘nalish</th>
-                        <th>Ishlar</th>
-                        <th>Ball</th>
-                        <th>Amal</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {% for s in students %}
-                    <tr>
-                        <td>{{ s.name }}</td>
-                        <td>{{ s.grade }}</td>
-                        <td>{{ s.direction }}</td>
-                        <td>{{ s.works }}</td>
-                        <td>{{ s.score }}</td>
-                        <td>
-                            <a class="btn small-btn" href="/student/{{ s.id }}">Ko‘rish</a>
-
-                            <form method="POST" action="/admin/delete/{{ s.id }}" style="display:inline;">
-                                <button class="btn danger-btn" type="submit">O‘chirish</button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="stat-card">
+            <span>📁</span>
+            <p>Jami ishlar</p>
+            <strong>{{ total_works }}</strong>
         </div>
 
-        <div class="admin-panel">
+        <div class="stat-card">
+            <span>✅</span>
+            <p>Faol portfellar</p>
+            <strong>{{ active }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>⭐</span>
+            <p>O‘rtacha ball</p>
+            <strong>{{ avg }}</strong>
+        </div>
+    </div>
+
+    <div class="admin-layout">
+
+        <section class="admin-card upload-card">
+            <h2>Excel orqali talabalarni yuklash</h2>
+            <p class="muted">.xlsx yoki .xls formatdagi faylni tanlang.</p>
+
+            <form method="POST" action="/admin/import" enctype="multipart/form-data">
+                <label class="upload-box">
+                    <span>📤</span>
+                    <strong>Excel faylni tanlang</strong>
+                    <small>Faylni tanlab, yuklash tugmasini bosing</small>
+                    <input type="file" name="excel_file" accept=".xlsx,.xls" required>
+                </label>
+
+                <button class="admin-btn full" type="submit">Talabalarni yuklash</button>
+            </form>
+        </section>
+
+        <section class="admin-card students-card">
+            <div class="card-head">
+                <div>
+                    <h2>Talabalar ro‘yxati</h2>
+                    <p class="muted">Platformadagi mavjud talabalar.</p>
+                </div>
+                <input class="search-input" type="text" placeholder="Qidirish...">
+            </div>
+
+            <div class="table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Ism</th>
+                            <th>Guruh</th>
+                            <th>Yo‘nalish</th>
+                            <th>Ishlar</th>
+                            <th>Ball</th>
+                            <th>Amal</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for s in students %}
+                        <tr>
+                            <td><strong>{{ s.name }}</strong></td>
+                            <td>{{ s.grade }}</td>
+                            <td>{{ s.direction }}</td>
+                            <td>{{ s.works }}</td>
+                            <td><span class="score-badge">{{ s.score }}</span></td>
+                            <td class="actions">
+                                <a class="admin-btn small" href="/student/{{ s.id }}">Ko‘rish</a>
+
+                                <form method="POST" action="/admin/delete/{{ s.id }}">
+                                    <button class="admin-btn danger small" type="submit">O‘chirish</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-card form-card">
             <h2>Yangi talaba qo‘shish</h2>
+            <p class="muted">Talaba ma’lumotlarini kiriting.</p>
 
-            <form method="POST" action="/admin/add">
-
+            <form method="POST" action="/admin/add" class="student-form">
                 <div class="form-group">
                     <label>Ism-familiya</label>
                     <input name="name" required>
                 </div>
 
-                <div class="form-group">
-                    <label>Guruh</label>
-                    <input name="grade" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Guruh</label>
+                        <input name="grade" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Yo‘nalish</label>
+                        <input name="direction" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Yo‘nalish</label>
-                    <input name="direction" required>
-                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ishlar soni</label>
+                        <input name="works" type="number" value="0">
+                    </div>
 
-                <div class="form-group">
-                    <label>Ishlar soni</label>
-                    <input name="works" type="number" value="0">
-                </div>
-
-                <div class="form-group">
-                    <label>Ball</label>
-                    <input name="score" type="number" value="80">
+                    <div class="form-group">
+                        <label>Ball</label>
+                        <input name="score" type="number" value="80">
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -117,13 +147,10 @@
                     <textarea name="description"></textarea>
                 </div>
 
-                <button class="btn full-btn" type="submit">Saqlash</button>
+                <button class="admin-btn full" type="submit">Saqlash</button>
             </form>
-        </div>
+        </section>
 
     </div>
-
-    <br>
-    <a href="/logout" class="btn">Chiqish</a>
 </div>
 {% endblock %}
