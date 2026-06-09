@@ -332,7 +332,14 @@ def admin_add():
     grade = request.form.get("grade")
     direction = request.form.get("direction")
     works = request.form.get("works", 0)
-    score = request.form.get("score", 80)
+
+    historical = int(request.form.get("historical", 0))
+    museum = int(request.form.get("museum", 0))
+    reflection = int(request.form.get("reflection", 0))
+    portfolio = int(request.form.get("portfolio", 0))
+
+    score = historical + museum + reflection + portfolio
+
     image = request.form.get("image")
     description = request.form.get("description")
 
