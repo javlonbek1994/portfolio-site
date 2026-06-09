@@ -1,1 +1,377 @@
 
+{% extends "base.html" %}
+
+{% block title %}Diagnostik testlar{% endblock %}
+
+{% block content %}
+
+<section class="test-page">
+    <div class="test-box">
+
+        <h1>Aksiologik diagnostik testlar</h1>
+
+        <p>
+            Ushbu testlar talabaning aksiologik tushunchalari, qadriyatli vaziyatlarni
+            tahlil qilishi va milliy qadriyatlar bo‘yicha kompetensiyasini baholaydi.
+        </p>
+
+        <div class="test-info">
+            <strong>Jami savollar:</strong> 45 ta <br>
+            <strong>Har bir to‘g‘ri javob:</strong> 1 ball <br>
+            <strong>Maksimal natija:</strong> 45 ball
+        </div>
+
+        <form id="testForm"></form>
+
+        <button class="admin-btn full" type="button" onclick="checkTest()">
+            Natijani hisoblash
+        </button>
+
+        <div id="resultBox" class="result-box"></div>
+
+    </div>
+</section>
+
+<script>
+const questions = [
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologiya fani nimani o‘rganadi?",
+        options: ["Bilimlarni baholashni", "Qadriyatlar va ularning jamiyatdagi o‘rnini", "Ta’lim texnologiyalarini", "Psixologik jarayonlarni"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "“Qadriyat” tushunchasi nimani anglatadi?",
+        options: ["Faqat moddiy boylikni", "Inson va jamiyat uchun muhim bo‘lgan mezonlarni", "Qoidalarni", "Baholash tizimini"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik yondashuvning asosiy maqsadi nima?",
+        options: ["Nazoratni kuchaytirish", "Qadriyatlarga asoslangan ongli munosabatni shakllantirish", "Reytingni oshirish", "Yodlashni ta’minlash"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik pozitsiya deganda nima tushuniladi?",
+        options: ["Shaxsning bilim darajasi", "Qadriyatlarga nisbatan barqaror munosabati", "Nutq madaniyati", "Intizomi"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Quyidagilardan qaysi biri umuminsoniy qadriyat?",
+        options: ["Milliy kiyim", "Inson huquqlari", "Hududiy urf-odat", "Mahalliy an’ana"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik tafakkur nimaga asoslanadi?",
+        options: ["Mexanik yodlashga", "Qadriyatlarga tayangan fikrlashga", "Statistik tahlilga", "Texnik ko‘nikmaga"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik tarbiya nimani ko‘zlaydi?",
+        options: ["Faqat bilim berishni", "Shaxsning ma’naviy kamolotini", "Nazoratni", "Hisobotni"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Qadriyatlar qaysi jarayonda shakllanadi?",
+        options: ["Tasodifan", "Ta’lim va ijtimoiy tajriba jarayonida", "Faqat oilada", "Faqat maktabda"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik yondashuv qaysi fan bilan bevosita bog‘liq?",
+        options: ["Falsafa", "Matematika", "Fizika", "Texnika"],
+        answer: "A"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Qadriyatlar tizimi nimani ifodalaydi?",
+        options: ["Dars rejalarini", "Jamiyat va shaxs uchun muhim mezonlar majmuasini", "Baholash jadvalini", "Fanlar ro‘yxatini"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik kompetensiya bu —",
+        options: ["Texnik bilimlar majmui", "Qadriyatlarga asoslangan kasbiy pozitsiya", "Nutq tezligi", "Reja tuzish"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Ta’limda aksiologik yondashuv nimani ta’minlaydi?",
+        options: ["Faqat nazoratni", "Bilim va tarbiyaning uyg‘unligini", "Reytingni", "Hisobotni"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik tahlil nimaga yo‘naltiriladi?",
+        options: ["Statistik ma’lumotlarga", "Hodisalarning qadriy jihatiga", "Texnik yechimga", "Reproduktiv bilimga"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Qadriyatga yo‘naltirilgan ta’lim nimani rivojlantiradi?",
+        options: ["Passivlikni", "Ongli va mas’uliyatli shaxsni", "Beqarorlikni", "Faqat nazoratni"],
+        answer: "B"
+    },
+    {
+        section: "Aksiologik tushunchalar va nazariy asoslar",
+        q: "Aksiologik yondashuvning natijasi sifatida nima shakllanadi?",
+        options: ["Faqat bilim", "Barqaror shaxsiy va kasbiy pozitsiya", "Reyting", "Intizom"],
+        answer: "B"
+    },
+
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Talaba tarixiy voqeani tahlil qilayotganda inson huquqlari buzilganini ta’kidladi. Bu qaysi qadriyat?",
+        options: ["Moddiy manfaat", "Umuminsoniy qadriyat", "Texnik yondashuv", "Statistik tahlil"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy shaxs faoliyatini yutuq va xatolari bilan baholash nimani ko‘rsatadi?",
+        options: ["Beparvolikni", "Tanqidiy-aksiologik yondashuvni", "Yodlashni", "Intizomsizlikni"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy hodisadan bugungi jamiyat uchun saboq chiqarish qaysi ko‘nikma?",
+        options: ["Reproduktiv", "Refleksiv-aksiologik", "Texnik", "Statistik"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Adolat va mas’uliyatni muhokama qilish qaysi yondashuvga xos?",
+        options: ["Informativ", "Aksiologik", "Nazoratga yo‘naltirilgan", "Reproduktiv"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "“Agar men shu davrda yashagan bo‘lsam...” deya baho berish nimani anglatadi?",
+        options: ["Tasodifiy fikrni", "Qadriyatlarga asoslangan refleksiyani", "Yodlashni", "Nazoratni"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Turli qarashlarni hurmat bilan tinglash qaysi qadriyat?",
+        options: ["Raqobat", "Bag‘rikenglik", "Beparvolik", "Individualizm"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy manbani adolat mezonida baholash nimani ko‘rsatadi?",
+        options: ["Texnik tahlilni", "Aksiologik pozitsiyani", "Mexanik yodlashni", "Passivlik"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy xatolardan saboq olish zarurligini ta’kidlash qaysi yondashuv?",
+        options: ["Statistik", "Refleksiv-aksiologik", "Reproduktiv", "Nazorat"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Milliy tarix orqali vatan oldidagi mas’uliyatni his qilish qaysi qadriyat?",
+        options: ["Moddiy", "Vatanparvarlik", "Texnik", "Shaxsiy manfaat"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Insonparvarlik mezoni nimani rivojlantiradi?",
+        options: ["Beparvolikni", "Axloqiy tafakkurni", "Faqat bilimni", "Tezkorlikni"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy hodisaga o‘z pozitsiyasini asoslab berish nimaning belgisi?",
+        options: ["Intizom", "Aksiologik kompetensiya", "Nazorat", "Tasodif"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy voqealarni bugungi qadriyatlar bilan solishtirish qaysi jarayon?",
+        options: ["Mexanik tahlil", "Qadriyatlarga asoslangan tahlil", "Statistik solishtirish", "Reproduktiv"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Axloqiy mas’uliyatni muhim deb bilish qaysi qadriyat?",
+        options: ["Moddiy manfaat", "Ma’naviy qadriyat", "Texnik tafakkur", "Raqobat"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Qarama-qarshi fikrni hurmat qilish nimani ko‘rsatadi?",
+        options: ["Passivlikni", "Qadriyatlarga asoslangan madaniyatni", "Beqarorlikni", "Nazoratni"],
+        answer: "B"
+    },
+    {
+        section: "Qadriyatlar bilan bog‘liq vaziyatli testlar",
+        q: "Tarixiy voqealardan shaxsiy xulosa chiqarish nimani bildiradi?",
+        options: ["Yodlashni", "Refleksiv-aksiologik fikrlashni", "Tasodifiylikni", "Texnik tahlilni"],
+        answer: "B"
+    },
+
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy qadriyatlar deganda nima tushuniladi?",
+        options: ["Faqat moddiy boyliklar", "Muayyan xalqning tarixiy, ma’naviy va madaniy merosi", "Texnik yutuqlar", "Shaxsiy qiziqishlar"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy qadriyatlarning asosiy manbai qaysi?",
+        options: ["Tasodif", "Tarixiy tajriba va xalq an’analari", "Texnika", "Global jarayonlar"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Tarix fanida milliy qadriyatlarni o‘rganishdan asosiy maqsad nima?",
+        options: ["Sanalarni yodlash", "Milliy o‘zlikni anglashni shakllantirish", "Baholashni osonlashtirish", "Darsni qisqartirish"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Quyidagilardan qaysi biri milliy qadriyat hisoblanadi?",
+        options: ["Inson huquqlari", "Milliy urf-odat va an’analar", "Texnologik taraqqiyot", "Statistik tahlil"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy qadriyatlar yosh avlodda nimani rivojlantiradi?",
+        options: ["Beparvolikni", "Vatanparvarlik va mas’uliyatni", "Passivlikni", "Raqobatni"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "O‘zbek xalqining milliy qadriyatlarida qaysi tushuncha ustuvor?",
+        options: ["Individualizm", "Mehr-oqibat va jamoaviylik", "Raqobat", "Faqat shaxsiy manfaat"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Tarixiy shaxslar faoliyatini milliy qadriyatlar asosida baholash nimani ta’minlaydi?",
+        options: ["Biryoqlama fikrni", "Tanqidiy va qadriy tafakkurni", "Mexanik yodlashni", "Bevosita bahoni"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Jadidlarning asosiy ma’rifiy qadriyati qaysi?",
+        options: ["Harbiy kuch", "Ilm, taraqqiyot va ma’rifat", "Boylik", "An’anaviylikdan voz kechish"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy tarixni o‘rganish qaysi hissiy holatni kuchaytiradi?",
+        options: ["Beparvolikni", "Milliy g‘urur va mas’uliyatni", "Qo‘rquvni", "Betaraflikni"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy va umuminsoniy qadriyatlar o‘rtasidagi bog‘liqlik nimada?",
+        options: ["Qarama-qarshi bo‘lishida", "Bir-birini to‘ldirishida", "Faqat milliylikda", "Faqat umumiylikda"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Tarix darsida milliy qadriyatlarni shakllantirishning samarali usuli qaysi?",
+        options: ["Faqat ma’ruza", "Munozara va tarixiy manbalar bilan ishlash", "Testni ko‘paytirish", "Konspekt yozdirish"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy bayramlar tarixini o‘rganish nimani rivojlantiradi?",
+        options: ["Texnik tafakkurni", "Milliy xotirani", "Statistik tahlilni", "Tezkorlikni"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Tarixiy xotira tushunchasi qaysi qadriyat bilan bog‘liq?",
+        options: ["Moddiy", "Ma’naviy", "Texnik", "Individual"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy qadriyatlarga hurmat qanday xulq-atvorda namoyon bo‘ladi?",
+        options: ["Beparvolikda", "Merosni asrash va qadrlashda", "Tanqidni rad etishda", "Passivlikda"],
+        answer: "B"
+    },
+    {
+        section: "Milliy qadriyatlar bo‘yicha testlar",
+        q: "Milliy qadriyatlar asosida tarbiya berish nimani ta’minlaydi?",
+        options: ["Faqat bilimni", "Barkamol shaxsni", "Reytingni", "Nazoratni"],
+        answer: "B"
+    }
+];
+
+const form = document.getElementById("testForm");
+let currentSection = "";
+
+questions.forEach((item, index) => {
+    if(item.section !== currentSection){
+        currentSection = item.section;
+        form.innerHTML += `<h2 class="test-section-title">${currentSection}</h2>`;
+    }
+
+    let html = `
+        <div class="question-card">
+            <h3>${index + 1}. ${item.q}</h3>
+    `;
+
+    item.options.forEach((option, i) => {
+        const letter = ["A", "B", "C", "D"][i];
+
+        html += `
+            <label>
+                <input type="radio" name="q${index}" value="${letter}">
+                ${letter}) ${option}
+            </label>
+        `;
+    });
+
+    html += `</div>`;
+    form.innerHTML += html;
+});
+
+function checkTest(){
+    let correct = 0;
+
+    questions.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+
+        if(selected && selected.value === item.answer){
+            correct++;
+        }
+    });
+
+    const total = questions.length;
+    const percent = Math.round((correct / total) * 100);
+
+    let level = "";
+
+    if(percent >= 86){
+        level = "Yuqori daraja";
+    }else if(percent >= 71){
+        level = "Yaxshi daraja";
+    }else if(percent >= 56){
+        level = "O‘rta daraja";
+    }else{
+        level = "Past daraja";
+    }
+
+    document.getElementById("resultBox").innerHTML = `
+        <h2>Natija</h2>
+        <p>To‘g‘ri javoblar: <strong>${correct}/${total}</strong></p>
+        <p>Foiz: <strong>${percent}%</strong></p>
+        <p>Daraja: <strong>${level}</strong></p>
+    `;
+
+    document.getElementById("resultBox").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+{% endblock %}
