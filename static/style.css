@@ -1822,3 +1822,231 @@ body{
 .museum-btn:hover{
     background:#1d4ed8;
 }
+.admin-page{
+    padding: 45px 7%;
+    background: #f6f8fc;
+}
+
+.admin-hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-label{
+    color: #5573d9;
+    font-weight: 700;
+}
+
+.admin-hero h1{
+    font-size: 42px;
+    margin: 8px 0 5px;
+}
+
+.admin-hero p,
+.muted{
+    color: #64748b;
+}
+
+.admin-logout,
+.admin-btn{
+    background: linear-gradient(135deg,#4f6fdc,#6c8cff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-stats{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.stat-card{
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(15,23,42,.08);
+}
+
+.stat-card span{
+    font-size: 28px;
+}
+
+.stat-card p{
+    margin: 12px 0 6px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.stat-card strong{
+    font-size: 34px;
+    color: #5573d9;
+}
+
+.admin-layout{
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 24px;
+}
+
+.admin-card{
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 18px 45px rgba(15,23,42,.08);
+}
+
+.students-card{
+    grid-row: span 2;
+}
+
+.card-head{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-input,
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    border: 1px solid #d9e1ef;
+    border-radius: 12px;
+    padding: 13px 15px;
+    outline: none;
+}
+
+.upload-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 150px;
+    border: 2px dashed #9db1ff;
+    border-radius: 18px;
+    background: #f7f9ff;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.upload-box span{
+    font-size: 38px;
+}
+
+.upload-box input{
+    margin-top: 10px;
+}
+
+.full{
+    width: 100%;
+}
+
+.table-wrap{
+    overflow-x: auto;
+}
+
+.admin-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th{
+    background: #f1f5ff;
+    color: #5573d9;
+    text-align: left;
+    padding: 14px;
+}
+
+.admin-table td{
+    padding: 14px;
+    border-bottom: 1px solid #edf1f7;
+}
+
+.score-badge{
+    background: #eef3ff;
+    color: #4f6fdc;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+.actions{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.actions form{
+    margin: 0;
+}
+
+.small{
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.danger{
+    background: #ef4444;
+}
+
+.student-form{
+    margin-top: 18px;
+}
+
+.form-group{
+    margin-bottom: 16px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group textarea{
+    min-height: 110px;
+    resize: vertical;
+}
+
+@media(max-width: 1000px){
+    .admin-stats,
+    .admin-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .students-card{
+        grid-row: auto;
+    }
+
+    .admin-hero{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media(max-width: 600px){
+    .admin-page{
+        padding: 30px 18px;
+    }
+
+    .form-row{
+        grid-template-columns: 1fr;
+    }
+}
