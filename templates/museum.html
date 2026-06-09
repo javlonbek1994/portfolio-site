@@ -1,64 +1,71 @@
 {% extends "base.html" %}
 
-{% block title %}Virtual Muzey{% endblock %}
+{% block title %}Virtual muzey{% endblock %}
 
 {% block content %}
+<section class="museum-page">
 
-<section class="page-header">
-    <h1>Virtual Muzey</h1>
-    <p>
-        Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirishga
-        qaratilgan raqamli muzey pedagogikasi platformasi
-    </p>
-</section>
+    <div class="museum-hero">
+        <span>Virtual Museum Pedagogy Lab</span>
+        <h1>Virtual Muzey</h1>
+        <p>
+            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirish
+            uchun mahalliy va xalqaro virtual muzeylar katalogi.
+        </p>
+    </div>
 
-<section class="museum-grid">
+    <div class="museum-grid">
 
-    <div class="museum-card">
-        <img src="{{ url_for('static', filename='images/uzbekiston-tarixi.jpg') }}" alt="O‘zbekiston tarixi davlat muzeyi">
-        <div class="museum-content">
+        <div class="museum-card pro uz">
+            <div class="museum-icon">🏛️</div>
             <h3>O‘zbekiston tarixi davlat muzeyi</h3>
-            <p>O‘zbekiston hududining qadimgi davrdan zamonaviy davrgacha bo‘lgan tarixini aks ettiruvchi eksponatlar va manbalar.</p>
-            <a href="#" class="museum-btn">Virtual ko‘rish</a>
+            <p>O‘zbekiston tarixiga oid eksponatlar, madaniy meros va manbalar.</p>
+            <a href="https://history-museum.uz/" target="_blank">Virtual ko‘rish</a>
         </div>
-    </div>
 
-    <div class="museum-card">
-        <img src="{{ url_for('static', filename='images/temuriylar.jpg') }}" alt="Temuriylar tarixi muzeyi">
-        <div class="museum-content">
+        <div class="museum-card pro uz">
+            <div class="museum-icon">⚔️</div>
             <h3>Temuriylar tarixi davlat muzeyi</h3>
-            <p>Amir Temur va Temuriylar davriga oid tarixiy hujjatlar, maketlar, qurol-aslahalar va madaniy meros namunalari.</p>
-            <a href="#" class="museum-btn">Virtual ko‘rish</a>
+            <p>Amir Temur va Temuriylar davriga oid tarixiy meros.</p>
+            <a href="https://temurid.uz/" target="_blank">Virtual ko‘rish</a>
         </div>
-    </div>
 
-    <div class="museum-card">
-        <img src="{{ url_for('static', filename='images/jadidlar.jpg') }}" alt="Jadidlar muzeyi">
-        <div class="museum-content">
+        <div class="museum-card pro uz">
+            <div class="museum-icon">📜</div>
             <h3>Jadidlar merosi</h3>
-            <p>Jadidchilik harakati, ma’rifatparvarlar faoliyati va milliy uyg‘onish tarixiga oid materiallar.</p>
-            <a href="#" class="museum-btn">Virtual ko‘rish</a>
+            <p>Jadidchilik harakati va milliy uyg‘onish tarixiga oid materiallar.</p>
+            <a href="https://jadid.uz/" target="_blank">Virtual ko‘rish</a>
         </div>
-    </div>
 
-    <div class="museum-card">
-        <img src="{{ url_for('static', filename='images/namangan.jpg') }}" alt="Namangan tarixi muzeyi">
-        <div class="museum-content">
-            <h3>Namangan viloyati tarixi muzeyi</h3>
-            <p>Namangan hududining tarixiy rivojlanishi, arxeologik topilmalar va madaniy meros obyektlari.</p>
-            <a href="#" class="museum-btn">Virtual ko‘rish</a>
+        <div class="museum-card pro world">
+            <div class="museum-icon">🎨</div>
+            <h3>Louvre Museum</h3>
+            <p>Parijdagi Louvre muzeyining rasmiy online va virtual turlari.</p>
+            <a href="https://www.louvre.fr/en/online-tours" target="_blank">Virtual ko‘rish</a>
         </div>
-    </div>
 
-    <div class="museum-card">
-        <img src="{{ url_for('static', filename='images/afrosiyob.jpg') }}" alt="Afrosiyob">
-        <div class="museum-content">
-            <h3>Afrosiyob topilmalari</h3>
-            <p>Samarqandning qadimgi Afrosiyob shahristoniga oid arxeologik topilmalar va devoriy suratlar.</p>
-            <a href="#" class="museum-btn">Virtual ko‘rish</a>
+        <div class="museum-card pro world">
+            <div class="museum-icon">🌍</div>
+            <h3>British Museum</h3>
+            <p>Google Street View orqali galereyalarni masofadan ko‘rish imkoniyati.</p>
+            <a href="https://www.britishmuseum.org/british-museum-home" target="_blank">Virtual ko‘rish</a>
         </div>
+
+        <div class="museum-card pro world">
+            <div class="museum-icon">🦖</div>
+            <h3>Smithsonian Natural History</h3>
+            <p>Room-by-room formatdagi self-guided virtual tour.</p>
+            <a href="https://naturalhistory.si.edu/visit/virtual-tour" target="_blank">Virtual ko‘rish</a>
+        </div>
+
+        <div class="museum-card pro world">
+            <div class="museum-icon">🖼️</div>
+            <h3>Google Arts & Culture</h3>
+            <p>2000+ muzey va arxivlar bilan hamkorlikdagi global madaniy platforma.</p>
+            <a href="https://artsandculture.google.com/project/streetviews" target="_blank">Virtual ko‘rish</a>
+        </div>
+
     </div>
 
 </section>
-
 {% endblock %}
