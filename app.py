@@ -16,32 +16,33 @@ def get_db():
 
 
 def init_db():
-    conn = get_db()
+conn = get_db()
 
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS students (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            grade TEXT NOT NULL,
-            direction TEXT NOT NULL,
-            works INTEGER DEFAULT 0,
-            score INTEGER DEFAULT 80,
-            image TEXT,
-            description TEXT
-        )
-    """)
+```
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        grade TEXT NOT NULL,
+        direction TEXT NOT NULL,
+        works INTEGER DEFAULT 0,
+        score INTEGER DEFAULT 80,
+        image TEXT,
+        description TEXT
+    )
+""")
 
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL,
-            role TEXT NOT NULL,
-            full_name TEXT NOT NULL
-        )
-    """)
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+        role TEXT NOT NULL,
+        full_name TEXT NOT NULL
+    )
+""")
 
-    conn.execute("""
+conn.execute("""
     CREATE TABLE IF NOT EXISTS reflections (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         student_name TEXT NOT NULL,
@@ -51,25 +52,42 @@ def init_db():
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 """)
-    
+
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS diagnostic_results (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_name TEXT,
+        total_score INTEGER,
+        percent INTEGER,
+        level TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+""")
+
+conn.commit()
+
+user_count = conn.execute(
+    "SELECT COUNT(*) FROM users"
+).fetchone()[0]
+
+if user_count == 0:
+    conn.execute("""
+        INSERT INTO users
+        (username, password, role, full_name)
+        VALUES (?, ?, ?, ?)
+    """, ("admin", "12345", "admin", "Administrator"))
+
+    conn.execute("""
+        INSERT INTO users
+        (username, password, role, full_name)
+        VALUES (?, ?, ?, ?)
+    """, ("teacher", "12345", "teacher", "O‘qituvchi"))
+
     conn.commit()
 
-    user_count = conn.execute(
-        "SELECT COUNT(*) FROM users"
-    ).fetchone()[0]
+conn.close()
+```
 
-    if user_count == 0:
-        conn.execute("""
-            INSERT INTO users
-            (username, password, role, full_name)
-            VALUES (?, ?, ?, ?)
-        """, ("admin", "12345", "admin", "Administrator"))
-
-        conn.execute("""
-            INSERT INTO users
-            (username, password, role, full_name)
-            VALUES (?, ?, ?, ?)
-        """, ("teacher", "12345", "teacher", "O‘qituvchi"))
 
         conn.execute("""
             INSERT INTO users
