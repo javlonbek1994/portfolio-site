@@ -41,6 +41,17 @@ def init_db():
         )
     """)
 
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS reflections (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_name TEXT NOT NULL,
+        reflection_type TEXT NOT NULL,
+        text TEXT NOT NULL,
+        score INTEGER DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+""")
+    
     conn.commit()
 
     user_count = conn.execute(
