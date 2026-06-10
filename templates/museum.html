@@ -3,69 +3,203 @@
 {% block title %}Virtual muzey{% endblock %}
 
 {% block content %}
+
 <section class="museum-page">
 
     <div class="museum-hero">
         <span>Virtual Museum Pedagogy Lab</span>
-        <h1>Virtual Muzey</h1>
+        <h1>Virtual muzey laboratoriyasi</h1>
         <p>
-            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirish
-            uchun mahalliy va xalqaro virtual muzeylar katalogi.
+            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini rivojlantirishga
+            qaratilgan mahalliy va xalqaro virtual muzeylar, metodik topshiriqlar
+            hamda diagnostik savollar majmuasi.
         </p>
     </div>
 
-    <div class="museum-grid">
+    <div class="museum-info-grid">
 
-        <div class="museum-card pro uz">
-            <div class="museum-icon">🏛️</div>
-            <h3>O‘zbekiston tarixi davlat muzeyi</h3>
-            <p>O‘zbekiston tarixiga oid eksponatlar, madaniy meros va manbalar.</p>
-            <a href="https://history-museum.uz/" target="_blank">Virtual ko‘rish</a>
+        <div class="museum-info-card">
+            <h3>🎯 Pedagogik maqsad</h3>
+            <p>
+                Talabalarda tarixiy manbani kuzatish, tahlil qilish, talqin etish
+                va tarixiy xulosa chiqarish ko‘nikmalarini shakllantirish.
+            </p>
         </div>
 
-        <div class="museum-card pro uz">
+        <div class="museum-info-card">
+            <h3>🧠 Tarixiy tafakkur</h3>
+            <p>
+                Sabab-oqibatni aniqlash, tarixiy dalillarni solishtirish, davr
+                ruhini tushunish va mustaqil ilmiy fikr bildirish.
+            </p>
+        </div>
+
+        <div class="museum-info-card">
+            <h3>📚 Metodik yondashuv</h3>
+            <p>
+                Muammoli ta’lim, loyiha metodi, virtual ekskursiya, manba bilan
+                ishlash va reflektiv tahlil texnologiyalari asosida tashkil etiladi.
+            </p>
+        </div>
+
+    </div>
+
+    <h2 class="museum-section-title">Virtual muzeylar katalogi</h2>
+
+    <div class="museum-grid">
+
+        <div class="museum-card">
+            <div class="museum-icon">🏛️</div>
+            <h3>O‘zbekiston tarixi davlat muzeyi</h3>
+            <p>O‘zbekiston tarixi, madaniy meros va tarixiy eksponatlar.</p>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Eksponatni tanlang, uning tarixiy davri va ahamiyatini tahlil qiling.
+            </div>
+
+            <a href="https://www.google.com/search?q=O‘zbekiston+tarixi+davlat+muzeyi"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
+        </div>
+
+        <div class="museum-card">
             <div class="museum-icon">⚔️</div>
             <h3>Temuriylar tarixi davlat muzeyi</h3>
             <p>Amir Temur va Temuriylar davriga oid tarixiy meros.</p>
-            <a href="https://temurid.uz/" target="_blank">Virtual ko‘rish</a>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Temuriylar davri davlat boshqaruvi va madaniyatini izohlang.
+            </div>
+
+            <a href="https://www.google.com/search?q=Temuriylar+tarixi+davlat+muzeyi"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
         </div>
 
-        <div class="museum-card pro uz">
+        <div class="museum-card">
             <div class="museum-icon">📜</div>
             <h3>Jadidlar merosi</h3>
-            <p>Jadidchilik harakati va milliy uyg‘onish tarixiga oid materiallar.</p>
-            <a href="https://jadid.uz/" target="_blank">Virtual ko‘rish</a>
+            <p>Jadidchilik harakati, milliy uyg‘onish va ma’rifatparvarlik.</p>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Jadidlarning ta’lim islohoti haqidagi qarashlarini tahlil qiling.
+            </div>
+
+            <a href="https://www.google.com/search?q=Jadidlar+merosi+muzeyi"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
         </div>
 
-        <div class="museum-card pro world">
+        <div class="museum-card">
             <div class="museum-icon">🎨</div>
             <h3>Louvre Museum</h3>
-            <p>Parijdagi Louvre muzeyining rasmiy online va virtual turlari.</p>
-            <a href="https://www.louvre.fr/en/online-tours" target="_blank">Virtual ko‘rish</a>
+            <p>Jahon san’ati, sivilizatsiyalar tarixi va madaniy meros.</p>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Bir eksponat misolida madaniyatlararo aloqalarni tushuntiring.
+            </div>
+
+            <a href="https://www.louvre.fr/en/online-tours"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
         </div>
 
-        <div class="museum-card pro world">
+        <div class="museum-card">
             <div class="museum-icon">🌍</div>
             <h3>British Museum</h3>
-            <p>Google Street View orqali galereyalarni masofadan ko‘rish imkoniyati.</p>
-            <a href="https://www.britishmuseum.org/british-museum-home" target="_blank">Virtual ko‘rish</a>
+            <p>Jahon xalqlari tarixi, arxeologiya va qadimgi sivilizatsiyalar.</p>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Qadimgi sivilizatsiya eksponatini tanlab, tarixiy manba sifatida baholang.
+            </div>
+
+            <a href="https://www.britishmuseum.org/collection"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
         </div>
 
-        <div class="museum-card pro world">
+        <div class="museum-card">
             <div class="museum-icon">🦖</div>
             <h3>Smithsonian Natural History</h3>
-            <p>Room-by-room formatdagi self-guided virtual tour.</p>
-            <a href="https://naturalhistory.si.edu/visit/virtual-tour" target="_blank">Virtual ko‘rish</a>
+            <p>Tabiiy tarix, evolyutsiya, antropologiya va ilmiy kolleksiyalar.</p>
+
+            <div class="museum-task">
+                <b>Topshiriq:</b>
+                Insoniyat taraqqiyoti haqidagi eksponat asosida tarixiy xulosa yozing.
+            </div>
+
+            <a href="https://naturalhistory.si.edu/visit/virtual-tour"
+               target="_blank"
+               class="museum-btn">
+                Virtual ko‘rish →
+            </a>
         </div>
 
-        <div class="museum-card pro world">
-            <div class="museum-icon">🖼️</div>
-            <h3>Google Arts & Culture</h3>
-            <p>2000+ muzey va arxivlar bilan hamkorlikdagi global madaniy platforma.</p>
-            <a href="https://artsandculture.google.com/project/streetviews" target="_blank">Virtual ko‘rish</a>
+    </div>
+
+    <div class="method-section">
+
+        <h2>Metodik ishlash bosqichlari</h2>
+
+        <div class="method-grid">
+
+            <div class="method-card">
+                <span>1</span>
+                <h3>Kuzatish</h3>
+                <p>Talaba eksponat, rasm, hujjat yoki tarixiy ob’ektni diqqat bilan kuzatadi.</p>
+            </div>
+
+            <div class="method-card">
+                <span>2</span>
+                <h3>Tahlil</h3>
+                <p>Manbaning davri, muallifi, vazifasi va tarixiy mazmunini aniqlaydi.</p>
+            </div>
+
+            <div class="method-card">
+                <span>3</span>
+                <h3>Talqin</h3>
+                <p>Eksponatning tarixiy jarayondagi o‘rni va sabab-oqibat aloqasini izohlaydi.</p>
+            </div>
+
+            <div class="method-card">
+                <span>4</span>
+                <h3>Xulosa</h3>
+                <p>Tarixiy dalillar asosida mustaqil fikr va ilmiy xulosa shakllantiradi.</p>
+            </div>
+
         </div>
+
+    </div>
+
+    <div class="diagnostic-section">
+
+        <h2>Diagnostik savollar</h2>
+
+        <ol>
+            <li>Tanlangan eksponat qaysi tarixiy davrga tegishli?</li>
+            <li>U qanday tarixiy muammoni tushunishga yordam beradi?</li>
+            <li>Eksponat asosida qanday sabab-oqibat aloqasini ko‘rish mumkin?</li>
+            <li>Ushbu manbaning ta’limiy va tarbiyaviy ahamiyati nimada?</li>
+            <li>Bo‘lajak tarix o‘qituvchisi bu materialdan darsda qanday foydalanishi mumkin?</li>
+        </ol>
 
     </div>
 
 </section>
+
 {% endblock %}
