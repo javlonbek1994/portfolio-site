@@ -4083,3 +4083,118 @@ body{
     }
 
 }
+/* ===== PREMIUM MAP + ABOUT FIX ===== */
+
+.premium-about{
+    background:#ffffff;
+    padding:80px 10%;
+    width:100%;
+    margin:0;
+}
+
+.premium-about-text{
+    background:#ffffff;
+    padding:20px 10px;
+}
+
+.premium-about-text span{
+    display:inline-block;
+    border-bottom:3px solid #06b6d4;
+    padding-bottom:8px;
+    margin-bottom:12px;
+}
+
+.premium-about-text h2{
+    color:#1e40af;
+    font-size:42px;
+    line-height:1.25;
+}
+
+.premium-about-text p{
+    font-size:18px;
+    color:#334155;
+    line-height:1.85;
+}
+
+.premium-about-card{
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+    border:1px solid #dbeafe;
+    box-shadow:0 18px 45px rgba(15,23,42,.12);
+    border-radius:28px;
+    padding:45px 35px;
+}
+
+.premium-about-card div{
+    width:95px;
+    height:95px;
+    margin:0 auto 18px;
+    border-radius:28px;
+    background:#5876c9;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+}
+
+.premium-about-card h3{
+    font-size:28px;
+    color:#1e40af;
+    margin-bottom:14px;
+}
+
+.premium-about-card p{
+    font-size:17px;
+    line-height:1.7;
+    color:#475569;
+}
+
+/* xaritani namunadagidek ixcham qilish */
+
+.premium-map{
+    padding:55px 10%;
+    grid-template-columns:1.1fr .9fr;
+}
+
+.premium-map-text h2{
+    font-size:30px;
+    line-height:1.35;
+}
+
+.premium-map-text p{
+    font-size:17px;
+    line-height:1.7;
+}
+
+.premium-map-box{
+    max-width:520px;
+    width:100%;
+    justify-self:end;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,.22);
+}
+
+.premium-map-box iframe{
+    height:260px !important;
+}
+
+/* mobile */
+@media(max-width:900px){
+    .premium-about{
+        padding:55px 6%;
+    }
+
+    .premium-map{
+        grid-template-columns:1fr;
+        padding:45px 6%;
+    }
+
+    .premium-map-box{
+        max-width:100%;
+        justify-self:stretch;
+    }
+
+    .premium-map-box iframe{
+        height:240px !important;
+    }
+}
