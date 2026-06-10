@@ -3513,3 +3513,133 @@ body{
         width:100%;
     }
 }
+/* ===== E-PORTFEL EXTRA SECTIONS ===== */
+
+.home-testimonials{
+    padding:70px 10%;
+    background:#ffffff;
+    text-align:center;
+}
+
+.home-testimonials span{
+    color:#5876c9;
+    font-weight:800;
+}
+
+.home-testimonials h2{
+    font-size:42px;
+    margin:15px 0 40px;
+    color:#111827;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.testimonial-card{
+    background:#f8fafc;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.testimonial-card p{
+    font-size:18px;
+    line-height:1.8;
+    color:#475569;
+    margin-bottom:20px;
+}
+
+.testimonial-card h4{
+    color:#5876c9;
+    font-size:20px;
+}
+
+/* SOCIAL */
+
+.home-social{
+    padding:70px 10%;
+    background:#eef2f5;
+    text-align:center;
+}
+
+.home-social h2{
+    font-size:38px;
+    margin-bottom:35px;
+    color:#111827;
+}
+
+.social-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.social-grid a{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    text-decoration:none;
+    color:#111827;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.social-grid a:hover{
+    transform:translateY(-5px);
+    background:#5876c9;
+    color:white;
+}
+
+/* MAP */
+
+.home-map{
+    padding:70px 10%;
+    background:#5876c9;
+    color:white;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.home-map span{
+    font-weight:800;
+}
+
+.home-map h2{
+    font-size:36px;
+    margin:15px 0;
+}
+
+.home-map p{
+    line-height:1.8;
+    font-size:18px;
+}
+
+.map-box{
+    overflow:hidden;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .testimonial-grid,
+    .social-grid,
+    .home-map{
+        grid-template-columns:1fr;
+    }
+
+    .home-testimonials h2,
+    .home-social h2,
+    .home-map h2{
+        font-size:30px;
+    }
+
+}
