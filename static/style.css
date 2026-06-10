@@ -3643,3 +3643,52 @@ body{
     }
 
 }
+/* ===== HOME FINAL FIX ===== */
+
+.follow-grid a{
+    background:#fff;
+    padding:24px;
+    border-radius:16px;
+    text-decoration:none;
+    color:#111827;
+    font-size:20px;
+    font-weight:800;
+    box-shadow:0 12px 35px rgba(15,23,42,.10);
+    text-align:center;
+    transition:.3s;
+}
+
+.follow-grid a:hover{
+    transform:translateY(-6px);
+    background:#5876c9;
+    color:white;
+}
+
+.home-partners{
+    background:#eef2f5;
+    padding:70px 12%;
+}
+
+.partner-card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+}
+
+.home-advantages{
+    background:
+        linear-gradient(90deg, rgba(15,23,42,.15) 0 50%, rgba(88,118,201,.92) 50% 100%),
+        url("/static/images/hero.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+.home-social{
+    border-bottom:5px solid #08c6c9;
+}
+
+/* eski follow-section chiqib qolsa yashiramiz */
+.follow-section{
+    display:none;
+}
