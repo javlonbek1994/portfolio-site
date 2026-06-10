@@ -4041,13 +4041,15 @@ body{
 /* MAP */
 
 .premium-map{
-    background:#5876c9;
-    color:white;
-    padding:70px 10%;
+    width:75%;
+    margin:60px auto;
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:40px;
     align-items:center;
+    background:#5c78d4;
+    padding:40px;
+    border-radius:24px;
 }
 
 .premium-map-box{
