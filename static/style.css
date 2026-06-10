@@ -4309,3 +4309,58 @@ body{
 .socials a:hover i{
     transform:scale(1.2);
 }
+.socials{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:35px;
+}
+
+.socials a{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    text-decoration:none;
+    color:#111827;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    font-size:28px;
+    font-weight:700;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.socials a:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.fa-youtube{
+    color:#FF0000;
+}
+
+.fa-telegram{
+    color:#229ED9;
+}
+
+.fa-instagram{
+    color:#E1306C;
+}
+
+.fa-facebook-f{
+    color:#1877F2;
+}
+
+@media(max-width:900px){
+    .socials{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .socials{
+        grid-template-columns:1fr;
+    }
+}
