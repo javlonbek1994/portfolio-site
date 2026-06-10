@@ -1,71 +1,156 @@
 {% extends "base.html" %}
 
-{% block title %}Talaba portfeli{% endblock %}
+{% block title %}Tajriba-sinov ishtirokchilari{% endblock %}
 
 {% block content %}
 
-<section class="student-detail">
-    <div class="student-detail-card">
+<section class="student-page">
 
-```
-    <img src="{{ student.image }}" alt="{{ student.name }}">
+    <div class="student-hero">
+        <span>Virtual Museum Pedagogy Lab</span>
+        <h1>Tajriba-sinov ishtirokchilari</h1>
+        <p>
+            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini muzey pedagogikasi
+            vositasida rivojlantirish bo‘yicha tajriba-sinov jarayonida ishtirok etgan talabalar.
+        </p>
+    </div>
 
-    <div class="student-detail-info">
+    <div class="student-info-grid">
 
-        <span class="small-title">Talaba portfeli</span>
-
-        <h1>{{ student.name }}</h1>
-
-        <div class="sd-cards">
-
-            <div class="sd-card">
-                <div class="sd-icon">🎓</div>
-                <p>Guruh</p>
-                <h2>{{ student.grade }}</h2>
-            </div>
-
-            <div class="sd-card">
-                <div class="sd-icon">📚</div>
-                <p>Yo‘nalish</p>
-                <h2>{{ student.direction }}</h2>
-            </div>
-
-            <div class="sd-card">
-                <div class="sd-icon">📝</div>
-                <p>Ishlar soni</p>
-                <h2>{{ student.works }}</h2>
-            </div>
-
-            <div class="sd-card">
-                <div class="sd-icon">🏆</div>
-                <p>Ball</p>
-                <h2>{{ student.score }}</h2>
-            </div>
-
+        <div class="student-info-card">
+            <h3>🎯 Tadqiqotdagi roli</h3>
+            <p>
+                Talabalar virtual muzey topshiriqlari, diagnostik savollar,
+                refleksiya va portfel ishlari orqali tajriba-sinov jarayonida ishtirok etadi.
+            </p>
         </div>
 
-        <div class="sd-main">
-
-            <div>
-                <h2>Talaba haqida</h2>
-
-                <p class="student-description">
-                    {{ student.description }}
-                </p>
-            </div>
-
+        <div class="student-info-card">
+            <h3>🧠 Rivojlantiriladigan ko‘nikmalar</h3>
+            <p>
+                Tarixiy manbani tahlil qilish, sabab-oqibatni aniqlash,
+                dalillar asosida xulosa chiqarish va tanqidiy fikrlash.
+            </p>
         </div>
 
-        <br>
-
-        <a href="/portfolio" class="btn">
-            ← Portfellarga qaytish
-        </a>
+        <div class="student-info-card">
+            <h3>📊 Baholash yo‘nalishlari</h3>
+            <p>
+                Diagnostika, virtual muzey topshiriqlari, reflektiv yozuvlar
+                va pedagogik portfel natijalari asosida baholanadi.
+            </p>
+        </div>
 
     </div>
 
-</div>
-```
+    <div class="student-stats">
+
+        <div class="student-stat">
+            <h2>10+</h2>
+            <p>Ishtirokchi talaba</p>
+        </div>
+
+        <div class="student-stat">
+            <h2>HST_N-22UA</h2>
+            <p>Tajriba guruhi</p>
+        </div>
+
+        <div class="student-stat">
+            <h2>4</h2>
+            <p>Baholash bosqichi</p>
+        </div>
+
+        <div class="student-stat">
+            <h2>3</h2>
+            <p>Metodik faoliyat turi</p>
+        </div>
+
+    </div>
+
+    <h2 class="student-section-title">Talabalar ro‘yxati</h2>
+
+    <div class="student-grid">
+
+        <div class="student-card">
+            <div class="student-avatar">👩‍🎓</div>
+            <h3>RAXIMJONOVA IRODABONU NODIRBEK QIZI</h3>
+            <p><b>Guruh:</b> HST_N-22UA</p>
+            <p><b>Yo‘nalish:</b> Tarix ta’limi</p>
+            <p><b>Tadqiqotdagi roli:</b> virtual muzey topshiriqlari va refleksiya ishtirokchisi.</p>
+            <a href="#" class="student-btn">Portfelni ko‘rish →</a>
+        </div>
+
+        <div class="student-card">
+            <div class="student-avatar">👨‍🎓</div>
+            <h3>ABDULXAFIZOV MUXAMMADQODIR BAXTIYOR O‘G‘LI</h3>
+            <p><b>Guruh:</b> HST_N-22UA</p>
+            <p><b>Yo‘nalish:</b> Tarix ta’limi</p>
+            <p><b>Tadqiqotdagi roli:</b> tarixiy manba bilan ishlash topshiriqlari ishtirokchisi.</p>
+            <a href="#" class="student-btn">Portfelni ko‘rish →</a>
+        </div>
+
+        <div class="student-card">
+            <div class="student-avatar">👩‍🎓</div>
+            <h3>ABDUVOSIYEVA MUXAYYO SHUKURULLO QIZI</h3>
+            <p><b>Guruh:</b> HST_N-22UA</p>
+            <p><b>Yo‘nalish:</b> Tarix ta’limi</p>
+            <p><b>Tadqiqotdagi roli:</b> eksponat tahlili va tarixiy xulosa yozish ishtirokchisi.</p>
+            <a href="#" class="student-btn">Portfelni ko‘rish →</a>
+        </div>
+
+        <div class="student-card">
+            <div class="student-avatar">👩‍🎓</div>
+            <h3>MADAMINOVA OYSHAXON SHERZOD QIZI</h3>
+            <p><b>Guruh:</b> HST_N-22UA</p>
+            <p><b>Yo‘nalish:</b> Tarix ta’limi</p>
+            <p><b>Tadqiqotdagi roli:</b> diagnostik savollar va mustaqil tahliliy ishlar ishtirokchisi.</p>
+            <a href="#" class="student-btn">Portfelni ko‘rish →</a>
+        </div>
+
+        <div class="student-card">
+            <div class="student-avatar">👨‍🎓</div>
+            <h3>TURSUNMAMATOV DIYORBEK XAMIDULLA O‘G‘LI</h3>
+            <p><b>Guruh:</b> HST_N-22UA</p>
+            <p><b>Yo‘nalish:</b> Tarix ta’limi</p>
+            <p><b>Tadqiqotdagi roli:</b> loyiha topshirig‘i va muzey materiallari bilan ishlash ishtirokchisi.</p>
+            <a href="#" class="student-btn">Portfelni ko‘rish →</a>
+        </div>
+
+    </div>
+
+    <div class="student-method-section">
+
+        <h2>Tajriba-sinov faoliyati yo‘nalishlari</h2>
+
+        <div class="student-method-grid">
+
+            <div class="student-method-card">
+                <span>1</span>
+                <h3>Diagnostika</h3>
+                <p>Talabalarning dastlabki tarixiy tafakkur darajasi aniqlanadi.</p>
+            </div>
+
+            <div class="student-method-card">
+                <span>2</span>
+                <h3>Virtual muzey topshiriqlari</h3>
+                <p>Eksponatlarni kuzatish, tahlil qilish va tarixiy xulosa chiqarish amalga oshiriladi.</p>
+            </div>
+
+            <div class="student-method-card">
+                <span>3</span>
+                <h3>Refleksiya</h3>
+                <p>Talaba o‘z o‘quv faoliyati, xulosalari va tarixiy qarashlarini yozma bayon qiladi.</p>
+            </div>
+
+            <div class="student-method-card">
+                <span>4</span>
+                <h3>Portfel</h3>
+                <p>Talabaning topshiriqlari, tahliliy ishlari va natijalari pedagogik portfelda jamlanadi.</p>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
