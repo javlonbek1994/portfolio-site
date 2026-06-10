@@ -2977,3 +2977,318 @@ body{
     }
 }
 ```
+```css
+/* ===== Tadqiqotning ilmiy natijalari / Achievements page ===== */
+
+.ach-page{
+    background:#f4f7ff;
+    padding:70px 8%;
+    min-height:100vh;
+}
+
+.ach-hero{
+    text-align:center;
+    max-width:950px;
+    margin:0 auto 45px;
+}
+
+.ach-hero span{
+    color:#4169e1;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.ach-hero h1{
+    font-size:44px;
+    color:#1e40af;
+    margin:14px 0;
+}
+
+.ach-hero p{
+    color:#334155;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.ach-stats{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+    margin-bottom:40px;
+}
+
+.ach-stat-card{
+    background:#fff;
+    border-radius:20px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.ach-stat-card h2{
+    font-size:34px;
+    color:#2563eb;
+    margin-bottom:6px;
+}
+
+.ach-stat-card p{
+    color:#475569;
+    font-weight:600;
+}
+
+.ach-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:26px;
+}
+
+.ach-card{
+    background:#fff;
+    border-radius:22px;
+    padding:32px;
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.ach-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 45px rgba(37,99,235,.16);
+}
+
+.ach-icon{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.ach-card h3{
+    color:#1e40af;
+    font-size:23px;
+    margin-bottom:15px;
+}
+
+.ach-card ul{
+    padding-left:18px;
+    color:#334155;
+    line-height:1.7;
+}
+
+.ach-card p{
+    color:#334155;
+    line-height:1.7;
+}
+
+.dissertation-note{
+    margin-top:18px;
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:14px;
+    border-radius:10px;
+    color:#334155;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.ach-btn{
+    display:inline-block;
+    margin-top:18px;
+    color:#2563eb;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.ach-btn:hover{
+    text-decoration:underline;
+}
+
+/* ===== Profiles ===== */
+
+.profile-section{
+    background:#fff;
+    margin-top:55px;
+    padding:38px;
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(0,0,0,.05);
+}
+
+.profile-section h2,
+.aprobation-section h2,
+.importance-section h2,
+.documents-section h2{
+    text-align:center;
+    color:#1e40af;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+}
+
+.profile-card{
+    display:block;
+    background:#f8fbff;
+    border:1px solid #e2e8f0;
+    border-radius:20px;
+    padding:28px;
+    text-decoration:none;
+    color:#1e293b;
+    transition:.3s;
+}
+
+.profile-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(37,99,235,.16);
+    border-color:#93c5fd;
+}
+
+.profile-icon{
+    width:54px;
+    height:54px;
+    border-radius:16px;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.profile-card h3{
+    color:#1e40af;
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.profile-card p{
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+.profile-btn{
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* ===== Aprobation ===== */
+
+.aprobation-section,
+.importance-section,
+.documents-section{
+    background:#fff;
+    margin-top:45px;
+    padding:38px;
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(0,0,0,.05);
+}
+
+.aprobation-section > p,
+.importance-section p{
+    max-width:900px;
+    margin:0 auto 24px;
+    text-align:center;
+    color:#334155;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.aprobation-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-top:25px;
+}
+
+.aprobation-card{
+    background:#f8fbff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+}
+
+.aprobation-card h3{
+    color:#2563eb;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.aprobation-card p{
+    color:#475569;
+    font-weight:600;
+}
+
+/* ===== Documents ===== */
+
+.documents-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.document-card{
+    display:block;
+    background:#f8fbff;
+    border:1px solid #dbeafe;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    text-decoration:none;
+    color:#1e40af;
+    font-weight:700;
+    transition:.3s;
+}
+
+.document-card:hover{
+    background:#eef4ff;
+    transform:translateY(-5px);
+}
+
+/* ===== Responsive ===== */
+
+@media(max-width:1150px){
+    .ach-grid,
+    .profile-grid,
+    .documents-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ach-stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:750px){
+    .ach-page{
+        padding:45px 5%;
+    }
+
+    .ach-hero h1{
+        font-size:32px;
+    }
+
+    .ach-grid,
+    .profile-grid,
+    .documents-grid,
+    .aprobation-grid,
+    .ach-stats{
+        grid-template-columns:1fr;
+    }
+
+    .profile-section,
+    .aprobation-section,
+    .importance-section,
+    .documents-section{
+        padding:25px;
+    }
+}
+```
