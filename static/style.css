@@ -2769,3 +2769,211 @@ body{
     }
 }
 ```
+```css
+/* ===== MUSEUM PAGE ===== */
+
+.museum-page{
+    padding:70px 8%;
+    background:#f4f7ff;
+}
+
+.museum-hero{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto 60px;
+}
+
+.museum-hero span{
+    color:#4f6ef7;
+    font-weight:700;
+}
+
+.museum-hero h1{
+    font-size:56px;
+    color:#1e40af;
+    margin:15px 0;
+}
+
+.museum-hero p{
+    font-size:18px;
+    color:#475569;
+    line-height:1.7;
+}
+
+.museum-info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-bottom:70px;
+}
+
+.museum-info-card{
+    background:#fff;
+    padding:30px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.museum-info-card:hover{
+    transform:translateY(-6px);
+}
+
+.museum-info-card h3{
+    color:#1e40af;
+    margin-bottom:15px;
+}
+
+.museum-section-title{
+    text-align:center;
+    font-size:34px;
+    color:#1e40af;
+    margin-bottom:35px;
+}
+
+.museum-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.museum-card{
+    background:#fff;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 12px 35px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.museum-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 45px rgba(37,99,235,.15);
+}
+
+.museum-icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:#eef4ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.museum-card h3{
+    color:#1e40af;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.museum-card p{
+    color:#475569;
+    line-height:1.7;
+}
+
+.museum-task{
+    margin-top:15px;
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
+}
+
+.museum-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.museum-btn:hover{
+    background:#1d4ed8;
+}
+
+.method-section{
+    margin-top:80px;
+}
+
+.method-section h2,
+.diagnostic-section h2{
+    text-align:center;
+    color:#1e40af;
+    margin-bottom:30px;
+}
+
+.method-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.method-card{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.method-card span{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-weight:700;
+}
+
+.diagnostic-section{
+    margin-top:80px;
+    background:#fff;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.diagnostic-section ol{
+    line-height:2;
+    color:#334155;
+}
+
+@media(max-width:1100px){
+
+    .museum-grid,
+    .museum-info-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .method-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:768px){
+
+    .museum-grid,
+    .museum-info-grid,
+    .method-grid{
+        grid-template-columns:1fr;
+    }
+
+    .museum-hero h1{
+        font-size:40px;
+    }
+
+    .museum-page{
+        padding:50px 5%;
+    }
+}
+```
