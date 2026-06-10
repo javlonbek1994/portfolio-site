@@ -28,7 +28,7 @@ body{
 .logo-box{
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
 .logo-icon{
@@ -494,7 +494,7 @@ body{
         grid-template-columns: 1fr;
     }
 }
-```css
+
 /* STATS */
 
 .stats-section{
@@ -731,7 +731,7 @@ body{
         font-size: 30px;
     }
 }
-```
+
 .footer-brand{
     display:flex;
     align-items:center;
@@ -1414,7 +1414,7 @@ body{
         font-size:34px;
     }
 }
-```css
+
 /* STUDENT LIST */
 
 .students-page{
@@ -1457,7 +1457,7 @@ body{
 .student-info p{
     margin-bottom:8px;
 }
-```
+
 .portfolio-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -2533,7 +2533,7 @@ body{
         font-size:36px;
     }
 }
-```css
+
 .profile-card{
     text-decoration:none;
     color:#1e293b;
@@ -2580,8 +2580,8 @@ body{
 .profile-card:hover .profile-btn{
     text-decoration:underline;
 }
-```
-```css
+
+
 /* ===== Akademik yutuqlar sahifasi ===== */
 
 .ach-page{
@@ -2768,8 +2768,8 @@ body{
         padding:25px;
     }
 }
-```
-```css
+
+
 /* ===== MUSEUM PAGE ===== */
 
 .museum-page{
@@ -2976,8 +2976,8 @@ body{
         padding:50px 5%;
     }
 }
-```
-```css
+
+
 /* ===== Tadqiqotning ilmiy natijalari / Achievements page ===== */
 
 .ach-page{
@@ -3291,5 +3291,4 @@ body{
         padding:25px;
     }
 }
-```
-```css
+
