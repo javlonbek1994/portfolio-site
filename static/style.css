@@ -71,7 +71,7 @@ body{
     color: #08c6c9;
 }
 
-/* HERO */
+/* OLD HERO */
 
 .hero{
     height: 620px;
@@ -3292,7 +3292,6 @@ body{
     }
 }
 
-```css
 /* ===== E-PORTFEL STYLE HOME DESIGN ===== */
 
 .home-hero{
@@ -3514,4 +3513,3 @@ body{
         width:100%;
     }
 }
-```
