@@ -3456,3 +3456,188 @@ body{
         font-size:38px;
     }
 }
+```css
+/* ===== HOME FIX ===== */
+
+.home-hero{
+    min-height:520px;
+    background:linear-gradient(135deg,#1e3a8a,#5876c9);
+    color:white;
+    padding:90px 9%;
+    display:flex;
+    align-items:center;
+}
+
+.home-hero-content{
+    max-width:780px;
+}
+
+.home-hero-content span{
+    color:#22d3ee;
+    font-weight:800;
+}
+
+.home-hero-content h1{
+    font-size:56px;
+    margin:15px 0;
+}
+
+.home-hero-content p{
+    font-size:20px;
+    line-height:1.7;
+}
+
+.home-buttons{
+    margin-top:28px;
+}
+
+.home-btn{
+    display:inline-block;
+    background:#08c6c9;
+    color:white;
+    padding:13px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:800;
+    margin-right:12px;
+}
+
+.home-btn.outline{
+    background:white;
+    color:#1e40af;
+}
+
+.home-feature-box,
+.home-about,
+.home-purpose,
+.home-advantages,
+.home-partners,
+.home-follow,
+.home-map{
+    padding:60px 9%;
+}
+
+.home-feature-box{
+    background:#f4f7ff;
+}
+
+.home-feature-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.home-feature-title h2,
+.home-about h2,
+.home-partners h2,
+.home-follow h2,
+.home-map h2{
+    color:#1e40af;
+    font-size:36px;
+}
+
+.home-feature-items,
+.partner-grid,
+.follow-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.home-feature-item,
+.partner-card,
+.follow-grid a,
+.home-about-card,
+.purpose-card{
+    background:white;
+    padding:28px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.home-feature-item div{
+    font-size:38px;
+}
+
+.home-about{
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:35px;
+    background:white;
+}
+
+.home-about p,
+.purpose-card p,
+.partner-card p{
+    line-height:1.7;
+    color:#334155;
+}
+
+.home-purpose{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    background:#f4f7ff;
+}
+
+.purpose-card{
+    background:#5876c9;
+    color:white;
+}
+
+.purpose-card p,
+.purpose-card a{
+    color:white;
+}
+
+.home-advantages{
+    background:#eef3ff;
+}
+
+.advantage-item{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
+}
+
+.follow-grid{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.follow-grid a{
+    text-decoration:none;
+    color:#1e40af;
+    font-weight:800;
+    text-align:center;
+}
+
+.home-map{
+    background:#ffffff;
+}
+
+.map-text{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.map-box{
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+@media(max-width:900px){
+
+    .home-feature-items,
+    .partner-grid,
+    .follow-grid,
+    .home-about,
+    .home-purpose{
+        grid-template-columns:1fr;
+    }
+
+    .home-hero-content h1{
+        font-size:38px;
+    }
+
+}
+```
