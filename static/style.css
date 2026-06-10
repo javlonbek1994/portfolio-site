@@ -3292,352 +3292,226 @@ body{
     }
 }
 
-/* HOME FIX */
-
-.home-hero{
-    min-height:520px;
-    background:linear-gradient(135deg,#1e3a8a,#5876c9);
-    color:white;
-    padding:90px 9%;
-    display:flex;
-    align-items:center;
-}
-
-.home-hero-content{
-    max-width:780px;
-}
-
-.home-hero-content span{
-    color:#22d3ee;
-    font-weight:800;
-}
-
-.home-hero-content h1{
-    font-size:56px;
-    margin:15px 0;
-}
-
-.home-hero-content p{
-    font-size:20px;
-    line-height:1.7;
-}
-
-.home-buttons{
-    margin-top:28px;
-}
-
-.home-btn{
-    display:inline-block;
-    background:#08c6c9;
-    color:white;
-    padding:13px 25px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:800;
-    margin-right:12px;
-}
-
-.home-btn.outline{
-    background:white;
-    color:#1e40af;
-}
-
-.home-feature-box,
-.home-about,
-.home-purpose,
-.home-advantages,
-.home-partners,
-.home-follow{
-    padding:60px 9%;
-}
-
-.home-feature-box{
-    background:#f4f7ff;
-}
-
-.home-feature-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.home-feature-title h2,
-.home-about h2,
-.home-partners h2,
-.home-follow h2{
-    color:#1e40af;
-    font-size:36px;
-}
-
-.home-feature-items,
-.partner-grid,
-.follow-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.home-feature-item,
-.partner-card,
-.follow-grid a,
-.home-about-card,
-.purpose-card{
-    background:white;
-    padding:28px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.home-feature-item div{
-    font-size:38px;
-}
-
-.home-about{
-    display:grid;
-    grid-template-columns:1.4fr .6fr;
-    gap:35px;
-    background:white;
-}
-
-.home-about p,
-.purpose-card p,
-.partner-card p{
-    line-height:1.7;
-    color:#334155;
-}
-
-.home-purpose{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    background:#f4f7ff;
-}
-
-.purpose-card{
-    background:#5876c9;
-    color:white;
-}
-
-.purpose-card p,
-.purpose-card a{
-    color:white;
-}
-
-.home-advantages{
-    background:#eef3ff;
-}
-
-.advantage-item{
-    display:flex;
-    gap:15px;
-    margin:20px 0;
-}
-
-.follow-grid{
-    grid-template-columns:repeat(4,1fr);
-}
-
-.follow-grid a{
-    text-decoration:none;
-    color:#1e40af;
-    font-weight:800;
-    text-align:center;
-}
-
-@media(max-width:900px){
-    .home-feature-items,
-    .partner-grid,
-    .follow-grid,
-    .home-about,
-    .home-purpose{
-        grid-template-columns:1fr;
-    }
-
-    .home-hero-content h1{
-        font-size:38px;
-    }
-}
 ```css
-/* ===== HOME FIX ===== */
+/* ===== E-PORTFEL STYLE HOME DESIGN ===== */
 
 .home-hero{
-    min-height:520px;
-    background:linear-gradient(135deg,#1e3a8a,#5876c9);
-    color:white;
-    padding:90px 9%;
+    min-height:620px;
+    background:
+        linear-gradient(rgba(10,40,65,.68), rgba(10,40,65,.68)),
+        url("/static/images/hero.jpg");
+    background-size:cover;
+    background-position:center;
     display:flex;
     align-items:center;
+    padding:0 9%;
+    color:white;
+}
+
+.home-overlay{
+    display:none;
 }
 
 .home-hero-content{
-    max-width:780px;
+    max-width:650px;
 }
 
 .home-hero-content span{
-    color:#22d3ee;
-    font-weight:800;
+    color:#ffffff;
+    font-weight:700;
 }
 
 .home-hero-content h1{
-    font-size:56px;
-    margin:15px 0;
+    font-size:58px;
+    line-height:1.1;
+    margin:18px 0 25px;
+    font-weight:800;
 }
 
 .home-hero-content p{
-    font-size:20px;
-    line-height:1.7;
+    font-size:21px;
+    line-height:1.6;
+    font-weight:600;
 }
 
 .home-buttons{
-    margin-top:28px;
+    margin-top:30px;
 }
 
 .home-btn{
     display:inline-block;
     background:#08c6c9;
     color:white;
-    padding:13px 25px;
-    border-radius:10px;
+    padding:13px 28px;
+    border-radius:8px;
     text-decoration:none;
     font-weight:800;
     margin-right:12px;
 }
 
 .home-btn.outline{
-    background:white;
-    color:#1e40af;
+    background:#5a78cf;
 }
 
-.home-feature-box,
-.home-about,
-.home-purpose,
-.home-advantages,
-.home-partners,
-.home-follow,
-.home-map{
-    padding:60px 9%;
-}
+/* KO‘K PANEL */
 
 .home-feature-box{
-    background:#f4f7ff;
+    width:70%;
+    margin:-75px auto 65px;
+    background:#5a78cf;
+    border-radius:8px;
+    padding:42px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    color:white;
+    position:relative;
+    z-index:5;
 }
 
 .home-feature-title{
-    text-align:center;
-    margin-bottom:30px;
+    max-width:430px;
 }
 
-.home-feature-title h2,
-.home-about h2,
-.home-partners h2,
-.home-follow h2,
-.home-map h2{
-    color:#1e40af;
-    font-size:36px;
-}
-
-.home-feature-items,
-.partner-grid,
-.follow-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+.home-feature-items{
+    display:flex;
     gap:25px;
 }
 
-.home-feature-item,
-.partner-card,
-.follow-grid a,
-.home-about-card,
-.purpose-card{
-    background:white;
-    padding:28px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+.home-feature-item{
+    width:135px;
+    height:135px;
+    border-radius:10px;
+    background:#08c6c9;
+    color:white;
+    text-align:center;
+    padding:18px 10px;
 }
 
-.home-feature-item div{
-    font-size:38px;
+.home-feature-item:nth-child(2){
+    background:#b7de65;
 }
+
+.home-feature-item:nth-child(3){
+    background:#ff6b6b;
+}
+
+.home-feature-item p{
+    display:none;
+}
+
+/* ABOUT */
 
 .home-about{
+    width:70%;
+    margin:0 auto 70px;
     display:grid;
-    grid-template-columns:1.4fr .6fr;
-    gap:35px;
-    background:white;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+    align-items:center;
 }
 
-.home-about p,
-.purpose-card p,
-.partner-card p{
-    line-height:1.7;
-    color:#334155;
+.home-about-card{
+    background:#dce8ff;
+    border-radius:14px;
+    padding:40px;
+    text-align:center;
 }
+
+/* PURPOSE */
 
 .home-purpose{
+    width:55%;
+    margin:30px auto 0;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:25px;
-    background:#f4f7ff;
+    border-radius:8px;
+    overflow:hidden;
 }
 
 .purpose-card{
-    background:#5876c9;
+    background:#5a78cf;
     color:white;
+    padding:35px 42px;
 }
 
-.purpose-card p,
-.purpose-card a{
-    color:white;
+.purpose-card.light{
+    background:#6383dc;
 }
+
+/* ADVANTAGES */
 
 .home-advantages{
-    background:#eef3ff;
+    margin-top:35px;
+    min-height:520px;
+    background:
+        linear-gradient(90deg,
+        rgba(10,50,80,.15) 0 50%,
+        rgba(68,98,180,.88) 50% 100%),
+        url("/static/images/campus.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:55px 10%;
 }
 
-.advantage-item{
-    display:flex;
-    gap:15px;
-    margin:20px 0;
+.advantages-content{
+    width:48%;
+    color:white;
+}
+
+/* PARTNERS */
+
+.home-partners{
+    background:#eef2f5;
+    padding:55px 12%;
+}
+
+.partner-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+/* FOLLOW */
+
+.home-follow{
+    background:#eef2f5;
+    padding:55px 10%;
+    text-align:center;
 }
 
 .follow-grid{
+    display:grid;
     grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
-.follow-grid a{
-    text-decoration:none;
-    color:#1e40af;
-    font-weight:800;
-    text-align:center;
-}
-
-.home-map{
-    background:#ffffff;
-}
-
-.map-text{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.map-box{
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+/* MOBILE */
 
 @media(max-width:900px){
 
-    .home-feature-items,
-    .partner-grid,
-    .follow-grid,
+    .home-feature-box,
     .home-about,
     .home-purpose{
+        width:90%;
         grid-template-columns:1fr;
     }
 
-    .home-hero-content h1{
-        font-size:38px;
+    .home-feature-items{
+        flex-direction:column;
     }
 
+    .partner-grid,
+    .follow-grid{
+        grid-template-columns:1fr;
+    }
+
+    .advantages-content{
+        width:100%;
+    }
 }
 ```
