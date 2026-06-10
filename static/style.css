@@ -4364,3 +4364,27 @@ body{
         grid-template-columns:1fr;
     }
 }
+.socials img{
+    width:42px;
+    height:42px;
+}
+
+.socials .yt img{
+    filter: invert(16%) sepia(95%) saturate(7483%) hue-rotate(357deg) brightness(97%) contrast(118%);
+}
+
+.socials .tg img{
+    filter: invert(51%) sepia(82%) saturate(1711%) hue-rotate(169deg) brightness(92%) contrast(93%);
+}
+
+.socials .ig img{
+    filter: invert(31%) sepia(87%) saturate(2301%) hue-rotate(308deg) brightness(91%) contrast(91%);
+}
+
+.socials .fb img{
+    filter: invert(40%) sepia(98%) saturate(2503%) hue-rotate(202deg) brightness(96%) contrast(96%);
+}
+
+.socials a:hover img{
+    filter: brightness(0) invert(1);
+}
