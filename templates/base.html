@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Muzey Lab{% endblock %}</title>
 
+    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- CSS -->
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <header class="navbar">
+
     <div class="logo-box">
         <div class="logo-icon">M</div>
         <div class="logo-text">
@@ -22,52 +25,94 @@
         </div>
     </div>
 
-<nav class="menu">
-   <a href="/">Bosh sahifa</a>
-<a href="/portfolio">Pedagogik portfel</a>
-<a href="/achievements">Akademik yutuqlar</a>
-<a href="/reflection">Refleksiya</a>
-<a href="/student">Talabalar</a>
+    <nav class="menu">
+        <a href="/">Bosh sahifa</a>
+        <a href="/portfolio">Pedagogik portfel</a>
+        <a href="/achievements">Akademik yutuqlar</a>
+        <a href="/reflection">Refleksiya</a>
+        <a href="/student">Talabalar</a>
+        <a href="/museum">Virtual muzey</a>
+        <a href="/login">Login</a>
+        <a href="/about">Biz haqimizda</a>
+    </nav>
 
-<a href="/museum">Virtual muzey</a>
-
-<a href="/login">Login</a>
-<a href="/about">Biz haqimizda</a>
-</nav>
 </header>
 
 {% block content %}{% endblock %}
 
+<!-- SOCIALS -->
+
 <section class="follow-section">
 
+    <h2>Bizni kuzating</h2>
+
+    <div class="socials">
+
+        <a href="https://youtube.com" target="_blank">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+        </a>
+
+        <a href="https://t.me" target="_blank">
+            <i class="fab fa-telegram"></i>
+            <span>Telegram</span>
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+
+        <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer class="footer">
+
     <div>
+
         <div class="footer-brand">
             <div class="footer-icon">M</div>
             <h2>Muzey Lab</h2>
         </div>
 
         <p>
-            Virtual Museum Pedagogy Lab — bo‘lajak tarix o‘qituvchilari uchun
-            raqamli portfel va virtual muzey laboratoriyasi.
+            Virtual Museum Pedagogy Lab — bo‘lajak tarix
+            o‘qituvchilari uchun raqamli portfel va virtual
+            muzey laboratoriyasi.
         </p>
+
     </div>
 
     <div>
+
         <h3>Menyu</h3>
+
         <a href="/">Bosh sahifa</a>
         <a href="/portfolio">Pedagogik portfel</a>
         <a href="/student">Talabalar</a>
-        <a href="/login">Login</a>
+        <a href="/museum">Virtual muzey</a>
         <a href="/about">Biz haqimizda</a>
+
     </div>
 
     <div>
+
         <h3>Aloqa uchun</h3>
+
         <p>📞 +998 93 269 15 67</p>
         <p>✉️ javlonbek932691567@gmail.com</p>
-        <p>📍 Namangan viloyati Uchqo`rg`on tumani Yashiq MFY 3-uy</p>
+        <p>📍 Namangan viloyati Uchqo‘rg‘on tumani Yashiq MFY, 3-uy</p>
+
     </div>
+
 </footer>
 
 </body>
