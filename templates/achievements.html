@@ -1,18 +1,47 @@
 ```html
 {% extends "base.html" %}
 
-{% block title %}Akademik yutuqlar{% endblock %}
+{% block title %}Tadqiqotning ilmiy natijalari{% endblock %}
 
 {% block content %}
 
 <section class="ach-page">
 
     <div class="ach-hero">
-        <span>Ilmiy faoliyat markazi</span>
-        <h1>Akademik yutuqlar</h1>
+        <span>Ilmiy faoliyat va tadqiqot natijalari</span>
+        <h1>Tadqiqotning ilmiy natijalari</h1>
         <p>
-            Maqolalar, konferensiyalar, sertifikatlar, ilmiy loyihalar va xalqaro akademik profillar.
+            Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini muzey pedagogikasi
+            vositasida rivojlantirishga oid ilmiy maqolalar, konferensiyalar,
+            sertifikatlar, loyihalar va xalqaro akademik profillar.
         </p>
+    </div>
+
+    <div class="ach-stats">
+        <div class="ach-stat-card">
+            <h2>2</h2>
+            <p>Ilmiy maqola</p>
+        </div>
+
+        <div class="ach-stat-card">
+            <h2>3</h2>
+            <p>Konferensiya</p>
+        </div>
+
+        <div class="ach-stat-card">
+            <h2>3</h2>
+            <p>Sertifikat</p>
+        </div>
+
+        <div class="ach-stat-card">
+            <h2>1</h2>
+            <p>Ilmiy loyiha</p>
+        </div>
+
+        <div class="ach-stat-card">
+            <h2>4</h2>
+            <p>Xalqaro profil</p>
+        </div>
     </div>
 
     <div class="ach-grid">
@@ -24,17 +53,21 @@
 
             <ul>
                 <li>
-                    Methodology for Developing Historical Thinking
-                    Competence of Pre-service History Teachers
-                    Based on Museum Pedagogy
+                    Methodology for Developing Historical Thinking Competence of
+                    Pre-service History Teachers Based on Museum Pedagogy
                 </li>
 
                 <li>
                     Bo‘lajak tarix o‘qituvchilarida tarixiy tafakkurni
-                    rivojlantirishda muzey pedagogikasining
-                    pedagogik salohiyati
+                    rivojlantirishda muzey pedagogikasining pedagogik salohiyati
                 </li>
             </ul>
+
+            <div class="dissertation-note">
+                <b>Dissertatsiyadagi o‘rni:</b>
+                tadqiqotning nazariy va metodik natijalari ilmiy maqolalar orqali
+                e’lon qilingan.
+            </div>
 
             <a href="https://scholar.google.com/citations?user=zg-nl4wAAAAJ"
                target="_blank"
@@ -54,9 +87,14 @@
                 <li>Ilmiy-amaliy seminarlar</li>
             </ul>
 
-            <a href="#"
-               class="ach-btn">
-                Batafsil →
+            <div class="dissertation-note">
+                <b>Dissertatsiyadagi o‘rni:</b>
+                tadqiqot natijalari ilmiy jamoatchilik muhokamasidan o‘tkazilgan
+                va aprobatsiya qilingan.
+            </div>
+
+            <a href="#aprobation" class="ach-btn">
+                Aprobatsiyani ko‘rish →
             </a>
         </div>
 
@@ -71,26 +109,35 @@
                 <li>Akademik rivojlanish sertifikatlari</li>
             </ul>
 
-            <a href="#"
-               class="ach-btn">
+            <div class="dissertation-note">
+                <b>Dissertatsiyadagi o‘rni:</b>
+                kasbiy, metodik va ilmiy kompetensiyalarni rivojlantirishga
+                xizmat qiladi.
+            </div>
+
+            <a href="#documents" class="ach-btn">
                 Sertifikatlarni ko‘rish →
             </a>
         </div>
 
         <div class="ach-card">
-            <div class="ach-icon">💰</div>
+            <div class="ach-icon">💡</div>
 
             <h3>Ilmiy loyihalar</h3>
 
             <p>
-                Muzey pedagogikasi, tarixiy tafakkur va
-                raqamli ta’lim texnologiyalariga oid
-                tadqiqot loyihalari.
+                Muzey pedagogikasi, tarixiy tafakkur va raqamli ta’lim
+                texnologiyalariga oid tadqiqot loyihalari.
             </p>
 
-            <a href="#"
-               class="ach-btn">
-                Loyihalarni ko‘rish →
+            <div class="dissertation-note">
+                <b>Dissertatsiyadagi o‘rni:</b>
+                Virtual Museum Pedagogy Lab platformasi tadqiqot natijalarini
+                amaliyotga joriy etish vositasi sifatida ishlab chiqilgan.
+            </div>
+
+            <a href="/museum" class="ach-btn">
+                Platformani ko‘rish →
             </a>
         </div>
 
@@ -111,8 +158,7 @@
                 <h3>Google Scholar</h3>
 
                 <p>
-                    Maqolalar, iqtiboslar,
-                    h-index va ilmiy faoliyat ko‘rsatkichlari.
+                    Maqolalar, iqtiboslar, h-index va ilmiy faoliyat ko‘rsatkichlari.
                 </p>
 
                 <div class="profile-btn">
@@ -130,8 +176,7 @@
                 <h3>ORCID</h3>
 
                 <p>
-                    Xalqaro ilmiy identifikator
-                    va tadqiqotchi profili.
+                    Xalqaro ilmiy identifikator va tadqiqotchi profili.
                 </p>
 
                 <div class="profile-btn">
@@ -149,8 +194,7 @@
                 <h3>ResearchGate</h3>
 
                 <p>
-                    Ilmiy maqolalar, tadqiqotlar va
-                    akademik hamkorlik tarmog‘i.
+                    Ilmiy maqolalar, tadqiqotlar va akademik hamkorlik tarmog‘i.
                 </p>
 
                 <div class="profile-btn">
@@ -168,14 +212,94 @@
                 <h3>Scopus</h3>
 
                 <p>
-                    Scopus bazasidagi indekslangan
-                    maqolalar va statistikalar.
+                    Scopus bazasidagi indekslangan maqolalar va statistikalar.
                 </p>
 
                 <div class="profile-btn">
                     Scopus ochish →
                 </div>
 
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="aprobation-section" id="aprobation">
+
+        <h2>Tadqiqot natijalarining aprobatsiyasi</h2>
+
+        <p>
+            Mazkur tadqiqot natijalari xalqaro va respublika ilmiy-amaliy
+            konferensiyalari, ilmiy seminarlar hamda metodik muhokamalarda
+            aprobatsiyadan o‘tkazilgan.
+        </p>
+
+        <div class="aprobation-grid">
+
+            <div class="aprobation-card">
+                <h3>3 ta</h3>
+                <p>Xalqaro ilmiy-amaliy konferensiya</p>
+            </div>
+
+            <div class="aprobation-card">
+                <h3>2 ta</h3>
+                <p>Respublika ilmiy-amaliy konferensiya</p>
+            </div>
+
+            <div class="aprobation-card">
+                <h3>Seminarlar</h3>
+                <p>Ilmiy va metodik muhokamalar</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="importance-section">
+
+        <h2>Ilmiy-amaliy ahamiyat</h2>
+
+        <p>
+            Virtual Museum Pedagogy Lab platformasi bo‘lajak tarix o‘qituvchilarining
+            tarixiy tafakkurini rivojlantirish, muzey pedagogikasi vositalaridan
+            samarali foydalanish, tarixiy manbalarni tahlil qilish va raqamli ta’lim
+            texnologiyalarini o‘quv jarayoniga integratsiya qilishga xizmat qiladi.
+        </p>
+
+        <p>
+            Ushbu sahifa dissertatsiya doirasida olingan ilmiy natijalarni,
+            ularning aprobatsiyasini va amaliy tatbiqini yagona elektron muhitda
+            aks ettirish uchun ishlab chiqilgan.
+        </p>
+
+    </div>
+
+    <div class="documents-section" id="documents">
+
+        <h2>Ilmiy hujjatlar va havolalar</h2>
+
+        <div class="documents-grid">
+
+            <a href="https://scholar.google.com/citations?user=zg-nl4wAAAAJ"
+               target="_blank"
+               class="document-card">
+                📄 Maqolalar profili
+            </a>
+
+            <a href="#"
+               class="document-card">
+                🏅 Sertifikatlar
+            </a>
+
+            <a href="#"
+               class="document-card">
+                🎤 Konferensiya materiallari
+            </a>
+
+            <a href="/museum"
+               class="document-card">
+                🏛️ Virtual muzey platformasi
             </a>
 
         </div>
