@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Muzey Lab{% endblock %}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -35,32 +39,6 @@
 {% block content %}{% endblock %}
 
 <section class="follow-section">
-    <h2>Bizni kuzating</h2>
-
- <div class="socials">
-
-    <a href="https://youtube.com" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
-        <span>YouTube</span>
-    </a>
-
-    <a href="https://t.me" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram">
-        <span>Telegram</span>
-    </a>
-
-    <a href="https://instagram.com" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
-        <span>Instagram</span>
-    </a>
-
-    <a href="https://facebook.com" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-        <span>Facebook</span>
-    </a>
-
-</div>
-</section>
 
 <footer class="footer">
     <div>
