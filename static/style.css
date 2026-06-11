@@ -4442,3 +4442,53 @@ body{
     display:block;
     cursor:pointer;
 }
+.partners-section{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 0 55px;
+    background: #f3f7fb;
+}
+
+.partners-section .section-label{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    border-bottom: 2px solid #00c8d7;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.partners-section h2{
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 32px;
+    color: #111;
+}
+
+.partners-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    flex-wrap: nowrap;
+}
+
+.partners-row a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.partners-row img{
+    width: 155px;
+    height: 155px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.partners-row img:hover{
+    transform: scale(1.06);
+}
