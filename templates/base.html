@@ -40,76 +40,73 @@
 
 {% block content %}{% endblock %}
 
-<!-- SOCIALS -->
-
-<section class="follow-section">
+<section class="social-section">
 
     <h2>Bizni kuzating</h2>
-<div class="socials">
 
-    <a href="#">
-        <img src="{{ url_for('static', filename='images/youtube.png') }}">
-        <span>YouTube</span>
-    </a>
+    <div class="socials">
 
-    <a href="#">
-        <img src="{{ url_for('static', filename='images/telegram.png') }}">
-        <span>Telegram</span>
-    </a>
+        <a href="https://youtube.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/youtube.png') }}">
+            <span>YouTube</span>
+        </a>
 
-    <a href="#">
-        <img src="{{ url_for('static', filename='images/instagram.jpg') }}">
-        <span>Instagram</span>
-    </a>
+        <a href="https://t.me/" target="_blank">
+            <img src="{{ url_for('static', filename='images/telegram.png') }}">
+            <span>Telegram</span>
+        </a>
 
-    <a href="#">
-        <img src="{{ url_for('static', filename='images/facebook.png') }}">
-        <span>Facebook</span>
-    </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/instagram.jpg') }}">
+            <span>Instagram</span>
+        </a>
 
-</div>
+        <a href="https://facebook.com" target="_blank">
+            <img src="{{ url_for('static', filename='images/facebook.png') }}">
+            <span>Facebook</span>
+        </a>
+
+    </div>
 
 </section>
 
-<!-- FOOTER -->
+<footer class="premium-footer">
 
-<footer class="footer">
+    <div class="footer-grid">
 
-    <div>
+        <div>
+            <h3>Virtual Museum Pedagogy Lab</h3>
 
-        <div class="footer-brand">
-            <div class="footer-icon">M</div>
-            <h2>Muzey Lab</h2>
+            <p>
+                Bo‘lajak tarix o‘qituvchilarining tarixiy tafakkurini
+                rivojlantirishga qaratilgan innovatsion ta’lim platformasi.
+            </p>
         </div>
 
-        <p>
-            Virtual Museum Pedagogy Lab — bo‘lajak tarix
-            o‘qituvchilari uchun raqamli portfel va virtual
-            muzey laboratoriyasi.
-        </p>
+        <div>
+            <h3>Menyu</h3>
+
+            <ul>
+                <li><a href="/">Bosh sahifa</a></li>
+                <li><a href="/portfolio">Pedagogik portfel</a></li>
+                <li><a href="/achievements">Akademik yutuqlar</a></li>
+                <li><a href="/student">Talabalar</a></li>
+                <li><a href="/museum">Virtual muzey</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Aloqa</h3>
+
+            <p>📞 +998 93 269 15 67</p>
+            <p>📧 javlonbek932691567@gmail.com</p>
+            <p>📍 Namangan viloyati, Uchqo‘rg‘on tumani</p>
+        </div>
 
     </div>
 
-    <div>
-
-        <h3>Menyu</h3>
-
-        <a href="/">Bosh sahifa</a>
-        <a href="/portfolio">Pedagogik portfel</a>
-        <a href="/student">Talabalar</a>
-        <a href="/museum">Virtual muzey</a>
-        <a href="/about">Biz haqimizda</a>
-
-    </div>
-
-    <div>
-
-        <h3>Aloqa uchun</h3>
-
-        <p>📞 +998 93 269 15 67</p>
-        <p>✉️ javlonbek932691567@gmail.com</p>
-        <p>📍 Namangan viloyati Uchqo‘rg‘on tumani Yashiq MFY, 3-uy</p>
-
+    <div class="footer-bottom">
+        © 2026 Virtual Museum Pedagogy Lab. Barcha huquqlar himoyalangan.
     </div>
 
 </footer>
