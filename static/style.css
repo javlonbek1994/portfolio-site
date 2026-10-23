@@ -4710,3 +4710,7 @@ body{
     height:220px;
     border:none;
 }
+/* Tepadagi takroriy “Bizni kuzating” bo‘limini yashirish */
+.premium-social {
+    display: none !important;
+}
