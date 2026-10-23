@@ -3,22 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Muzey Lab{% endblock %}</title>
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome logotiplari -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- Asosiy uslublar -->
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Tepadagi takroriy bo‘limni yashirish */
+        .premium-social {
+            display: none !important;
+        }
+
+        /* Logotiplar joylashuvi */
+        .social-section .socials a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-section .socials i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+            line-height: 1;
+        }
+
+        .social-section .socials img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .social-section .socials a:hover img {
+            filter: none;
+        }
+
+        /* Logotiplarning ranglari */
+        .social-section .socials .fa-youtube {
+            color: #ff0000;
+        }
+
+        .social-section .socials .fa-instagram {
+            color: #e1306c;
+        }
+
+        .social-section .socials .fa-facebook-f {
+            color: #1877f2;
+        }
+    </style>
 </head>
+
 <body>
 
 <header class="navbar">
 
     <div class="logo-box">
         <div class="logo-icon">M</div>
+
         <div class="logo-text">
             <strong>Muzey</strong>
             <span>Lab</span>
@@ -46,23 +98,44 @@
 
     <div class="socials">
 
-        <a href="https://youtube.com" target="_blank">
-            <img src="{{ url_for('static', filename='images/youtube.png') }}">
+        <a href="https://youtube.com"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fa-brands fa-youtube"
+               aria-hidden="true"></i>
+
             <span>YouTube</span>
         </a>
 
-        <a href="https://t.me/" target="_blank">
-            <img src="{{ url_for('static', filename='images/telegram.png') }}">
+        <a href="https://t.me/"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <img
+                src="{{ url_for('static', filename='images/telegram.png') }}"
+                alt="Telegram logotipi">
+
             <span>Telegram</span>
         </a>
 
-        <a href="https://instagram.com" target="_blank">
-            <img src="{{ url_for('static', filename='images/instagram.jpg') }}">
+        <a href="https://instagram.com"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fa-brands fa-instagram"
+               aria-hidden="true"></i>
+
             <span>Instagram</span>
         </a>
 
-        <a href="https://facebook.com" target="_blank">
-            <img src="{{ url_for('static', filename='images/facebook.png') }}">
+        <a href="https://facebook.com"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <i class="fa-brands fa-facebook-f"
+               aria-hidden="true"></i>
+
             <span>Facebook</span>
         </a>
 
@@ -83,6 +156,7 @@
 
     <div class="efooter-col">
         <h3>Menyu</h3>
+
         <ul>
             <li><a href="/">Bosh sahifa</a></li>
             <li><a href="/portfolio">Pedagogik portfel</a></li>
@@ -93,6 +167,7 @@
 
     <div class="efooter-col">
         <h3>Aloqa uchun</h3>
+
         <p>📞 +998 93 269 15 67</p>
         <p>📧 javlonbek932691567@gmail.com</p>
         <p>🌐 www.muzeylab.uz</p>
@@ -100,7 +175,10 @@
     </div>
 
     <div class="efooter-col">
-        <iframe src="https://maps.google.com/maps?q=namangan&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
+        <iframe
+            title="Namangan xaritasi"
+            src="https://maps.google.com/maps?q=namangan&t=&z=11&ie=UTF8&iwloc=&output=embed">
+        </iframe>
     </div>
 
 </footer>
