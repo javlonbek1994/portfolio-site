@@ -4714,3 +4714,66 @@ body{
 .premium-social {
     display: none !important;
 }
+/* Bosh sahifa bannerini ixchamlashtirish */
+.premium-hero {
+    min-height: 580px;
+    padding: 50px 9% 130px !important;
+}
+
+.premium-hero-content {
+    max-width: 680px;
+    min-width: 0;
+}
+
+.premium-hero-content span {
+    font-size: 14px;
+}
+
+.premium-hero-content h1 {
+    font-size: 52px;
+    line-height: 1.12;
+    margin: 14px 0 18px;
+}
+
+.premium-hero-content p {
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.premium-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.premium-hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 20px;
+    margin: 0;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.premium-hero > small {
+    bottom: 88px !important;
+}
+
+/* Telefon ekranlari */
+@media (max-width: 600px) {
+    .premium-hero {
+        min-height: 560px;
+        padding: 40px 6% 130px !important;
+    }
+
+    .premium-hero-content h1 {
+        font-size: 34px;
+    }
+
+    .premium-hero-content p {
+        font-size: 17px;
+    }
+}
