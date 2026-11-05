@@ -4777,3 +4777,6 @@ body{
         font-size: 17px;
     }
 }
+.premium-hero-content h1 {
+    max-width: 600px;
+}
